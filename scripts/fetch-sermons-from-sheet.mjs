@@ -1,9 +1,11 @@
 import fs from "node:fs";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
 
-const repoRoot = path.resolve("/Users/jim/projects/SgcWeb/mock");
+const scriptDir = path.dirname(fileURLToPath(import.meta.url));
+const repoRoot = path.resolve(scriptDir, "..");
 const envPath = path.join(repoRoot, ".env");
-const outputPath = path.resolve("/Users/jim/projects/SgcWeb/mock/src/data/generated/sermons.json");
+const outputPath = path.join(repoRoot, "src", "data", "generated", "sermons.json");
 
 loadLocalEnv(envPath);
 
