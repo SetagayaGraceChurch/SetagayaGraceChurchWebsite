@@ -4,9 +4,11 @@
   "version": "0.0.1",
   "type": "module",
   "scripts": {
-    "build": "node scripts/fetch-sermons-from-sheet.mjs && astro build && node scripts/clean-text-build-output.mjs dist",
+    "build": "node scripts/fetch-sermons-from-sheet.mjs && node scripts/fetch-events-from-sheet.mjs && node scripts/fetch-staff-from-sheet.mjs && astro build && node scripts/clean-text-build-output.mjs dist",
     "dev": "astro dev",
     "preview": "astro preview",
+    "events:fetch": "node scripts/fetch-events-from-sheet.mjs",
+    "staff:fetch": "node scripts/fetch-staff-from-sheet.mjs",
     "sermons:fetch": "node scripts/fetch-sermons-from-sheet.mjs"
   },
   "dependencies": {

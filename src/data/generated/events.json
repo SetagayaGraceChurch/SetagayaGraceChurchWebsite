@@ -1,0 +1,47 @@
+[
+  {
+    "id": 1,
+    "status": "published",
+    "eventType": "ongoing",
+    "slug": "grace-school",
+    "date": "2026-04-05",
+    "dateLabel": "2026年4月5日",
+    "title": "グレーススクール",
+    "summary": "子ども向けの教会です。ゲーム、賛美の歌、聖書のお話の時間があります。",
+    "description": "毎週日曜日 14:00-14:45。場所は日本宣教会 代田教会（世田谷区羽根木1丁目19-2）。子ども向けの教会です。ゲーム、賛美の歌、聖書のお話の時間があります。",
+    "imageKey": "grace-school",
+    "imageUrl": "",
+    "featured": true,
+    "notes": ""
+  },
+  {
+    "id": 2,
+    "status": "published",
+    "eventType": "event",
+    "slug": "kids-english-gospel",
+    "date": "2026-07-23",
+    "dateLabel": "2026年7月23日〜25日",
+    "title": "キッズゴスペルキャンプ 2026",
+    "summary": "小学生向けのキッズゴスペルキャンプです。アメリカからゴスペルミュージシャン／コーチを迎えて一緒にゴスペルを学びます。",
+    "description": "毎年大人気のキッズゴスペルを今年も開催します。今回は特別に、アメリカ・セントルイス州からプロのゴスペルミュージシャン／コーチを迎えて、一緒にゴスペルを学びます。日程は7月23日（木）〜25日（土）です。対象は小学1年生〜6年生です。",
+    "imageKey": "kids-gospel",
+    "imageUrl": "https://images.squarespace-cdn.com/content/v1/641963614d38536818d032af/fb946197-573a-4620-a47c-d7d2d119e71e/Kids+gospel+2026+flyer+1.jpg",
+    "featured": true,
+    "notes": ""
+  },
+  {
+    "id": 3,
+    "status": "published",
+    "eventType": "event",
+    "slug": "easter-worship",
+    "date": "2026-04-19",
+    "dateLabel": "2026年4月19日",
+    "title": "イースター礼拝",
+    "summary": "主の復活を共にお祝いしましょう。礼拝後、羽根木公園でランチとエッグハントを開催します。",
+    "description": "主の復活を共にお祝いしましょう！ 日時: 4月5日（日）10:00〜11:00。場所: 梅ヶ丘パークホール。礼拝後、羽根木公園でランチ&エッグハントを開催します。",
+    "imageKey": "easter",
+    "imageUrl": "",
+    "featured": true,
+    "notes": ""
+  }
+]

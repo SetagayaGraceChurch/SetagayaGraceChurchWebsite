@@ -23,7 +23,19 @@ export const pageMeta: Record<PageKey, PageMeta> = {
     title: "教会について | 世田谷グレースチャーチ",
     description:
       "世田谷グレースチャーチの歩み、大切にしていること、牧師紹介、地域との関わりについて紹介します。",
-    path: "/about",
+    path: "/aboutourchurch",
+  },
+  beliefs: {
+    title: "信仰告白 | 世田谷グレースチャーチ",
+    description:
+      "世田谷グレースチャーチが大切にしている伝統的なキリスト教信仰、長老派の信仰告白について紹介します。",
+    path: "/beliefs",
+  },
+  staff: {
+    title: "スタッフ | 世田谷グレースチャーチ",
+    description:
+      "世田谷グレースチャーチの牧師、宣教師、スタッフを紹介します。",
+    path: "/staff",
   },
   worship: {
     title: "礼拝のご案内 | 世田谷グレースチャーチ",
@@ -46,7 +58,7 @@ export const pageMeta: Record<PageKey, PageMeta> = {
   events: {
     title: "イベント | 世田谷グレースチャーチ",
     description:
-      "グレーススクール、キャンプ、イースター礼拝など、世田谷グレースチャーチのイベント情報を掲載しています。",
+      "グレーススクール、キッズゴスペルキャンプ、季節の集まりなど、世田谷グレースチャーチのイベント情報を掲載しています。",
     path: "/events",
   },
   sermons: {

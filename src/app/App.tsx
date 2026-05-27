@@ -10,45 +10,48 @@ import pastorImg from "../assets/pastor-photo.jpeg";
 import welcomeArrivalImg from "../assets/welcome-arrival.jpg";
 import welcomeEntranceImg from "../assets/welcome-entrance.jpg";
 import welcomeWorshipImg from "../assets/welcome-worship.jpg";
+import eventsData from "../data/generated/events.json";
 import sermonsData from "../data/generated/sermons.json";
+import staffData from "../data/generated/staff.json";
 
 const heroImg = communityImgAsset;
 const communityImg = communitySectionImg;
 const sermons = sermonsData;
 const homeSermons = sermons.slice(0, 3);
+const events = eventsData;
+const todayIso = new Date().toLocaleDateString("en-CA", { timeZone: "Asia/Tokyo" });
+const ongoingEventItems = events.filter((event) => event.eventType === "ongoing");
+const datedEventItems = events.filter((event) => event.eventType !== "ongoing");
+const upcomingEventItems = datedEventItems.filter((event) => !event.date || event.date >= todayIso);
+const pastEventItems = datedEventItems.filter((event) => event.date && event.date < todayIso).slice().reverse();
+const featuredEvents = upcomingEventItems.filter((event) => event.featured);
+const homeEvents = (featuredEvents.length > 0 ? featuredEvents : [...upcomingEventItems, ...ongoingEventItems]).slice(0, 3);
+const staffMembers = staffData;
+const aboutStaffPreview = staffMembers;
+const beliefsHeroImg = "https://images.squarespace-cdn.com/content/v1/641963614d38536818d032af/652b01d3-7023-4711-89c5-2dbe09d364f4/Rembrandt.jpg";
 
-const upcomingEvents = [
-  { title: "春の歓迎ランチ", date: "2026年4月5日", desc: "礼拝後に初めての方向けの小さな昼食会を行います。" },
-  { title: "聖書入門クラス", date: "2026年4月12日", desc: "キリスト教や聖書を基本から学びたい方向けです。" },
-  { title: "イースター礼拝", date: "2026年4月19日", desc: "復活祭を覚える特別礼拝です。どなたでも歓迎します。" },
-];
+const eventImages = {
+  camp: eventCampImg,
+  easter: eventEaster2026Img,
+  "grace-school": eventGraceSchoolImg,
+  "kids-gospel": eventGraceSchoolImg,
+} as const;
+
+type EventImageKey = keyof typeof eventImages;
+
+function getEventImage(event: { imageKey?: string; imageUrl?: string }) {
+  if (event.imageUrl) return event.imageUrl;
+  if (event.imageKey && event.imageKey in eventImages) {
+    return eventImages[event.imageKey as EventImageKey];
+  }
+  return eventGraceSchoolImg;
+}
 
 const welcomePlaceholderImages = {
   arrival: welcomeArrivalImg,
   entrance: welcomeEntranceImg,
   worship: welcomeWorshipImg,
 } as const;
-
-const liveEventItems = [
-  {
-    title: "グレーススクール",
-    image: eventGraceSchoolImg,
-    description:
-      "毎週日曜日 14:00-14:45。場所は日本宣教会 代田教会（世田谷区羽根木1丁目19-2）。子ども向けの教会です。ゲーム、賛美の歌、聖書のお話の時間があります。",
-  },
-  {
-    title: "キャンプ",
-    image: eventCampImg,
-    description:
-      "今年もキャンプを行います‼️ 富士山が見える自然あふれる中で、皆でリフレッシュし、楽しみ、主にあって強められましょう✨",
-  },
-  {
-    title: "イースター礼拝",
-    image: eventEaster2026Img,
-    description:
-      "主の復活を共にお祝いしましょう！ 日時: 4月5日（日）10:00〜11:00。場所: 梅ヶ丘パークホール。礼拝後、羽根木公園でランチ&エッグハントを開催します。",
-  },
-];
 
 const newLifeBookletCards = [
   {
@@ -224,10 +227,13 @@ export type PageKey =
   | "home"
   | "welcome"
   | "about"
+  | "beliefs"
+  | "staff"
   | "worship"
   | "christianity"
   | "community"
   | "events"
+  | "eventDetail"
   | "sermons"
   | "access"
   | "notFound";
@@ -235,11 +241,14 @@ export type PageKey =
 export const pagePaths: Record<PageKey, string> = {
   home: "/",
   welcome: "/welcome",
-  about: "/about",
+  about: "/aboutourchurch",
+  beliefs: "/beliefs",
+  staff: "/staff",
   worship: "/worship",
   christianity: "/christianity",
   community: "/community",
   events: "/events",
+  eventDetail: "/events",
   sermons: "/sermons",
   access: "/access",
   notFound: "/404",
@@ -482,11 +491,16 @@ export function HomePage() {
             </p>
           </div>
           <div className="grid gap-6 md:grid-cols-3">
-            {upcomingEvents.map((event) => (
+            {homeEvents.map((event) => (
               <div key={event.title} className="rounded-[30px] border border-[#dfe7d6] bg-white p-7 shadow-[0_20px_40px_rgba(91,120,84,0.06)]">
-                <p className="text-xs uppercase tracking-[0.18em] text-[#7b8b7f]">{event.date}</p>
+                <p className="text-xs uppercase tracking-[0.18em] text-[#7b8b7f]">{event.dateLabel || event.date}</p>
                 <h3 className="mt-3 text-2xl text-[#203126]">{event.title}</h3>
-                <p className="mt-4 text-sm leading-7 text-[#56645a]">{event.desc}</p>
+                <p className="mt-4 text-sm leading-7 text-[#56645a]">{event.summary || event.description}</p>
+                <div className="mt-6">
+                  <InternalLink href={`/events/${event.slug}`} className="inline-flex text-sm font-medium text-[#70825d] hover:underline">
+                    詳しく見る
+                  </InternalLink>
+                </div>
               </div>
             ))}
           </div>
@@ -852,8 +866,13 @@ export function AboutPage() {
                 聖書は教会の土台であり、礼拝、学び、日々の歩みの中心にあります。
               </p>
               <p className="mt-4 text-sm leading-7 text-[#56645a] sm:text-base">
-                教理や信仰告白についてさらに詳しく知りたい方のために、今後はより深い案内も加えていくことができます。
+                教理や信仰告白についてさらに詳しく知りたい方のために、信仰告白のページを用意しています。
               </p>
+              <div className="mt-6">
+                <InternalLink href="/beliefs" className="inline-flex items-center justify-center rounded-full border border-[#cbd8c2] bg-white px-5 py-2 text-sm font-medium text-[#70825d] transition-colors hover:bg-[#f7f9f4]">
+                  信仰告白を見る
+                </InternalLink>
+              </div>
             </div>
             <div className="rounded-[30px] border border-[#edf1e7] bg-[linear-gradient(180deg,#ffffff_0%,#f5f8ef_100%)] p-8 shadow-[0_20px_40px_rgba(91,120,84,0.06)]">
               <h2 className={sectionTitleClass}>教会の歩み</h2>
@@ -884,9 +903,24 @@ export function AboutPage() {
               2015年に家族で東京へ移り、2020年から世田谷グレースの開拓を始めました。
               教会ではジョー牧師を中心にスタッフとメンバーが協力しながら、礼拝、学び、地域への働きを整えています。
             </p>
-            <div className="mt-6">
+            <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {aboutStaffPreview.map((member) => (
+                <InternalLink key={member.email || member.name} href="/staff" className="group block rounded-[24px] border border-[#edf1e7] bg-[#f7f9f4] p-4 transition-all duration-300 hover:-translate-y-0.5 hover:border-[#d8e4cf] hover:bg-white">
+                  <ImageWithFallback src={member.imageUrl || pastorImg} alt={member.name} className="aspect-square w-full rounded-[20px] object-cover object-top" />
+                  <p className="mt-4 text-base text-[#203126]">{member.name}</p>
+                  {member.role ? <p className="mt-1 text-xs text-[#70825d]">{member.role}</p> : null}
+                </InternalLink>
+              ))}
+            </div>
+            <div className="mt-6 flex flex-wrap gap-3">
               <InternalLink href="/welcome" className={primaryButtonClass}>
                 初めての方へ
+              </InternalLink>
+              <InternalLink href="/staff" className="inline-flex items-center justify-center rounded-full border border-[#cbd8c2] bg-white px-6 py-3 text-sm font-medium text-[#70825d] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#b7c8aa] hover:bg-[#f5f8ef]">
+                スタッフ紹介
+              </InternalLink>
+              <InternalLink href="/beliefs" className="inline-flex items-center justify-center rounded-full border border-[#cbd8c2] bg-white px-6 py-3 text-sm font-medium text-[#70825d] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#b7c8aa] hover:bg-[#f5f8ef]">
+                信仰告白
               </InternalLink>
             </div>
           </div>
@@ -1188,6 +1222,26 @@ export function CommunityPage() {
 }
 
 export function EventsPage() {
+  const eventCard = (event: (typeof events)[number]) => (
+    <article key={event.title} className="overflow-hidden rounded-[30px] border border-[#dfe7d6] bg-white shadow-[0_20px_40px_rgba(91,120,84,0.06)]">
+      <div className="flex items-center justify-center bg-[#f4f7ef] p-4">
+        <ImageWithFallback src={getEventImage(event)} alt={event.title} className="max-h-[34rem] w-full object-contain" />
+      </div>
+      <div className="p-7">
+        {event.dateLabel || event.date ? (
+          <p className="mb-3 text-xs uppercase tracking-[0.18em] text-[#7b8b7f]">{event.dateLabel || event.date}</p>
+        ) : null}
+        <h2 className="text-2xl text-[#203126]">{event.title}</h2>
+        <p className="mt-4 text-sm leading-7 text-[#56645a]">{event.description || event.summary}</p>
+        <div className="mt-6">
+          <InternalLink href={`/events/${event.slug}`} className="inline-flex items-center justify-center rounded-full bg-[#83996e] px-5 py-2 text-sm font-medium text-white shadow-[0_10px_20px_rgba(76,106,82,0.18)] transition-colors hover:bg-[#70825d]">
+            詳しく見る
+          </InternalLink>
+        </div>
+      </div>
+    </article>
+  );
+
   return (
     <>
       <section className="bg-[linear-gradient(135deg,#eef4e8_0%,#f8f6f0_100%)] py-20">
@@ -1200,19 +1254,195 @@ export function EventsPage() {
       </section>
 
       <section className="bg-white py-24">
+        <div className="mx-auto max-w-7xl space-y-16 px-6">
+          <div>
+            <div className="mb-8">
+              <p className={eyebrowClass}>これから</p>
+              <h2 className={sectionTitleClass}>これからのイベント</h2>
+            </div>
+            {upcomingEventItems.length > 0 ? (
+              <div className="grid gap-8 md:grid-cols-3">{upcomingEventItems.map(eventCard)}</div>
+            ) : (
+              <p className="rounded-[24px] border border-[#dfe7d6] bg-[#f7f9f4] p-6 text-sm leading-7 text-[#56645a]">
+                現在、掲載中の今後のイベントはありません。
+              </p>
+            )}
+          </div>
+
+          {ongoingEventItems.length > 0 ? (
+            <div>
+              <div className="mb-8 border-t border-[#edf1e7] pt-12">
+                <p className={eyebrowClass}>定期</p>
+                <h2 className={sectionTitleClass}>定期的な集まり</h2>
+              </div>
+              <div className="grid gap-8 md:grid-cols-3">{ongoingEventItems.map(eventCard)}</div>
+            </div>
+          ) : null}
+
+          {pastEventItems.length > 0 ? (
+            <div>
+              <div className="mb-8 border-t border-[#edf1e7] pt-12">
+                <p className={eyebrowClass}>過去</p>
+                <h2 className={sectionTitleClass}>過去のイベント</h2>
+              </div>
+              <div className="grid gap-8 md:grid-cols-3">{pastEventItems.map(eventCard)}</div>
+            </div>
+          ) : null}
+        </div>
+      </section>
+    </>
+  );
+}
+
+export function EventDetailPage({ eventSlug }: { eventSlug?: string }) {
+  const event = events.find((item) => item.slug === eventSlug);
+
+  if (!event) {
+    return <NotFoundPage />;
+  }
+
+  return (
+    <>
+      <section className="bg-[linear-gradient(135deg,#eef4e8_0%,#f8f6f0_100%)] py-20">
         <div className="mx-auto max-w-7xl px-6">
-          <div className="grid gap-8 md:grid-cols-3">
-            {liveEventItems.map((event) => (
-              <div key={event.title} className="overflow-hidden rounded-[30px] border border-[#dfe7d6] bg-white shadow-[0_20px_40px_rgba(91,120,84,0.06)]">
-                <div className="flex items-center justify-center bg-[#f4f7ef] p-4">
-                  <ImageWithFallback src={event.image} alt={event.title} className="max-h-[34rem] w-full object-contain" />
+          <p className={eyebrowClass}>イベント</p>
+          {event.dateLabel || event.date ? (
+            <p className="mb-4 text-xs uppercase tracking-[0.18em] text-[#7b8b7f]">{event.dateLabel || event.date}</p>
+          ) : null}
+          <h1 className="mb-6 max-w-4xl text-4xl leading-tight text-[#203126] sm:text-5xl">{event.title}</h1>
+          <p className="max-w-3xl text-base leading-8 text-[#56645a] sm:text-lg">{event.summary || event.description}</p>
+        </div>
+      </section>
+
+      <section className="bg-white py-24">
+        <div className="mx-auto grid max-w-7xl gap-10 px-6 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
+          <div className="overflow-hidden rounded-[32px] border border-[#eef2e7] bg-[#f4f7ef] p-4 shadow-[0_24px_70px_rgba(60,88,65,0.12)]">
+            <ImageWithFallback src={getEventImage(event)} alt={event.title} className="max-h-[38rem] w-full object-contain" />
+          </div>
+          <div>
+            <h2 className={sectionTitleClass}>イベントについて</h2>
+            <p className="text-sm leading-7 text-[#56645a] sm:text-base">{event.description || event.summary}</p>
+            {event.notes ? <p className="mt-4 text-sm leading-7 text-[#70825d]">{event.notes}</p> : null}
+            <div className="mt-8 flex flex-wrap gap-3">
+              <InternalLink href="/events" className="inline-flex items-center justify-center rounded-full border border-[#cbd8c2] bg-white px-6 py-3 text-sm font-medium text-[#70825d] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#b7c8aa] hover:bg-[#f5f8ef]">
+                イベント一覧へ
+              </InternalLink>
+              <InternalLink href="/access" className={primaryButtonClass}>
+                アクセスを見る
+              </InternalLink>
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}
+
+export function StaffPage() {
+  return (
+    <>
+      <section className="bg-[linear-gradient(135deg,#eef4e8_0%,#f8f6f0_100%)] py-20">
+        <div className="mx-auto max-w-7xl px-6">
+          <p className={eyebrowClass}>スタッフ</p>
+          <h1 className="mb-6 max-w-3xl text-4xl leading-tight text-[#203126] sm:text-5xl">スタッフ</h1>
+          <p className="max-w-3xl text-base leading-8 text-[#56645a] sm:text-lg">
+            世田谷グレースチャーチで礼拝、学び、音楽、地域への働きを支えているスタッフを紹介します。
+          </p>
+        </div>
+      </section>
+
+      <section className="bg-white py-24">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            {staffMembers.map((member) => (
+              <article key={member.email || member.name} className="overflow-hidden rounded-[30px] border border-[#dfe7d6] bg-white shadow-[0_20px_40px_rgba(91,120,84,0.06)]">
+                <div className="flex items-center justify-center bg-[#f4f7ef] p-6">
+                  <ImageWithFallback src={member.imageUrl || pastorImg} alt={member.name} className="aspect-square w-full max-w-sm rounded-[24px] object-cover object-top" />
                 </div>
                 <div className="p-7">
-                  <h2 className="text-2xl text-[#203126]">{event.title}</h2>
-                  <p className="mt-4 text-sm leading-7 text-[#56645a]">{event.description}</p>
+                  {member.role ? <p className="mb-3 text-xs uppercase tracking-[0.18em] text-[#7b8b7f]">{member.role}</p> : null}
+                  <h2 className="text-2xl text-[#203126]">{member.name}</h2>
+                  <p className="mt-4 text-sm leading-7 text-[#56645a]">{member.bio}</p>
+                  {member.hobbies ? (
+                    <p className="mt-4 text-sm leading-7 text-[#70825d]">趣味：{member.hobbies}</p>
+                  ) : null}
+                  {member.email ? (
+                    <a className="mt-6 inline-flex rounded-full bg-[#83996e] px-5 py-2 text-sm font-medium text-white shadow-[0_10px_20px_rgba(76,106,82,0.18)] transition-colors hover:bg-[#70825d]" href={`mailto:${member.email}`}>
+                      メールを送る
+                    </a>
+                  ) : null}
                 </div>
-              </div>
+              </article>
             ))}
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}
+
+const beliefPoints = [
+  "神は主権を持つ創造主であり王である。神様を世界に反映させ、神様に代わって支配するために、人間を神様のかたちをもらって創造された。神は人類と契約（covenant）を結び、人類は多大な祝福を受けたが、最初の人間アダムは神の言葉に反抗し（罪）、世界を永遠に変えてしまった。",
+  "しかし、神は恵み深い神であり、憐れみと愛に満ちておられるので、直ちに人類を罪から救い、堕落した世界を回復させるために救いのご計画を立てられた。神は、いつの日か、世界の罪の問題を解決する救い主を遣わすと約束された。この救い主は、アダムが失敗したすべての方法を成功させ、神が人類と交わした契約を成就させるのである。",
+  "旧約聖書に記された神の民の歴史を通して、人類は、神がご自分に対してどんなに親切であっても、主の命令に忠実であり続けることができないことを示したのである。この話では、救い主の必要性が強調され、さらにその救い主を送るという神の恵み深い約束がなされています。",
+  "２０００年前、ベツレヘムでイエス・キリストは、神の約束が成就して処女から生まれた。イエスは恵みとまことに満ちておられ、罪のない人生を送られました。３年間の宣教の後、エルサレムにて十字架上でご自分の民のために犠牲的な死を遂げ、彼を信じる者が、一人として滅びることなく、永遠のいのちを持つためである。イエスは新しい契約を成就させ、すべてのご自分の民の救いを確保された。",
+  "イエスは、死んでから３日後に墓からよみがえり（イースター）、ご自分がサタン、罪、死よりも強いことを証明された。そして、天に昇り、父の右に座ったとき、ついに民の救いを成し遂げられた。",
+  "イエスは去る前に、弟子たちに福音の良い知らせを宣べ伝えるために、すべての国々に行くように命じられた。そして、いつの日かこの世に戻って（再臨）、その回復の行為を完成させることを約束された。",
+  "私たちは今、教会時代にあり、福音と教会を広めるというイエスの命令に忠実に従っている。新約聖書で観察されるパターンに従って、私たちの教会は長老達（小会）によって運営され、地域の教会の大きな組織（中会）によって監督され、すべての教会（大会）に服従しています。私たちは、すべての長老が教会を指導する義務、祝福を持っていると信じている。どのような教会に対しても、一人の人間が責任を負うことはない。イエスは教会の大牧者であり、ご自分の教会を建て、よみの門もそれに打ち勝つことはできないと約束された。",
+  "私たちは、イエスが洗礼（バプテスマ）と聖餐の２つの聖礼典を出されたことを信じる。使徒ペテロは、使徒２章３９節で、神の約束は神の民全員とその子供たちのためのものであると教えた。このため、私たちはクリスチャンになった人と信者の子供たちに洗礼を授けている。洗礼は、契約に入った人のための儀式であり、礼拝で実践している聖餐式は、キリストがご自分の民を養うための恵みの手段の一つです。この二つの聖礼典は、私たちがキリストとの結合を表わし証印するのです。",
+  "イエス・キリストの福音は、キリスト教へ入口ではなく、キリスト教の歩む道である。神は私たちに信じる信仰を与えるだけでなく、聖化において成長する力も与えてくださるのです。クリスチャンは恵みのゆえに、信仰によって救われる。真にクリスチャンである者は、自分の人生を通して教会と共に忠実に歩み、日々、罪の悔い改めを深め、罪人を救うことを喜ばれる神への信仰を新たされる。",
+];
+
+export function BeliefsPage() {
+  return (
+    <>
+      <section className="bg-[linear-gradient(135deg,#eef4e8_0%,#f8f6f0_100%)] py-20">
+        <div className="mx-auto grid max-w-7xl gap-10 px-6 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+          <div>
+            <h1 className="mb-6 max-w-3xl text-4xl leading-tight text-[#203126] sm:text-5xl">信仰告白</h1>
+            <p className="max-w-3xl text-base leading-8 text-[#56645a] sm:text-lg">
+              私たちは、伝統的なキリスト教の信仰に従うプロテスタントの教会です。
+              私たちの信仰告白は１６４０年代にさかのぼり、現在も変わっていません。
+              また、私たちは長老派の教会であり、日本長老教会と協力して活動しています。
+              私たちの牧師は全員、アメリカ長老教会で按手を受けています。
+            </p>
+          </div>
+          <div className="overflow-hidden rounded-[32px] border border-white/70 shadow-[0_24px_70px_rgba(60,88,65,0.14)]">
+            <ImageWithFallback src={beliefsHeroImg} alt="レンブラントの絵画" className="h-full min-h-[320px] w-full object-cover" />
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white py-24">
+        <div className="mx-auto max-w-5xl px-6">
+          <div className="rounded-[30px] border border-[#edf1e7] bg-[linear-gradient(180deg,#ffffff_0%,#f7f9f4_100%)] p-8 shadow-[0_20px_40px_rgba(91,120,84,0.06)]">
+            <h2 className={sectionTitleClass}>私たちが信じていること</h2>
+            <p className="text-sm leading-7 text-[#56645a] sm:text-base">
+              しかし、長老派はいったい何を信じているのでしょうか！というのは、とてもいい質問です。
+              名前からしてわかりにくいかもしれませんが、長老派であるということは、以下の基本的な信条に従うということです：
+            </p>
+            <div className="mt-8 space-y-4">
+              {beliefPoints.map((point, index) => (
+                <div key={point} className="flex gap-4 rounded-[22px] border border-[#e4ecd9] bg-white p-5">
+                  <span className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-[#83996e] text-sm text-white">{index + 1}</span>
+                  <p className="text-sm leading-7 text-[#56645a] sm:text-base">{point}</p>
+                </div>
+              ))}
+            </div>
+            <div className="mt-8 rounded-[24px] bg-[#eff4e8] p-6 text-sm leading-7 text-[#56645a]">
+              <p>
+                私たちの完全な信仰告白は、ウェストミンスター信仰基準に記載されています。
+                私たちの協力教団である日本長老教会については、こちらでご覧いただけます。
+              </p>
+              <div className="mt-5 flex flex-wrap gap-3">
+                <a className="inline-flex items-center justify-center rounded-full bg-[#83996e] px-5 py-2 text-sm font-medium text-white transition-colors hover:bg-[#70825d]" href="http://www.rcj-net.org/resources/WCF/text/">
+                  ウェストミンスター信仰基準
+                </a>
+                <a className="inline-flex items-center justify-center rounded-full border border-[#cbd8c2] bg-white px-5 py-2 text-sm font-medium text-[#70825d] transition-colors hover:bg-[#f7f9f4]" href="http://cms.chorokyokai.jp/">
+                  日本長老教会
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -1424,23 +1654,34 @@ export function NotFoundPage() {
   );
 }
 
-export function PageContent({ page }: { page: PageKey }) {
+export function PageContent({ page, eventSlug }: { page: PageKey; eventSlug?: string }) {
   if (page === "home") return <HomePage />;
   if (page === "welcome") return <WelcomePage />;
   if (page === "about") return <AboutPage />;
+  if (page === "beliefs") return <BeliefsPage />;
+  if (page === "staff") return <StaffPage />;
   if (page === "worship") return <WorshipPage />;
   if (page === "christianity") return <ChristianityPage />;
   if (page === "community") return <CommunityPage />;
   if (page === "events") return <EventsPage />;
+  if (page === "eventDetail") return <EventDetailPage eventSlug={eventSlug} />;
   if (page === "sermons") return <SermonsPage />;
   if (page === "access") return <AccessPage />;
   return <NotFoundPage />;
 }
 
-export function WebsitePage({ page, currentPath = pagePaths[page] }: { page: PageKey; currentPath?: string }) {
+export function WebsitePage({
+  page,
+  currentPath = pagePaths[page],
+  eventSlug,
+}: {
+  page: PageKey;
+  currentPath?: string;
+  eventSlug?: string;
+}) {
   return (
     <SiteLayout currentPath={currentPath}>
-      <PageContent page={page} />
+      <PageContent page={page} eventSlug={eventSlug} />
     </SiteLayout>
   );
 }
@@ -1490,6 +1731,10 @@ export default function App() {
     content = <WelcomePage />;
   } else if (locationState.pathname === "/aboutourchurch" || locationState.pathname === "/about") {
     content = <AboutPage />;
+  } else if (locationState.pathname === "/beliefs") {
+    content = <BeliefsPage />;
+  } else if (locationState.pathname === "/staff") {
+    content = <StaffPage />;
   } else if (locationState.pathname === "/worship") {
     content = <WorshipPage />;
   } else if (locationState.pathname === "/christianity") {
@@ -1498,6 +1743,8 @@ export default function App() {
     content = <CommunityPage />;
   } else if (locationState.pathname === "/events") {
     content = <EventsPage />;
+  } else if (locationState.pathname.startsWith("/events/")) {
+    content = <EventDetailPage eventSlug={locationState.pathname.split("/").filter(Boolean)[1]} />;
   } else if (locationState.pathname === "/sermons") {
     content = <SermonsPage />;
   } else if (locationState.pathname === "/access") {

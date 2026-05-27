@@ -11,7 +11,7 @@ export type NavItem = {
 export const navItems: NavItem[] = [
   { label: "ホーム", href: "/" },
   { label: "初めての方へ", href: "/welcome" },
-  { label: "教会について", href: "/about" },
+  { label: "教会について", href: "/aboutourchurch" },
   { label: "礼拝", href: "/worship" },
   { label: "キリスト教について", href: "/christianity" },
   { label: "集まり", href: "/community" },

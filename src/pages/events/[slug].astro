@@ -1,0 +1,21 @@
+---
+import { WebsitePage } from "../../app/App";
+import events from "../../data/generated/events.json";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+export function getStaticPaths() {
+  return events.map((event) => ({
+    params: { slug: event.slug },
+    props: { event },
+  }));
+}
+
+const { event } = Astro.props;
+const path = `/events/${event.slug}`;
+const title = `${event.title} | 世田谷グレースチャーチ`;
+const description = event.summary || event.description || "世田谷グレースチャーチのイベント情報です。";
+---
+
+<BaseLayout title={title} description={description} path={path}>
+  <WebsitePage client:load page="eventDetail" currentPath="/events" eventSlug={event.slug} />
+</BaseLayout>
