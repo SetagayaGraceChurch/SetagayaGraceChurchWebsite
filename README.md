@@ -1,13 +1,19 @@
 
-  # 無題
+# 世田谷グレースチャーチ Website
 
-  This is a code bundle for 無題. The original project is available at https://www.figma.com/design/Od7OZC6sUnsYXIStxEra7S/%E7%84%A1%E9%A1%8C.
+This site is built with Astro and React. Astro prerenders each public route to static HTML for better SEO, while the existing React components preserve the current design and interactive sermon filters.
 
-  ## Running the code
+## Running the Code
 
-  Run `npm i` to install the dependencies.
+Run `npm i` to install the dependencies.
 
-  Run `npm run dev` to start the development server.
+Run `npm run dev` to start the Astro development server.
+
+Run `npm run build` to fetch sermon data and build the static site into `dist/`.
+
+Set `SITE_URL` in Netlify to the public origin so canonical URLs and the generated sitemap use the right domain. Before launch, use `https://steady-kitten-051261.netlify.app`. When the real domain points to Netlify, change `SITE_URL` to the real domain.
+
+Set `PUBLIC_INDEX_SITE=false` before launch so every page emits `noindex,nofollow`. At launch, change it to `true` and rebuild.
 
 ## Google Sheet Sermon Test
 
@@ -16,9 +22,15 @@ The sermons archive can optionally be refreshed from a Google Apps Script JSON e
 1. Copy `.env.example` to `.env`
   2. Set `SERMONS_JSON_URL` to your deployed Apps Script `exec` URL
   3. Run `npm run sermons:fetch` to pull the latest sermon archive into `src/data/generated/sermons.json`
-4. Run `npm run build` to build the site with the latest fetched sermon data
+4. Run `npm run build` to build the Astro site with the latest fetched sermon data
 
 If `SERMONS_JSON_URL` is not set, the fetch step is skipped and the existing generated sermon JSON stays in place.
+
+For local build verification without hitting the Google Apps Script endpoint from `.env`, run:
+
+```sh
+SERMONS_JSON_URL= npm run build
+```
 
 ## Google Sheets Manual Publish
 

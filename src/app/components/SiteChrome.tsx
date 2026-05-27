@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import logoImg from "../../assets/logo-cropped.jpg";
 
+const logoSrc = typeof logoImg === "object" && logoImg && "src" in logoImg ? logoImg.src : logoImg;
+
 export type NavItem = {
   label: string;
   href: string;
@@ -28,20 +30,6 @@ export function isActivePath(currentPath: string, href: string) {
   return currentPath === targetPath;
 }
 
-function handleInternalNavigation(
-  event: React.MouseEvent<HTMLAnchorElement>,
-  href: string,
-) {
-  const isModified = event.metaKey || event.ctrlKey || event.shiftKey || event.altKey;
-  if (isModified || href.startsWith("http") || href.startsWith("mailto:")) {
-    return;
-  }
-
-  event.preventDefault();
-  window.history.pushState({}, "", href);
-  window.dispatchEvent(new PopStateEvent("popstate"));
-}
-
 export function SiteHeader({ currentPath }: { currentPath: string }) {
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -52,9 +40,9 @@ export function SiteHeader({ currentPath }: { currentPath: string }) {
   return (
     <header className="sticky top-0 z-50 border-b border-white/15 bg-[#789564] shadow-[0_10px_30px_rgba(58,77,61,0.18)]">
       <div className="mx-auto flex h-16 w-full max-w-7xl items-center justify-between px-4 sm:px-6">
-        <a href="/" aria-label="ホーム" className="flex items-center" onClick={(event) => handleInternalNavigation(event, "/")}>
+        <a href="/" aria-label="ホーム" className="flex items-center">
           <img
-            src={logoImg}
+            src={logoSrc}
             alt="世田谷グレースチャーチ ロゴ"
             className="h-10 w-auto object-contain"
           />
@@ -66,7 +54,6 @@ export function SiteHeader({ currentPath }: { currentPath: string }) {
               <a
                 key={item.href}
                 href={item.href}
-                onClick={(event) => handleInternalNavigation(event, item.href)}
                 className={`text-sm font-medium transition-colors ${
                   active ? "text-white" : "text-white/90 hover:text-white"
                 }`}
@@ -90,7 +77,6 @@ export function SiteHeader({ currentPath }: { currentPath: string }) {
               <a
                 key={item.href}
                 href={item.href}
-                onClick={(event) => handleInternalNavigation(event, item.href)}
                 className={`text-sm ${active ? "text-white" : "text-white/90 hover:text-white"}`}
               >
                 {item.label}
@@ -148,7 +134,7 @@ export function InternalLink({
   children: React.ReactNode;
 }) {
   return (
-    <a href={href} className={className} onClick={(event) => handleInternalNavigation(event, href)}>
+    <a href={href} className={className}>
       {children}
     </a>
   );

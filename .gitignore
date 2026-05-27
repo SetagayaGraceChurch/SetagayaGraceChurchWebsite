@@ -1,5 +1,6 @@
 .env
 .DS_Store
+.astro/
 .codex/
 dist/
 node_modules/

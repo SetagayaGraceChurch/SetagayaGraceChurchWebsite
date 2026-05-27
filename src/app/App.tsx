@@ -220,7 +220,32 @@ function WaveDivider({ color, flip = false }: { color: string; flip?: boolean })
   );
 }
 
-function HomePage() {
+export type PageKey =
+  | "home"
+  | "welcome"
+  | "about"
+  | "worship"
+  | "christianity"
+  | "community"
+  | "events"
+  | "sermons"
+  | "access"
+  | "notFound";
+
+export const pagePaths: Record<PageKey, string> = {
+  home: "/",
+  welcome: "/welcome",
+  about: "/about",
+  worship: "/worship",
+  christianity: "/christianity",
+  community: "/community",
+  events: "/events",
+  sermons: "/sermons",
+  access: "/access",
+  notFound: "/404",
+};
+
+export function HomePage() {
   return (
     <>
       <section className="relative flex min-h-[640px] items-center overflow-hidden bg-[#314535]">
@@ -526,7 +551,7 @@ function HomePage() {
   );
 }
 
-function WelcomePage() {
+export function WelcomePage() {
   const checklist = [
     "教会がどんな場所か",
     "日曜日の礼拝で何をするか",
@@ -728,7 +753,7 @@ function WelcomePage() {
   );
 }
 
-function AboutPage() {
+export function AboutPage() {
   return (
     <>
       <section className="bg-[linear-gradient(135deg,#eef4e8_0%,#f8f6f0_100%)] py-20">
@@ -871,7 +896,7 @@ function AboutPage() {
   );
 }
 
-function WorshipPage() {
+export function WorshipPage() {
   return (
     <>
       <section className="bg-[linear-gradient(135deg,#eef4e8_0%,#f8f6f0_100%)] py-20">
@@ -950,7 +975,7 @@ function WorshipPage() {
   );
 }
 
-function ChristianityPage() {
+export function ChristianityPage() {
   return (
     <>
       <section className="bg-[linear-gradient(135deg,#eef4e8_0%,#f8f6f0_100%)] py-20">
@@ -1034,7 +1059,7 @@ function ChristianityPage() {
   );
 }
 
-function AccessPage() {
+export function AccessPage() {
   return (
     <>
       <section className="bg-[linear-gradient(135deg,#eef4e8_0%,#f8f6f0_100%)] py-20">
@@ -1127,7 +1152,7 @@ function AccessPage() {
   );
 }
 
-function CommunityPage() {
+export function CommunityPage() {
   return (
     <>
       <section className="bg-[linear-gradient(135deg,#eef4e8_0%,#f8f6f0_100%)] py-20">
@@ -1162,7 +1187,7 @@ function CommunityPage() {
   );
 }
 
-function EventsPage() {
+export function EventsPage() {
   return (
     <>
       <section className="bg-[linear-gradient(135deg,#eef4e8_0%,#f8f6f0_100%)] py-20">
@@ -1195,7 +1220,7 @@ function EventsPage() {
   );
 }
 
-function SermonsPage() {
+export function SermonsPage() {
   const prioritySpeakers = ["ジョー・コンドン牧師", "ジェイソン・シェーファー牧師", "岩崎光男"];
   const allSpeakers = [...new Set(sermons.map((sermon) => sermon.speaker))];
   const speakers = [
@@ -1382,7 +1407,7 @@ function SermonsPage() {
   );
 }
 
-function NotFoundPage() {
+export function NotFoundPage() {
   return (
     <section className="bg-[#f8f6f0] py-32">
       <div className="mx-auto max-w-3xl px-6 text-center">
@@ -1399,17 +1424,32 @@ function NotFoundPage() {
   );
 }
 
+export function PageContent({ page }: { page: PageKey }) {
+  if (page === "home") return <HomePage />;
+  if (page === "welcome") return <WelcomePage />;
+  if (page === "about") return <AboutPage />;
+  if (page === "worship") return <WorshipPage />;
+  if (page === "christianity") return <ChristianityPage />;
+  if (page === "community") return <CommunityPage />;
+  if (page === "events") return <EventsPage />;
+  if (page === "sermons") return <SermonsPage />;
+  if (page === "access") return <AccessPage />;
+  return <NotFoundPage />;
+}
+
+export function WebsitePage({ page, currentPath = pagePaths[page] }: { page: PageKey; currentPath?: string }) {
+  return (
+    <SiteLayout currentPath={currentPath}>
+      <PageContent page={page} />
+    </SiteLayout>
+  );
+}
+
 export default function App() {
   const [locationState, setLocationState] = useState(() => ({
     pathname: window.location.pathname,
     hash: window.location.hash,
   }));
-
-  useEffect(() => {
-    if (window.location.pathname === "/admin" || window.location.pathname === "/admin/") {
-      window.location.replace("/admin/index.html");
-    }
-  }, []);
 
   useEffect(() => {
     const handleLocationChange = () => {
