@@ -48,6 +48,31 @@ function normalizeBoolean(value) {
   return normalized === "true" || normalized === "yes" || normalized === "1" || normalized === "published";
 }
 
+function normalizeDateValue(value) {
+  const raw = normalizeString(value);
+  if (!raw) return "";
+
+  const plainDateMatch = raw.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  if (plainDateMatch) return raw;
+
+  const isoTimestampMatch = raw.match(/^(\d{4})-(\d{2})-(\d{2})T/);
+  if (isoTimestampMatch) {
+    const parsed = new Date(raw);
+    if (!Number.isNaN(parsed.getTime())) {
+      return new Intl.DateTimeFormat("en-CA", {
+        timeZone: "Asia/Tokyo",
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit",
+      }).format(parsed);
+    }
+
+    return `${isoTimestampMatch[1]}-${isoTimestampMatch[2]}-${isoTimestampMatch[3]}`;
+  }
+
+  return raw;
+}
+
 function toDateLabel(date) {
   const match = normalizeString(date).match(/^(\d{4})-(\d{2})-(\d{2})$/);
   if (!match) return normalizeString(date);
@@ -69,7 +94,7 @@ function toYoutubeWatchUrl(value) {
 }
 
 function normalizeSermon(row, index) {
-  const date = normalizeString(row.date);
+  const date = normalizeDateValue(row.date);
   const title = normalizeString(row.title);
 
   if (!date || !title) {
