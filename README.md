@@ -56,7 +56,7 @@ Event sheet columns:
 - `title`
 - `summary`: short text for the home page cards
 - `description`: longer text for the events page
-- `imageKey`: `grace-school`, `kids-gospel`, `camp`, or `easter`
+- `imageKey`: `grace-school`, `kids-gospel`, `mens-bbq`, `camp`, or `easter`
 - `imageUrl`: optional public image URL, used before `imageKey`
 - `featured`: `true` for home page cards
 - `notes`: optional internal note text

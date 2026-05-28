@@ -6,6 +6,7 @@ import communitySectionImg from "../assets/CG.jpeg";
 import eventCampImg from "../assets/event-camp.jpg";
 import eventEaster2026Img from "../assets/event-easter-2026.png";
 import eventGraceSchoolImg from "../assets/event-grace-school.jpeg";
+import eventMensBbqImg from "../assets/event-mens-bbq.png";
 import pastorImg from "../assets/pastor-photo.jpeg";
 import welcomeArrivalImg from "../assets/welcome-arrival.jpg";
 import welcomeEntranceImg from "../assets/welcome-entrance.jpg";
@@ -22,10 +23,22 @@ const events = eventsData;
 const todayIso = new Date().toLocaleDateString("en-CA", { timeZone: "Asia/Tokyo" });
 const ongoingEventItems = events.filter((event) => event.eventType === "ongoing");
 const datedEventItems = events.filter((event) => event.eventType !== "ongoing");
-const upcomingEventItems = datedEventItems.filter((event) => !event.date || event.date >= todayIso);
-const pastEventItems = datedEventItems.filter((event) => event.date && event.date < todayIso).slice().reverse();
+const compareEventsByDate = (first: { date?: string }, second: { date?: string }) => {
+  if (!first.date && !second.date) return 0;
+  if (!first.date) return 1;
+  if (!second.date) return -1;
+  return first.date.localeCompare(second.date);
+};
+const upcomingEventItems = datedEventItems
+  .filter((event) => !event.date || event.date >= todayIso)
+  .slice()
+  .sort(compareEventsByDate);
+const pastEventItems = datedEventItems
+  .filter((event) => event.date && event.date < todayIso)
+  .slice()
+  .sort((first, second) => second.date.localeCompare(first.date));
 const featuredEvents = upcomingEventItems.filter((event) => event.featured);
-const homeEvents = (featuredEvents.length > 0 ? featuredEvents : [...upcomingEventItems, ...ongoingEventItems]).slice(0, 3);
+const homeEvents = (featuredEvents.length > 0 ? [...featuredEvents, ...ongoingEventItems] : [...upcomingEventItems, ...ongoingEventItems]).slice(0, 3);
 const staffMembers = staffData;
 const aboutStaffPreview = staffMembers;
 const beliefsHeroImg = "https://images.squarespace-cdn.com/content/v1/641963614d38536818d032af/652b01d3-7023-4711-89c5-2dbe09d364f4/Rembrandt.jpg";
@@ -103,6 +116,7 @@ const eventImages = {
   easter: eventEaster2026Img,
   "grace-school": eventGraceSchoolImg,
   "kids-gospel": eventGraceSchoolImg,
+  "mens-bbq": eventMensBbqImg,
 } as const;
 
 type EventImageKey = keyof typeof eventImages;
@@ -560,16 +574,21 @@ export function HomePage() {
           </div>
           <div className="grid gap-6 md:grid-cols-3">
             {homeEvents.map((event) => (
-              <div key={event.title} className="rounded-[30px] border border-[#dfe7d6] bg-white p-7 shadow-[0_20px_40px_rgba(91,120,84,0.06)]">
-                <p className="text-xs uppercase tracking-[0.18em] text-[#7b8b7f]">{event.dateLabel || event.date}</p>
-                <h3 className="mt-3 text-2xl text-[#203126]">{event.title}</h3>
-                <p className="mt-4 text-sm leading-7 text-[#56645a]">{event.summary || event.description}</p>
-                <div className="mt-6">
+              <article key={event.title} className="overflow-hidden rounded-[30px] border border-[#dfe7d6] bg-white shadow-[0_20px_40px_rgba(91,120,84,0.06)] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#cfdcc5] hover:shadow-[0_24px_48px_rgba(91,120,84,0.1)]">
+                <InternalLink href={`/events/${event.slug}`} className="block bg-[#f4f7ef] p-3">
+                  <ImageWithFallback src={getEventImage(event)} alt={event.title} className="aspect-[4/3] w-full rounded-[22px] object-contain" />
+                </InternalLink>
+                <div className="p-7 pt-5">
+                  <p className="text-xs uppercase tracking-[0.18em] text-[#7b8b7f]">{event.dateLabel || event.date}</p>
+                  <h3 className="mt-3 text-2xl text-[#203126]">{event.title}</h3>
+                  <p className="mt-4 text-sm leading-7 text-[#56645a]">{event.summary || event.description}</p>
+                  <div className="mt-6">
                   <InternalLink href={`/events/${event.slug}`} className="inline-flex text-sm font-medium text-[#70825d] hover:underline">
                     詳しく見る
                   </InternalLink>
+                  </div>
                 </div>
-              </div>
+              </article>
             ))}
           </div>
           <div className="mt-8 text-center">

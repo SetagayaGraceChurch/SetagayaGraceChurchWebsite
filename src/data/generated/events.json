@@ -15,6 +15,21 @@
     "notes": ""
   },
   {
+    "id": 4,
+    "status": "published",
+    "eventType": "event",
+    "slug": "mens-bbq",
+    "date": "2026-06-20",
+    "dateLabel": "2026年6月20日（土）",
+    "title": "メンズバーベキュー",
+    "summary": "男性向けのバーベキューイベントです。ガーデンテラス笹塚で、食事と交わりの時間を持ちます。",
+    "description": "日時は2026年6月20日（土）17:00〜20:00です。参加費は大人5000円、学生2000円。会場はガーデンテラス笹塚です。",
+    "imageKey": "mens-bbq",
+    "imageUrl": "",
+    "featured": true,
+    "notes": "参加費：大人5000円、学生2000円"
+  },
+  {
     "id": 2,
     "status": "published",
     "eventType": "event",
