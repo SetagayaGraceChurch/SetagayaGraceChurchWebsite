@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Instagram } from "lucide-react";
 import logoImg from "../../assets/logo-cropped.jpg";
 
 const logoSrc = typeof logoImg === "object" && logoImg && "src" in logoImg ? logoImg.src : logoImg;
@@ -102,6 +103,15 @@ export function SiteFooter() {
         <div>
           <p className="text-xs">© 2026 世田谷グレースチャーチ</p>
           <p className="mt-1 text-xs">info@setagaya-church.jp</p>
+          <a
+            href="https://www.instagram.com/setagaya.grace/"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="世田谷グレースチャーチのInstagram"
+            className="mt-3 inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/20 text-white transition-colors hover:border-white/40 hover:bg-white/10"
+          >
+            <Instagram aria-hidden="true" className="h-4 w-4" strokeWidth={2.2} />
+          </a>
         </div>
       </div>
     </footer>
