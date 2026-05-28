@@ -777,7 +777,7 @@ export function WelcomePage() {
             <ImageWithFallback src={communityImg} alt="教会の交わり" className="h-full min-h-[380px] w-full object-cover" />
           </div>
           <div>
-            <p className={eyebrowClass}>What To Expect</p>
+            <p className={eyebrowClass}>当日のこと</p>
             <h2 className={sectionTitleClass}>安心して来ていただくために</h2>
             <div className="space-y-5 text-sm leading-7 text-[#56645a] sm:text-base">
               <p>
@@ -803,7 +803,7 @@ export function WelcomePage() {
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid gap-10 lg:grid-cols-[1fr_1fr]">
             <div className="rounded-[32px] border border-[#e4eadf] bg-white p-8 shadow-[0_18px_45px_rgba(83,110,76,0.08)]">
-              <p className={eyebrowClass}>Access</p>
+              <p className={eyebrowClass}>アクセス</p>
               <h2 className={sectionTitleClass}>場所とアクセス</h2>
               <p className="text-sm leading-7 text-[#56645a] sm:text-base">
                 日本宣教会 代田教会
@@ -826,7 +826,7 @@ export function WelcomePage() {
             </div>
 
             <div className="rounded-[32px] border border-[#e4eadf] bg-white p-8 shadow-[0_18px_45px_rgba(83,110,76,0.08)]">
-              <p className={eyebrowClass}>Contact</p>
+              <p className={eyebrowClass}>お問い合わせ</p>
               <h2 className={sectionTitleClass}>ご質問がある方へ</h2>
               <div className="space-y-4 text-sm leading-7 text-[#56645a] sm:text-base">
                 <p>初めて来る前に確認したいことがあれば、どうぞお気軽にご連絡ください。</p>
@@ -1658,7 +1658,7 @@ export function SermonsPage() {
                   <div className="w-full lg:max-w-xs">
                     {sermon.mp3Url ? (
                       <div className="rounded-[22px] border border-[#dbe5d5] bg-white p-4">
-                        <p className="mb-3 text-xs uppercase tracking-[0.16em] text-[#7f8b82]">Audio</p>
+                        <p className="mb-3 text-xs uppercase tracking-[0.16em] text-[#7f8b82]">音声</p>
                         <audio controls className="w-full">
                           <source src={sermon.mp3Url} />
                           お使いのブラウザでは音声再生に対応していません。
