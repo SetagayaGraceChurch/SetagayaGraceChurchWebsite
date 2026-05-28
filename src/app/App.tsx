@@ -29,6 +29,74 @@ const homeEvents = (featuredEvents.length > 0 ? featuredEvents : [...upcomingEve
 const staffMembers = staffData;
 const aboutStaffPreview = staffMembers;
 const beliefsHeroImg = "https://images.squarespace-cdn.com/content/v1/641963614d38536818d032af/652b01d3-7023-4711-89c5-2dbe09d364f4/Rembrandt.jpg";
+const bibleBookOrder = [
+  "創世記",
+  "出エジプト記",
+  "レビ記",
+  "民数記",
+  "申命記",
+  "ヨシュア記",
+  "士師記",
+  "ルツ記",
+  "サムエル記 第一",
+  "サムエル記 第二",
+  "列王記 第一",
+  "列王記 第二",
+  "歴代誌 第一",
+  "歴代誌 第二",
+  "エズラ記",
+  "ネヘミヤ記",
+  "エステル記",
+  "ヨブ記",
+  "詩篇",
+  "箴言",
+  "伝道者の書",
+  "雅歌",
+  "イザヤ書",
+  "エレミヤ書",
+  "哀歌",
+  "エゼキエル書",
+  "ダニエル書",
+  "ホセア書",
+  "ヨエル書",
+  "アモス書",
+  "オバデヤ書",
+  "ヨナ書",
+  "ミカ書",
+  "ナホム書",
+  "ハバクク書",
+  "ゼパニヤ書",
+  "ハガイ書",
+  "ゼカリヤ書",
+  "マラキ書",
+  "マタイの福音書",
+  "マルコの福音書",
+  "ルカの福音書",
+  "ヨハネの福音書",
+  "使徒の働き",
+  "ローマ人への手紙",
+  "コリント人への手紙 第一",
+  "コリント人への手紙 第二",
+  "ガラテヤ人への手紙",
+  "エペソ人への手紙",
+  "ピリピ人への手紙",
+  "コロサイ人への手紙",
+  "テサロニケ人への手紙 第一",
+  "テサロニケ人への手紙 第二",
+  "テモテへの手紙 第一",
+  "テモテへの手紙 第二",
+  "テトスへの手紙",
+  "ピレモンへの手紙",
+  "ヘブル人への手紙",
+  "ヤコブの手紙",
+  "ペテロの手紙 第一",
+  "ペテロの手紙 第二",
+  "ヨハネの手紙 第一",
+  "ヨハネの手紙 第二",
+  "ヨハネの手紙 第三",
+  "ユダの手紙",
+  "ヨハネの黙示録",
+];
 
 const eventImages = {
   camp: eventCampImg,
@@ -1459,21 +1527,29 @@ export function SermonsPage() {
     ...allSpeakers.filter((speaker) => !prioritySpeakers.includes(speaker)),
   ];
   const years = ["すべて", ...new Set(sermons.map((sermon) => sermon.date.slice(0, 4)))];
+  const availableBooks = new Set(sermons.map((sermon) => sermon.book).filter(Boolean));
+  const books = [
+    "すべて",
+    ...bibleBookOrder.filter((book) => availableBooks.has(book)),
+    ...[...availableBooks].filter((book) => !bibleBookOrder.includes(book)).sort((a, b) => a.localeCompare(b, "ja")),
+  ];
   const [selectedSpeaker, setSelectedSpeaker] = useState("すべて");
   const [selectedYear, setSelectedYear] = useState("すべて");
+  const [selectedBook, setSelectedBook] = useState("すべて");
   const [visibleCount, setVisibleCount] = useState(12);
   const [openYoutubeId, setOpenYoutubeId] = useState<number | null>(null);
   const filteredSermons = sermons.filter((sermon) => {
     const speakerMatch = selectedSpeaker === "すべて" ? true : sermon.speaker === selectedSpeaker;
     const yearMatch = selectedYear === "すべて" ? true : sermon.date.startsWith(selectedYear);
-    return speakerMatch && yearMatch;
+    const bookMatch = selectedBook === "すべて" ? true : sermon.book === selectedBook;
+    return speakerMatch && yearMatch && bookMatch;
   });
   const visibleSermons = filteredSermons.slice(0, visibleCount);
 
   useEffect(() => {
     setVisibleCount(12);
     setOpenYoutubeId(null);
-  }, [selectedSpeaker, selectedYear]);
+  }, [selectedSpeaker, selectedYear, selectedBook]);
 
   const getYoutubeEmbedUrl = (youtubeUrl: string) => {
     const match = youtubeUrl.match(/(?:v=|youtu\.be\/)([A-Za-z0-9_-]{6,})/);
@@ -1493,7 +1569,7 @@ export function SermonsPage() {
 
       <section className="bg-white py-24">
         <div className="mx-auto max-w-7xl px-6">
-          <div className="mb-8 grid gap-4 md:grid-cols-2">
+          <div className="mb-8 grid gap-4 md:grid-cols-3">
             <label className="block">
               <span className="mb-2 block text-sm font-medium text-[#56645a]">話者で絞り込む</span>
               <select
@@ -1522,10 +1598,24 @@ export function SermonsPage() {
                 ))}
               </select>
             </label>
+            <label className="block">
+              <span className="mb-2 block text-sm font-medium text-[#56645a]">聖書の書で絞り込む</span>
+              <select
+                value={selectedBook}
+                onChange={(event) => setSelectedBook(event.target.value)}
+                className="w-full rounded-[18px] border border-[#d9e3d0] bg-white px-4 py-3 text-sm text-[#304034] shadow-sm outline-none transition-colors focus:border-[#83996e]"
+              >
+                {books.map((book) => (
+                  <option key={book} value={book}>
+                    {book === "すべて" ? "すべての書" : book}
+                  </option>
+                ))}
+              </select>
+            </label>
           </div>
           <div className="mb-6 flex items-center justify-between gap-4">
             <p className="text-sm text-[#6b776e]">
-              {selectedSpeaker === "すべて" && selectedYear === "すべて"
+              {selectedSpeaker === "すべて" && selectedYear === "すべて" && selectedBook === "すべて"
                 ? `全 ${filteredSermons.length} 件`
                 : `${filteredSermons.length} 件`}
             </p>
