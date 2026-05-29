@@ -8,9 +8,9 @@ import eventEaster2026Img from "../assets/event-easter-2026.png";
 import eventGraceSchoolImg from "../assets/event-grace-school.jpeg";
 import eventMensBbqImg from "../assets/event-mens-bbq.png";
 import pastorImg from "../assets/pastor-photo.jpeg";
-import welcomeArrivalImg from "../assets/welcome-arrival.jpg";
-import welcomeEntranceImg from "../assets/welcome-entrance.jpg";
-import welcomeWorshipImg from "../assets/welcome-worship.jpg";
+import welcomeArrivalImg from "../assets/welcome-arrival-church-entrance.jpeg";
+import welcomeReceptionImg from "../assets/welcome-reception.jpeg";
+import welcomeWorshipImg from "../assets/welcome-worship-service.jpeg";
 import eventsData from "../data/generated/events.json";
 import sermonsData from "../data/generated/sermons.json";
 import staffData from "../data/generated/staff.json";
@@ -131,7 +131,7 @@ function getEventImage(event: { imageKey?: string; imageUrl?: string }) {
 
 const welcomePlaceholderImages = {
   arrival: welcomeArrivalImg,
-  entrance: welcomeEntranceImg,
+  entrance: welcomeReceptionImg,
   worship: welcomeWorshipImg,
 } as const;
 
@@ -761,7 +761,7 @@ export function WelcomePage() {
               ["交わりの時間", communityImg],
             ].map(([title, src], index) => (
               <div key={`${title}-${index}`} className="overflow-hidden rounded-[28px] border border-[#eef2e7] bg-white shadow-[0_18px_45px_rgba(60,88,65,0.1)]">
-                <ImageWithFallback src={src as string} alt={title as string} className="h-52 w-full object-cover" />
+                <ImageWithFallback src={src as string} alt={title as string} className="aspect-[3/4] w-full object-cover" />
                 <div className="p-5">
                   <p className="text-lg text-[#203126]">{title}</p>
                 </div>
@@ -1388,6 +1388,8 @@ export function EventDetailPage({ eventSlug }: { eventSlug?: string }) {
     return <NotFoundPage />;
   }
 
+  const eventInquiryUrl = `mailto:info@setagayagrace.jp?subject=${encodeURIComponent(`${event.title}について`)}`;
+
   return (
     <>
       <section className="bg-[linear-gradient(135deg,#eef4e8_0%,#f8f6f0_100%)] py-20">
@@ -1411,6 +1413,22 @@ export function EventDetailPage({ eventSlug }: { eventSlug?: string }) {
             <p className="text-sm leading-7 text-[#56645a] sm:text-base">{event.description || event.summary}</p>
             {event.notes ? <p className="mt-4 text-sm leading-7 text-[#70825d]">{event.notes}</p> : null}
             <div className="mt-8 flex flex-wrap gap-3">
+              {event.applicationUrl ? (
+                <a
+                  href={event.applicationUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className={primaryButtonClass}
+                >
+                  {event.applicationLabel || "参加申し込み"}
+                </a>
+              ) : null}
+              <a
+                href={eventInquiryUrl}
+                className={event.applicationUrl ? "inline-flex items-center justify-center rounded-full border border-[#cbd8c2] bg-white px-6 py-3 text-sm font-medium text-[#70825d] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#b7c8aa] hover:bg-[#f5f8ef]" : primaryButtonClass}
+              >
+                お問い合わせ
+              </a>
               <InternalLink href="/events" className="inline-flex items-center justify-center rounded-full border border-[#cbd8c2] bg-white px-6 py-3 text-sm font-medium text-[#70825d] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#b7c8aa] hover:bg-[#f5f8ef]">
                 イベント一覧へ
               </InternalLink>

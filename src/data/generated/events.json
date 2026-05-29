@@ -11,6 +11,8 @@
     "description": "毎週日曜日 14:00-14:45。場所は日本宣教会 代田教会（世田谷区羽根木1丁目19-2）。子ども向けの教会です。ゲーム、賛美の歌、聖書のお話の時間があります。",
     "imageKey": "grace-school",
     "imageUrl": "",
+    "applicationUrl": "",
+    "applicationLabel": "参加申し込み",
     "featured": true,
     "notes": ""
   },
@@ -26,6 +28,8 @@
     "description": "日時は2026年6月20日（土）17:00〜20:00です。参加費は大人5000円、学生2000円。会場はガーデンテラス笹塚です。",
     "imageKey": "mens-bbq",
     "imageUrl": "",
+    "applicationUrl": "",
+    "applicationLabel": "参加申し込み",
     "featured": true,
     "notes": "参加費：大人5000円、学生2000円"
   },
@@ -41,6 +45,8 @@
     "description": "毎年大人気のキッズゴスペルを今年も開催します。今回は特別に、アメリカ・セントルイス州からプロのゴスペルミュージシャン／コーチを迎えて、一緒にゴスペルを学びます。日程は7月23日（木）〜25日（土）です。対象は小学1年生〜6年生です。",
     "imageKey": "kids-gospel",
     "imageUrl": "https://images.squarespace-cdn.com/content/v1/641963614d38536818d032af/fb946197-573a-4620-a47c-d7d2d119e71e/Kids+gospel+2026+flyer+1.jpg",
+    "applicationUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdGlFAg_m0YnHK6iVy7grrkxrdO5ZV_ZQ5eIowJQeN3bc5n5g/viewform",
+    "applicationLabel": "参加申し込み",
     "featured": true,
     "notes": ""
   },
@@ -56,6 +62,8 @@
     "description": "主の復活を共にお祝いしましょう！ 日時: 4月5日（日）10:00〜11:00。場所: 梅ヶ丘パークホール。礼拝後、羽根木公園でランチ&エッグハントを開催します。",
     "imageKey": "easter",
     "imageUrl": "",
+    "applicationUrl": "",
+    "applicationLabel": "参加申し込み",
     "featured": true,
     "notes": ""
   }

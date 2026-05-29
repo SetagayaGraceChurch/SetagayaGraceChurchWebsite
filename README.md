@@ -58,6 +58,8 @@ Event sheet columns:
 - `description`: longer text for the events page
 - `imageKey`: `grace-school`, `kids-gospel`, `mens-bbq`, `camp`, or `easter`
 - `imageUrl`: optional public image URL, used before `imageKey`
+- `applicationUrl`: optional registration/application URL for the event detail page
+- `applicationLabel`: optional button label, defaults to `参加申し込み`
 - `featured`: `true` for home page cards
 - `notes`: optional internal note text
 
