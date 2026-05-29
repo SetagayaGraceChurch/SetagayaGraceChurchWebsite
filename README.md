@@ -11,7 +11,7 @@ Run `npm run dev` to start the Astro development server.
 
 Run `npm run build` to fetch sermon, event, and staff data and build the static site into `dist/`.
 
-Set `SITE_URL` in Netlify to the public origin so canonical URLs and the generated sitemap use the right domain. Before launch, use `https://steady-kitten-051261.netlify.app`. When the real domain points to Netlify, change `SITE_URL` to the real domain.
+Set `SITE_URL` in Netlify to the public origin so canonical URLs and the generated sitemap use the right domain. Use `https://setagayagrace.jp` for production.
 
 Set `PUBLIC_INDEX_SITE=false` before launch so every page emits `noindex,nofollow`. At launch, change it to `true` and rebuild.
 

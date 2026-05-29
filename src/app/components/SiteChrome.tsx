@@ -14,8 +14,8 @@ export const navItems: NavItem[] = [
   { label: "初めての方へ", href: "/welcome" },
   { label: "教会について", href: "/aboutourchurch" },
   { label: "礼拝", href: "/worship" },
-  { label: "キリスト教について", href: "/christianity" },
-  { label: "集まり", href: "/community" },
+  { label: "キリスト教", href: "/christianity" },
+  { label: "コミュニティ", href: "/community" },
   { label: "イベント", href: "/events" },
   { label: "説教", href: "/sermons" },
   { label: "アクセス", href: "/access" },
@@ -45,17 +45,17 @@ export function SiteHeader({ currentPath }: { currentPath: string }) {
           <img
             src={logoSrc}
             alt="世田谷グレースチャーチ ロゴ"
-            className="h-10 w-auto object-contain"
+            className="h-12 w-auto object-contain"
           />
         </a>
-        <nav className="hidden items-center gap-4 md:flex">
+        <nav className="hidden items-center gap-3 lg:flex xl:gap-4">
           {navItems.map((item) => {
             const active = isActivePath(currentPath, item.href);
             return (
               <a
                 key={item.href}
                 href={item.href}
-                className={`text-sm font-medium transition-colors ${
+                className={`whitespace-nowrap text-sm font-medium transition-colors ${
                   active ? "text-white" : "text-white/90 hover:text-white"
                 }`}
               >
@@ -64,14 +64,14 @@ export function SiteHeader({ currentPath }: { currentPath: string }) {
             );
           })}
         </nav>
-        <button className="p-2 md:hidden" onClick={() => setMenuOpen((open) => !open)} aria-label="メニュー">
+        <button className="p-2 lg:hidden" onClick={() => setMenuOpen((open) => !open)} aria-label="メニュー">
           <div className="mb-1 h-0.5 w-5 bg-white" />
           <div className="mb-1 h-0.5 w-5 bg-white" />
           <div className="h-0.5 w-5 bg-white" />
         </button>
       </div>
       {menuOpen && (
-        <div className="flex flex-col gap-4 border-t border-white/20 bg-[#789564] px-6 py-4 md:hidden">
+        <div className="flex flex-col gap-4 border-t border-white/20 bg-[#789564] px-6 py-4 lg:hidden">
           {navItems.map((item) => {
             const active = isActivePath(currentPath, item.href);
             return (
@@ -102,7 +102,9 @@ export function SiteFooter() {
         </div>
         <div>
           <p className="text-xs">© 2026 世田谷グレースチャーチ</p>
-          <p className="mt-1 text-xs">info@setagaya-church.jp</p>
+          <a href="/access#contact" className="mt-1 inline-flex text-xs font-medium text-[#dce8d4] underline-offset-4 transition-colors hover:text-white hover:underline">
+            お問い合わせ
+          </a>
           <a
             href="https://www.instagram.com/setagaya.grace/"
             target="_blank"

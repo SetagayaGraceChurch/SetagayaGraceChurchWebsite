@@ -1,11 +1,13 @@
-import { useEffect, useState } from "react";
+import { type FormEvent, useEffect, useState } from "react";
 import { ImageWithFallback } from "./components/figma/ImageWithFallback";
 import { InternalLink, SiteLayout } from "./components/SiteChrome";
 import communityImgAsset from "../assets/749b7b591ff5db08477c679e6e5b9e0592ae764d.png";
 import communitySectionImg from "../assets/CG.jpeg";
 import eventCampImg from "../assets/event-camp.jpg";
+import eventCampRetreat2026Img from "../assets/event-camp-retreat-2026-05.jpg";
 import eventEaster2026Img from "../assets/event-easter-2026.png";
 import eventGraceSchoolImg from "../assets/event-grace-school.jpeg";
+import eventLadiesPaintSnackImg from "../assets/event-ladies-paint-snack-2026-06.jpg";
 import eventMensBbqImg from "../assets/event-mens-bbq.png";
 import pastorImg from "../assets/pastor-photo.jpeg";
 import welcomeArrivalImg from "../assets/welcome-arrival-church-entrance.jpeg";
@@ -113,9 +115,11 @@ const bibleBookOrder = [
 
 const eventImages = {
   camp: eventCampImg,
+  "camp-retreat-2026": eventCampRetreat2026Img,
   easter: eventEaster2026Img,
   "grace-school": eventGraceSchoolImg,
   "kids-gospel": eventGraceSchoolImg,
+  "ladies-paint-snack": eventLadiesPaintSnackImg,
   "mens-bbq": eventMensBbqImg,
 } as const;
 
@@ -292,6 +296,72 @@ const primaryButtonClass = "inline-flex items-center justify-center rounded-full
 const secondaryButtonClass = "inline-flex items-center justify-center rounded-full border border-white/60 bg-white/12 px-6 py-3 text-sm font-medium text-white backdrop-blur-sm transition-all duration-300 hover:bg-white/20";
 const textLinkClass = "inline-flex items-center gap-2 text-sm font-medium text-[#70825d] transition-colors hover:text-[#5b6b4b]";
 
+function ContactForm({ subject = "一般のお問い合わせ" }: { subject?: string }) {
+  const [formError, setFormError] = useState("");
+
+  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    const formData = new FormData(event.currentTarget);
+    const name = String(formData.get("name") || "").trim();
+    const email = String(formData.get("email") || "").trim();
+    const message = String(formData.get("message") || "").trim();
+
+    if (!name) {
+      event.preventDefault();
+      setFormError("お名前を入力してください。");
+      return;
+    }
+
+    if (!email) {
+      event.preventDefault();
+      setFormError("メールアドレスを入力してください。");
+      return;
+    }
+
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      event.preventDefault();
+      setFormError("メールアドレスを正しく入力してください。");
+      return;
+    }
+
+    if (!message) {
+      event.preventDefault();
+      setFormError("お問い合わせ内容を入力してください。");
+      return;
+    }
+
+    setFormError("");
+  }
+
+  return (
+    <form name="contact" method="POST" action="/thanks" data-netlify="true" netlify-honeypot="bot-field" noValidate className="mt-6 space-y-4" onSubmit={handleSubmit}>
+      <input type="hidden" name="form-name" value="contact" />
+      <input type="hidden" name="subject" value={subject} />
+      <p className="hidden">
+        <label>
+          この欄は空のままにしてください
+          <input name="bot-field" />
+        </label>
+      </p>
+      <label className="block">
+        <span className="sr-only">お名前</span>
+        <input name="name" required className="w-full rounded-[18px] border border-[#dce4d4] bg-[#f8fbf5] px-4 py-3 text-sm text-[#304034]" placeholder="お名前" />
+      </label>
+      <label className="block">
+        <span className="sr-only">メールアドレス</span>
+        <input type="email" name="email" required className="w-full rounded-[18px] border border-[#dce4d4] bg-[#f8fbf5] px-4 py-3 text-sm text-[#304034]" placeholder="メールアドレス" />
+      </label>
+      <label className="block">
+        <span className="sr-only">お問い合わせ内容</span>
+        <textarea name="message" required className="min-h-32 w-full rounded-[18px] border border-[#dce4d4] bg-[#f8fbf5] px-4 py-3 text-sm text-[#304034]" placeholder="ご質問・お問い合わせ内容" />
+      </label>
+      {formError ? <p className="rounded-[18px] bg-[#fff6e5] px-4 py-3 text-sm leading-6 text-[#8a5a16]">{formError}</p> : null}
+      <button type="submit" className={primaryButtonClass}>
+        送信する
+      </button>
+    </form>
+  );
+}
+
 function WaveDivider({ color, flip = false }: { color: string; flip?: boolean }) {
   return (
     <div aria-hidden className={`relative -mt-px h-12 w-full overflow-hidden ${flip ? "rotate-180" : ""}`}>
@@ -312,6 +382,7 @@ export type PageKey =
   | "beliefs"
   | "staff"
   | "worship"
+  | "giving"
   | "christianity"
   | "community"
   | "events"
@@ -327,6 +398,7 @@ export const pagePaths: Record<PageKey, string> = {
   beliefs: "/beliefs",
   staff: "/staff",
   worship: "/worship",
+  giving: "/giving",
   christianity: "/christianity",
   community: "/community",
   events: "/events",
@@ -678,9 +750,9 @@ export function WelcomePage() {
               <InternalLink href="/worship" className={primaryButtonClass}>
                 礼拝のご案内
               </InternalLink>
-              <a href="mailto:info@setagaya-church.jp" className="inline-flex items-center justify-center rounded-full border border-[#cfdbc6] bg-white px-6 py-3 text-sm font-medium text-[#70825d] transition-colors hover:bg-[#f4f8ef]">
+              <InternalLink href="/access#contact" className="inline-flex items-center justify-center rounded-full border border-[#cfdbc6] bg-white px-6 py-3 text-sm font-medium text-[#70825d] transition-colors hover:bg-[#f4f8ef]">
                 お問い合わせ
-              </a>
+              </InternalLink>
             </div>
           </div>
           <div className="rounded-[32px] border border-white/80 bg-white p-7 shadow-[0_24px_60px_rgba(79,107,73,0.12)]">
@@ -831,17 +903,11 @@ export function WelcomePage() {
               <div className="space-y-4 text-sm leading-7 text-[#56645a] sm:text-base">
                 <p>初めて来る前に確認したいことがあれば、どうぞお気軽にご連絡ください。</p>
                 <p>お子さま連れ、言語面の不安、アクセス方法など、どんな小さなことでも大丈夫です。</p>
-                <p>
-                  メール:
-                  <a className="ml-2 font-medium text-[#70825d] hover:underline" href="mailto:info@setagaya-church.jp">
-                    info@setagaya-church.jp
-                  </a>
-                </p>
               </div>
               <div className="mt-6 flex flex-wrap gap-3">
-                <a href="mailto:info@setagaya-church.jp" className={primaryButtonClass}>
+                <InternalLink href="/access#contact" className={primaryButtonClass}>
                   お問い合わせ
-                </a>
+                </InternalLink>
                 <InternalLink href="/" className="inline-flex items-center justify-center rounded-full border border-[#cfdbc6] bg-[#f7faf3] px-6 py-3 text-sm font-medium text-[#70825d] transition-colors hover:bg-[#edf4e5]">
                   ホームへ戻る
                 </InternalLink>
@@ -861,10 +927,7 @@ export function AboutPage() {
         <div className="mx-auto max-w-7xl px-6">
           <h1 className="mb-6 max-w-3xl text-4xl leading-tight text-[#203126] sm:text-5xl">教会について</h1>
           <p className="max-w-3xl text-base leading-8 text-[#56645a] sm:text-lg">
-            世田谷グレースチャーチは、神様を愛し、世田谷を愛することを目標に、
-            世田谷の人々が神の栄光をあらわし、永遠に神を喜ぶコミュニティが広がっていくことを願って歩んでいます。
-            また、世田谷に根ざした地域の教会として、日本の方も海外の方も共に集まり、聖書を学び、
-            礼拝をささげ、地域に仕えることを大切にしています。
+            世田谷グレースチャーチは、世田谷の人々が神の栄光をあらわし、永遠に神を喜ぶコミュニティを広めていくために存在しています。
           </p>
         </div>
       </section>
@@ -878,23 +941,22 @@ export function AboutPage() {
             <h2 className={sectionTitleClass}>牧師からのご挨拶</h2>
             <div className="space-y-5 text-sm leading-7 text-[#56645a] sm:text-base">
               <p>
-                世田谷グレースチャーチへようこそ。ジョー・コンドン牧師が初めて日本に来たのは1999年、
-                早稲田大学の交換留学生だった時でした。東京に着いてすぐに、日本の方々の優しさと都市の美しさに心を動かされました。
+                世田谷グレイスチャーチへようこそ！私はジョー・コンドンです。初めて日本に来たのは、１９９９年、早稲田大学の交換留学生だった時でした。東京に着いたらすぐに、日本人の優しさと都市の美しさに驚きを覚えました。東京は本当に素晴らしい場所で、多くの恵みとチャレンジに満ちていると思います。
               </p>
               <p>
-                2015年に家族で東京へ移り、月島で2年間、その後三重で2年間を過ごしましたが、
-                長期的な願いはいつも東京で教会を開拓することでした。2020年に松原へ移り、
-                大畑瑠花さんと共に世田谷グレースチャーチを始めました。2022年には岩崎光男さんファミリー、
-                2023年にはジェイソン・シェーファー宣教師もチームに加わりました。
+                ２０１５年、ついに家族で東京に引っ越すことができました。月島地区に２年間住み、その後、三重に2年間引っ越しました。しかし、私たちの長期的な目標は、常に東京で教会を開拓することでした。やっと２０２０年に松原に移り、友人の大畑瑠花さんと一緒に世田谷グレースチャーチを始めました。世田谷は都心に近く、とてもフレンドリーで下町な雰囲気があるため、すぐに大好きになりました。２０２２年に岩崎光男さんファミリーがスタッフになって、２０２３年にもう一人の宣教師・牧師であるジェイソン・シェーファー牧師もチームに入りました。
               </p>
               <p>
-                人生はつらいものです。その現実を無視するのではなく、その中でイエス・キリストによる希望と癒しを
-                見いだしていただきたいと願っています。私たちの目的は、神様を愛し、世田谷を愛することです。
+                人生はつらい。その現実を無視したり、避けようとしたりすることは、何の役にも立ちません。しかし、聖書には良い知らせがあります。神は私たちの近くにおられ、私たちの人生においてご自分を証ししないでおられたのではありません。私たち教会が願っているのは、世田谷の人々がイエス・キリストによって希望と癒しを見出すことができるようにすることです。
               </p>
               <p>
-                人生で一度も教会に行ったことのない方も、幼い頃から教会に親しんできた方も、
-                世田谷グレースで安らぎ、希望、成長、そして本物のコミュニティを見つけていただけたらと思います。
-                礼拝、イベント、聖書の学び会では、カジュアルでアットホームな雰囲気の中で、どなたでも歓迎しています。
+                簡単に言うと、私たちの目的は、神様を愛し、世田谷を愛することです。
+              </p>
+              <p>
+                言い換えると、世田谷グレースは、世田谷の人々が神の栄光をあらわし、永遠に神を喜ぶコミュニティを広めていくために存在しています。人生で一度も教会に行ったことがない人も、赤ちゃんの頃からクリスチャンとして育ってきた人も、世田谷グレースで安らぎ、希望、成長、そして本物のコミュニティを見つけることができたらと思います。学生の方も、独身の方も、お母さんの方も、お父さんの方も、私たちと一緒に聖書を探求し、みんなの質問に答えてもらうために、気軽に飛び込むことができる機会を用意しています。当サイトのイベントに目を通し、何かお役に立てることがあれば、遠慮なくメールやお電話をください。
+              </p>
+              <p>
+                礼拝、イベント、聖書の学び会において、常にカジュアルでアットホームな雰囲気を感じることができます。どのようなイベントでも、誰でもいつでも歓迎します。どの背景があっても、あなたにお会いできるのを楽しみにしています。是非、世田谷グレースに来てみてみませんか。
               </p>
             </div>
           </div>
@@ -906,9 +968,7 @@ export function AboutPage() {
           <div className="mx-auto max-w-4xl text-center">
             <h2 className={sectionTitleClass}>教会のビジョン</h2>
             <p className="text-lg leading-9 text-[#304034] sm:text-2xl sm:leading-[2.4rem]">
-              世田谷グレースチャーチは、
-              世田谷の人々が神の栄光をあらわし、
-              永遠に神を喜ぶコミュニティを広めていくために存在しています。
+              世田谷グレースチャーチは、世田谷の人々が神の栄光をあらわし、永遠に神を喜ぶコミュニティを広めていくために存在しています。
             </p>
           </div>
         </div>
@@ -922,16 +982,16 @@ export function AboutPage() {
           <div className="grid gap-8 md:grid-cols-3">
             {[
               {
-                title: "好奇心",
-                text: "神様がすでに世田谷の人々の歩みの中で働いておられることを信じ、裁くよりも訪ね、答える前に理解しようと耳を傾ける姿勢を大切にします。",
+                title: "① 好奇心（Curiosity）",
+                text: "神様は、地球上のどこであっても、神様の正しさと恵みの証しがないところはないと約束されました（使徒14:17）。神様の民としての私たちの責任は、あらゆる国の人々を弟子とし、父、子、聖霊の名においてバプテスマを授け、イエス様が命じておいた、すべてのことを守るように教え、被造物が神様の栄光を宣言する方法を証しすることです（詩篇19:1、マタイ28:18-20）。私たちが隣人に仕えながら、私たちは主がどのようにご自身を隣人に現しているかに好奇心を持たなければなりません。奉仕する方法、証しする方法、主の栄光を語る方法に常に好奇心を持ち、主の働く同労者として迷える人々に真理を明らかにすることに協力しなければなりません（1コリント3：9）。裁くよりも、訪ねていきます。答えるために聞くのではなく、理解するために聞きます。恐れではなく、忠実な臨在を実践する。主に属する者は主の声を聞き、主に従うことをよく知っているからです（ヨハネ10:27-28）。",
               },
               {
-                title: "祝い",
-                text: "神様の良い贈り物と恵みを受け取り、日常の食卓や交わりの中で共に喜び、感謝し、神様の良さをあらわしていく共同体でありたいと願っています。",
+                title: "② 祝い（Celebration)",
+                text: "主はいつも誠実で、あわれみ深く、正しい方なので、私たちは主の民として祝うべき大きな理由があります（詩篇96篇、詩篇126篇）。神様は被造物とその民を喜ばれ、尽きることのない喜びをもって私たちを高らかに歌うことを喜ばれる（詩篇104:31、ゼパニヤ3:17）。私たちは、神の良い贈り物や祝福を受けることで、常に神様の良さを祝っている人々です。私たちが通常の生活リズムの中で共に祝い、感謝し、共同体の中でごちそうを食べるとき、イエス様にある祝福と父の愛のすばらしさを証する機会がさらに与えられます。私たちが近所でお祝いをするとき、私たちは神のストーリーの重要な章を公の場で実行しています。すべての祝い事や祝宴において、私たちは主の贖いの完成を予告し、主との永遠の祝宴を指し示しているのです（黙示録19章）。",
               },
               {
-                title: "あわれみ",
-                text: "イエス・キリストの福音の中心にあるあわれみに倣い、隣人の必要を見つけ、犠牲をいとわずに愛し、世田谷の人々に主のやさしさを届けたいと願っています。",
+                title: "③ あわれみ（Compassion)",
+                text: "慈しみとあわれみは、イエス・キリストの福音の中心です（ルカ7：14、ルカ15：20）。教会としての私たちの召しは、イエスの模範にならって、隣人の必要を見抜き、あわれみを示し、犠牲的に愛することです。イエス様は仕えられるためではなく、仕えるために、また多くの人のための贖いの代価として、自分のいのちを与えるために来たのです（マルコ10:45、ヨハネ15:13）。私たちは、イエスにならって愛しています。私たちは、自分がどれほど愛されているかを知らなければ愛することができないので、私たち自身が、キリストにおける主にどれほど深く愛されているかを悟らせてくれる御霊の力に、応答していかなければなりません（エペソ3:14-21）。みことばにより、水の洗いをもって、キリストからのあわれみを受けることで、他の人への愛とあわれみが自然と近隣に流れていくのです。私たちは、失われた人々に対する主の愛とあわれみの神々しい熱心の中に私たちを連れて行ってくださるよう、日々、主にお願いしています。",
               },
             ].map((item) => (
               <div key={item.title} className="rounded-[30px] border border-[#edf1e7] bg-[linear-gradient(180deg,#ffffff_0%,#f5f8ef_100%)] p-8 shadow-[0_20px_40px_rgba(91,120,84,0.06)]">
@@ -976,11 +1036,8 @@ export function AboutPage() {
       </section>
 
       <section className="bg-white py-24">
-        <div className="mx-auto grid max-w-7xl gap-10 px-6 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
-          <div className="overflow-hidden rounded-[32px] border border-[#eef2e7] shadow-[0_24px_70px_rgba(60,88,65,0.12)]">
-            <ImageWithFallback src={communityImg} alt="教会の交わり" className="h-full min-h-[360px] w-full object-cover" />
-          </div>
-          <div>
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="max-w-4xl">
             <h2 className={sectionTitleClass}>牧師とリーダーシップ</h2>
             <p className="text-sm leading-7 text-[#56645a] sm:text-base">
               ジョー・コンドン牧師は、米国テキサス州出身です。セントルイスのワシントン大学で絵画と東アジア研究を学び、
@@ -1092,6 +1149,117 @@ export function WorshipPage() {
           </div>
         </div>
       </section>
+
+      <section className="bg-white py-20">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="rounded-[32px] border border-[#edf1e7] bg-[linear-gradient(180deg,#ffffff_0%,#f5f8ef_100%)] p-8 shadow-[0_20px_40px_rgba(91,120,84,0.06)] md:flex md:items-center md:justify-between md:gap-8">
+            <div className="max-w-3xl">
+              <p className={eyebrowClass}>献金について</p>
+              <h2 className={sectionTitleClass}>礼拝の中での献金</h2>
+              <p className="text-sm leading-7 text-[#56645a] sm:text-base">
+                礼拝の中で献金の時間がありますが、初めての方やご事情のある方にお願いするものではありません。
+                献金は、世田谷での教会の働きのために用いられます。
+              </p>
+            </div>
+            <div className="mt-6 flex-shrink-0 md:mt-0">
+              <InternalLink href="/giving" className={primaryButtonClass}>
+                献金について詳しく
+              </InternalLink>
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}
+
+export function GivingPage() {
+  const givingUrl = "https://square.link/u/NoFJdgKw";
+
+  return (
+    <>
+      <section className="bg-[linear-gradient(135deg,#eef4e8_0%,#f8f6f0_100%)] py-20">
+        <div className="mx-auto max-w-7xl px-6">
+          <p className={eyebrowClass}>献金</p>
+          <h1 className="mb-6 max-w-3xl text-4xl leading-tight text-[#203126] sm:text-5xl">献金について</h1>
+          <p className="max-w-3xl text-base leading-8 text-[#56645a] sm:text-lg">
+            世田谷グレースチャーチの働きを支える献金についてご案内します。
+          </p>
+        </div>
+      </section>
+
+      <section className="bg-white py-24">
+        <div className="mx-auto grid max-w-7xl gap-10 px-6 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
+          <div className="rounded-[32px] border border-[#e4eadf] bg-[#f7f9f4] p-8 shadow-[0_18px_45px_rgba(83,110,76,0.08)]">
+            <p className="text-lg leading-9 text-[#203126]">
+              「あなたがたは、私たちの主イエス・キリストの恵みを知っています。すなわち、主は富んでおられたのに、あなたがたのために貧しくなられました。それは、あなたがたが、キリストの貧しさによって富む者となるためです。」
+            </p>
+            <p className="mt-4 text-sm text-[#70825d]">第2コリント8章9節</p>
+          </div>
+          <div>
+            <h2 className={sectionTitleClass}>献金の用いられ方</h2>
+            <p className="text-sm leading-7 text-[#56645a] sm:text-base">
+              全ての献金は、ここ世田谷でイエスの働きを続けるために使われます。
+            </p>
+            <div className="mt-8">
+              <a href={givingUrl} target="_blank" rel="noreferrer" className={primaryButtonClass}>
+                オンラインで献金する
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-[#eff4e8] py-24">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="mb-10">
+            <h2 className={sectionTitleClass}>献金する三つの方法</h2>
+          </div>
+          <div className="grid gap-8 md:grid-cols-3">
+            <div className="rounded-[30px] border border-[#dfe7d6] bg-white p-8 shadow-[0_20px_40px_rgba(91,120,84,0.06)]">
+              <p className={eyebrowClass}>1</p>
+              <h3 className="text-2xl text-[#203126]">礼拝の時に現金で</h3>
+              <p className="mt-4 text-sm leading-7 text-[#56645a]">
+                礼拝の中で献金の時間があります。ご希望の方は、その時に現金で献金できます。
+              </p>
+            </div>
+            <div className="rounded-[30px] border border-[#dfe7d6] bg-white p-8 shadow-[0_20px_40px_rgba(91,120,84,0.06)]">
+              <p className={eyebrowClass}>2</p>
+              <h3 className="text-2xl text-[#203126]">銀行の振り込みで</h3>
+              <dl className="mt-4 space-y-3 text-sm leading-7 text-[#56645a]">
+                <div>
+                  <dt className="font-medium text-[#203126]">銀行名</dt>
+                  <dd>三井住友銀行</dd>
+                </div>
+                <div>
+                  <dt className="font-medium text-[#203126]">口座名</dt>
+                  <dd>世田谷グレースチャーチ</dd>
+                </div>
+                <div>
+                  <dt className="font-medium text-[#203126]">店番号</dt>
+                  <dd>597</dd>
+                </div>
+                <div>
+                  <dt className="font-medium text-[#203126]">口座番号</dt>
+                  <dd>普通 7212511</dd>
+                </div>
+              </dl>
+            </div>
+            <div className="rounded-[30px] border border-[#dfe7d6] bg-white p-8 shadow-[0_20px_40px_rgba(91,120,84,0.06)]">
+              <p className={eyebrowClass}>3</p>
+              <h3 className="text-2xl text-[#203126]">オンライン、クレジットカードで</h3>
+              <p className="mt-4 text-sm leading-7 text-[#56645a]">
+                Squareのページからオンラインで献金できます。
+              </p>
+              <div className="mt-6">
+                <a href={givingUrl} target="_blank" rel="noreferrer" className={primaryButtonClass}>
+                  カードで献金する
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </>
   );
 }
@@ -1168,9 +1336,9 @@ export function ChristianityPage() {
                 <InternalLink href="/welcome" className={primaryButtonClass}>
                   初めての方へ
                 </InternalLink>
-                <a href="mailto:info@setagaya-church.jp" className="inline-flex items-center justify-center rounded-full border border-[#cfdbc6] bg-[#f7faf3] px-6 py-3 text-sm font-medium text-[#70825d] transition-colors hover:bg-[#edf4e5]">
+                <InternalLink href="/access#contact" className="inline-flex items-center justify-center rounded-full border border-[#cfdbc6] bg-[#f7faf3] px-6 py-3 text-sm font-medium text-[#70825d] transition-colors hover:bg-[#edf4e5]">
                   お問い合わせ
-                </a>
+                </InternalLink>
               </div>
             </div>
           </div>
@@ -1244,23 +1412,13 @@ export function AccessPage() {
                 <ImageWithFallback src={heroImg} alt="到着時イメージ" className="h-40 w-full rounded-[22px] object-cover" />
               </div>
             </div>
-            <div className="rounded-[30px] border border-[#edf1e7] bg-white p-8 shadow-[0_20px_40px_rgba(91,120,84,0.06)]">
+            <div id="contact" className="scroll-mt-24 rounded-[30px] border border-[#edf1e7] bg-white p-8 shadow-[0_20px_40px_rgba(91,120,84,0.06)]">
               <h2 className={sectionTitleClass}>お問い合わせ</h2>
               <p className="text-sm leading-7 text-[#56645a] sm:text-base">
-                メール:
-                <a className="ml-2 font-medium text-[#70825d] hover:underline" href="mailto:info@setagaya-church.jp">
-                  info@setagaya-church.jp
-                </a>
+                初めて来る前に確認したいことがあれば、こちらからお気軽にご連絡ください。
               </p>
-              <form className="mt-6 space-y-4">
-                <input className="w-full rounded-[18px] border border-[#dce4d4] bg-[#f8fbf5] px-4 py-3 text-sm text-[#304034]" placeholder="お名前" />
-                <input className="w-full rounded-[18px] border border-[#dce4d4] bg-[#f8fbf5] px-4 py-3 text-sm text-[#304034]" placeholder="メールアドレス" />
-                <textarea className="min-h-28 w-full rounded-[18px] border border-[#dce4d4] bg-[#f8fbf5] px-4 py-3 text-sm text-[#304034]" placeholder="ご質問・お問い合わせ内容" />
-              </form>
+              <ContactForm />
               <div className="mt-6 flex flex-wrap gap-3">
-                <a href="mailto:info@setagaya-church.jp" className={primaryButtonClass}>
-                  お問い合わせ
-                </a>
                 <InternalLink href="/welcome" className="inline-flex items-center justify-center rounded-full border border-[#cfdbc6] bg-[#f7faf3] px-6 py-3 text-sm font-medium text-[#70825d] transition-colors hover:bg-[#edf4e5]">
                   初めての方へ
                 </InternalLink>
@@ -1388,8 +1546,6 @@ export function EventDetailPage({ eventSlug }: { eventSlug?: string }) {
     return <NotFoundPage />;
   }
 
-  const eventInquiryUrl = `mailto:info@setagayagrace.jp?subject=${encodeURIComponent(`${event.title}について`)}`;
-
   return (
     <>
       <section className="bg-[linear-gradient(135deg,#eef4e8_0%,#f8f6f0_100%)] py-20">
@@ -1423,12 +1579,12 @@ export function EventDetailPage({ eventSlug }: { eventSlug?: string }) {
                   {event.applicationLabel || "参加申し込み"}
                 </a>
               ) : null}
-              <a
-                href={eventInquiryUrl}
+              <InternalLink
+                href={`/access#contact`}
                 className={event.applicationUrl ? "inline-flex items-center justify-center rounded-full border border-[#cbd8c2] bg-white px-6 py-3 text-sm font-medium text-[#70825d] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#b7c8aa] hover:bg-[#f5f8ef]" : primaryButtonClass}
               >
                 お問い合わせ
-              </a>
+              </InternalLink>
               <InternalLink href="/events" className="inline-flex items-center justify-center rounded-full border border-[#cbd8c2] bg-white px-6 py-3 text-sm font-medium text-[#70825d] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#b7c8aa] hover:bg-[#f5f8ef]">
                 イベント一覧へ
               </InternalLink>
@@ -1788,6 +1944,7 @@ export function PageContent({ page, eventSlug }: { page: PageKey; eventSlug?: st
   if (page === "beliefs") return <BeliefsPage />;
   if (page === "staff") return <StaffPage />;
   if (page === "worship") return <WorshipPage />;
+  if (page === "giving") return <GivingPage />;
   if (page === "christianity") return <ChristianityPage />;
   if (page === "community") return <CommunityPage />;
   if (page === "events") return <EventsPage />;
@@ -1864,6 +2021,8 @@ export default function App() {
     content = <StaffPage />;
   } else if (locationState.pathname === "/worship") {
     content = <WorshipPage />;
+  } else if (locationState.pathname === "/giving") {
+    content = <GivingPage />;
   } else if (locationState.pathname === "/christianity") {
     content = <ChristianityPage />;
   } else if (locationState.pathname === "/community") {

@@ -17,6 +17,23 @@
     "notes": ""
   },
   {
+    "id": 5,
+    "status": "published",
+    "eventType": "event",
+    "slug": "ladies-paint-snack",
+    "date": "2026-06-14",
+    "dateLabel": "2026年6月14日（日）",
+    "title": "女性限定イベント Paint & Snack",
+    "summary": "女性限定のPaint & Snackイベントです。おつまみや果物を持ち寄りながら、楽しい時間を過ごします。",
+    "description": "日時は2026年6月14日（日）18:00〜20:00です。会場は代田区民センター会議室1です。みんなでつまめるおつまみや果物を持ってきてください。",
+    "imageKey": "ladies-paint-snack",
+    "imageUrl": "",
+    "applicationUrl": "",
+    "applicationLabel": "参加申し込み",
+    "featured": true,
+    "notes": "女性限定。持ち物：みんなでつまめるおつまみや果物"
+  },
+  {
     "id": 4,
     "status": "published",
     "eventType": "event",
@@ -49,6 +66,23 @@
     "applicationLabel": "参加申し込み",
     "featured": true,
     "notes": ""
+  },
+  {
+    "id": 6,
+    "status": "published",
+    "eventType": "event",
+    "slug": "camp-retreat-2026",
+    "date": "2026-05-02",
+    "dateLabel": "2026年5月2日〜4日",
+    "title": "Setagaya Grace Church キャンプ2026",
+    "summary": "YMCA東山荘で行う世田谷グレースチャーチのキャンプリトリートです。",
+    "description": "開催日は2026年5月2日（土）〜4日（月）です。会場はYMCA東山荘（〒412-0024 静岡県御殿場市東山1052）です。",
+    "imageKey": "camp-retreat-2026",
+    "imageUrl": "",
+    "applicationUrl": "",
+    "applicationLabel": "参加申し込み",
+    "featured": false,
+    "notes": "お問い合わせ：岩崎光男（教会スタッフ） mitsuo@setagayagrace.jp / 070-8300-5106"
   },
   {
     "id": 3,

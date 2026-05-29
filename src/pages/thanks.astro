@@ -1,0 +1,29 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="お問い合わせを受け付けました | 世田谷グレースチャーチ"
+  description="世田谷グレースチャーチへのお問い合わせを受け付けました。"
+  path="/thanks"
+>
+  <main class="min-h-screen bg-[#fcfbf7] text-[#304034]">
+    <section class="bg-[linear-gradient(135deg,#eef4e8_0%,#f8f6f0_100%)] py-24">
+      <div class="mx-auto max-w-3xl px-6">
+        <p class="mb-3 text-[11px] font-semibold uppercase tracking-[0.32em] text-[#83996e]">お問い合わせ</p>
+        <h1 class="mb-6 text-4xl leading-tight text-[#203126] sm:text-5xl">お問い合わせを受け付けました</h1>
+        <p class="text-base leading-8 text-[#56645a] sm:text-lg">
+          ご連絡ありがとうございます。内容を確認し、必要に応じて折り返しご連絡します。
+        </p>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a href="/" class="inline-flex items-center justify-center rounded-full bg-[#83996e] px-6 py-3 text-sm font-medium text-white shadow-[0_14px_30px_rgba(76,106,82,0.18)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#70825d]">
+            ホームへ戻る
+          </a>
+          <a href="/welcome" class="inline-flex items-center justify-center rounded-full border border-[#cfdbc6] bg-white px-6 py-3 text-sm font-medium text-[#70825d] transition-colors hover:bg-[#f4f8ef]">
+            初めての方へ
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

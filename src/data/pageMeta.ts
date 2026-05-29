@@ -43,6 +43,12 @@ export const pageMeta: Record<PageKey, PageMeta> = {
       "毎週日曜日の礼拝と子どもクラスの時間、礼拝で行うこと、初めて参加される方への案内です。",
     path: "/worship",
   },
+  giving: {
+    title: "献金について | 世田谷グレースチャーチ",
+    description:
+      "世田谷グレースチャーチの働きを支える献金について、礼拝での献金、銀行振込、オンライン献金の方法を案内します。",
+    path: "/giving",
+  },
   christianity: {
     title: "キリスト教について | 世田谷グレースチャーチ",
     description:

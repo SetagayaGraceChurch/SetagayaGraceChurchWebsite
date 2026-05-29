@@ -1,11 +1,12 @@
 ---
 import { WebsitePage } from "../app/App";
+import entranceOgImage from "../assets/welcome-arrival-church-entrance.jpeg";
 import { pageMeta } from "../data/pageMeta";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 const meta = pageMeta.home;
 ---
 
-<BaseLayout title={meta.title} description={meta.description} path={meta.path}>
+<BaseLayout title={meta.title} description={meta.description} path={meta.path} image={entranceOgImage.src}>
   <WebsitePage client:load page="home" currentPath={meta.path} />
 </BaseLayout>

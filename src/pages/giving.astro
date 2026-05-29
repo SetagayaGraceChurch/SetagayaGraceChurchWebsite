@@ -1,0 +1,11 @@
+---
+import { WebsitePage } from "../app/App";
+import { pageMeta } from "../data/pageMeta";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const meta = pageMeta.giving;
+---
+
+<BaseLayout title={meta.title} description={meta.description} path={meta.path}>
+  <WebsitePage client:load page="giving" currentPath={meta.path} />
+</BaseLayout>
