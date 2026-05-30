@@ -58,7 +58,7 @@ export const pageMeta: Record<PageKey, PageMeta> = {
   community: {
     title: "集まり | 世田谷グレースチャーチ",
     description:
-      "礼拝以外の小さな集まり、聖書を学ぶ時間、交わりの機会について紹介します。",
+      "コミュニティグループ、子どもたちの集まり、礼拝後の交わり、地域への働きについて紹介します。",
     path: "/community",
   },
   events: {

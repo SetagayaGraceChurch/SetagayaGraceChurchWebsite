@@ -2,6 +2,11 @@ import { type FormEvent, useEffect, useState } from "react";
 import { ImageWithFallback } from "./components/figma/ImageWithFallback";
 import { InternalLink, SiteLayout } from "./components/SiteChrome";
 import communityImgAsset from "../assets/749b7b591ff5db08477c679e6e5b9e0592ae764d.png";
+import communityChildrenFamilyImg from "../assets/community-children-family.jpg";
+import communityChoirImg from "../assets/community-choir.jpg";
+import communityFellowshipAfterWorshipImg from "../assets/community-fellowship-after-worship.jpg";
+import communityGroupImg from "../assets/community-group.jpg";
+import communityNotoServiceImg from "../assets/community-noto-service.jpg";
 import communitySectionImg from "../assets/CG.jpeg";
 import eventCampImg from "../assets/event-camp.jpg";
 import eventCampRetreat2026Img from "../assets/event-camp-retreat-2026-05.jpg";
@@ -12,7 +17,7 @@ import eventMensBbqImg from "../assets/event-mens-bbq.png";
 import pastorImg from "../assets/pastor-photo.jpeg";
 import welcomeArrivalImg from "../assets/welcome-arrival-church-entrance.jpeg";
 import welcomeReceptionImg from "../assets/welcome-reception.jpeg";
-import welcomeWorshipImg from "../assets/welcome-worship-service.jpeg";
+import welcomeWorshipCurrentImg from "../assets/welcome-worship-service-current.jpg";
 import eventsData from "../data/generated/events.json";
 import sermonsData from "../data/generated/sermons.json";
 import staffData from "../data/generated/staff.json";
@@ -20,7 +25,6 @@ import staffData from "../data/generated/staff.json";
 const heroImg = communityImgAsset;
 const communityImg = communitySectionImg;
 const sermons = sermonsData;
-const homeSermons = sermons.slice(0, 3);
 const events = eventsData;
 const todayIso = new Date().toLocaleDateString("en-CA", { timeZone: "Asia/Tokyo" });
 const ongoingEventItems = events.filter((event) => event.eventType === "ongoing");
@@ -136,7 +140,7 @@ function getEventImage(event: { imageKey?: string; imageUrl?: string }) {
 const welcomePlaceholderImages = {
   arrival: welcomeArrivalImg,
   entrance: welcomeReceptionImg,
-  worship: welcomeWorshipImg,
+  worship: welcomeWorshipCurrentImg,
 } as const;
 
 const newLifeBookletCards = [
@@ -418,21 +422,21 @@ export function HomePage() {
         <div className="relative z-10 mx-auto grid w-full max-w-7xl gap-10 px-6 py-20 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
           <div className="max-w-2xl">
             <h1 className="mb-6 max-w-xl text-4xl leading-tight text-white sm:text-5xl lg:text-6xl">
-              世田谷にある
+              世田谷の小さな
               <br />
               キリスト教会です
             </h1>
             <p className="mb-8 max-w-2xl text-base leading-8 text-white/82 sm:text-lg">
-              世田谷グレースチャーチの目標は神様を愛し、
+              初めての方も歓迎しています。
               <br className="hidden sm:block" />
-              世田谷を愛することです。
+              日曜日は子どもクラス14:00、礼拝15:00からです。
             </p>
             <div className="flex flex-wrap gap-3">
               <InternalLink href="/welcome" className={primaryButtonClass}>
                 初めての方へ
               </InternalLink>
-              <InternalLink href="/worship" className={secondaryButtonClass}>
-                礼拝のご案内
+              <InternalLink href="/access" className={secondaryButtonClass}>
+                アクセス
               </InternalLink>
             </div>
           </div>
@@ -467,27 +471,30 @@ export function HomePage() {
         </div>
       </section>
 
-      <section className="bg-[#f1f5ec] py-8">
+      <section className="bg-[#f1f5ec] py-10">
         <div className="mx-auto max-w-7xl px-6">
-          <div className="flex flex-col gap-5 rounded-[30px] border border-[#dce7d4] bg-white px-6 py-6 shadow-[0_18px_45px_rgba(83,110,76,0.08)] md:flex-row md:items-center md:justify-between md:px-8">
-            <div className="max-w-3xl">
-              <h2 className="text-2xl leading-tight text-[#203126] sm:text-3xl">初めての方へ</h2>
-              <p className="mt-3 text-sm leading-7 text-[#56645a] sm:text-base">
-                初めて教会に来られる方も歓迎しています。見学だけでも大丈夫です。服装や持ち物に決まりはありません。
-                礼拝の流れ、子どもクラス、アクセス方法、お問い合わせ先をこちらにまとめています。
-              </p>
-            </div>
-            <div className="flex flex-wrap gap-3">
-              <InternalLink href="/welcome" className={primaryButtonClass}>
-                初めての方へ
-              </InternalLink>
-              <InternalLink
-                href="/access"
-                className="inline-flex items-center justify-center rounded-full border border-[#cfdbc6] bg-[#f7faf3] px-6 py-3 text-sm font-medium text-[#70825d] transition-colors hover:bg-[#edf4e5]"
-              >
-                アクセスと礼拝の流れ
-              </InternalLink>
-            </div>
+          <div className="grid gap-5 md:grid-cols-3">
+            {[
+              ["見学だけでも大丈夫です", "礼拝の途中で無理に発言をお願いすることはありません。まずは雰囲気を見ていただけます。"],
+              ["普段着でお越しください", "特別な服装や持ち物は必要ありません。聖書をお持ちでなくても大丈夫です。"],
+              ["お子さま連れも歓迎します", "日曜日14:00から子どもクラスがあります。ご家族で安心してお越しください。"],
+            ].map(([title, text]) => (
+              <div key={title} className="rounded-[28px] border border-[#dce7d4] bg-white p-6 shadow-[0_18px_45px_rgba(83,110,76,0.08)]">
+                <h2 className="text-xl leading-tight text-[#203126]">{title}</h2>
+                <p className="mt-3 text-sm leading-7 text-[#56645a]">{text}</p>
+              </div>
+            ))}
+          </div>
+          <div className="mt-8 flex flex-wrap justify-center gap-3">
+            <InternalLink href="/welcome" className={primaryButtonClass}>
+              初めての方へ
+            </InternalLink>
+            <InternalLink
+              href="/worship"
+              className="inline-flex items-center justify-center rounded-full border border-[#cfdbc6] bg-white px-6 py-3 text-sm font-medium text-[#70825d] transition-colors hover:bg-[#edf4e5]"
+            >
+              礼拝のご案内
+            </InternalLink>
           </div>
         </div>
       </section>
@@ -595,8 +602,7 @@ export function HomePage() {
             </div>
             <div className="rounded-[30px] border border-[#dfe7d6] bg-white p-8 shadow-[0_16px_35px_rgba(91,120,84,0.06)]">
               <p className="text-sm leading-7 text-[#56645a] sm:text-base">
-                まだよく知らない方も大丈夫です。基本的なことから、やさしく学べる
-                専用ページを用意しています。
+                キリスト教が初めての方にもわかりやすいように、基本的な内容から順番に紹介しています。
               </p>
               <div className="mt-6">
                 <InternalLink href="/welcome" className={textLinkClass}>
@@ -615,22 +621,24 @@ export function HomePage() {
             <div>
               <h2 className={sectionTitleClass}>教会の日常</h2>
               <p className="max-w-2xl text-sm leading-7 text-[#56645a] sm:text-base">
-                礼拝、交わり、学びの時間を通して、教会の雰囲気が伝わる写真をまとめています。
+                どんな場所なのかが少しでも伝わるように、実際の礼拝や集まりの写真を紹介します。
               </p>
             </div>
           </div>
-          <div className="grid gap-5 md:grid-cols-[1.15fr_0.85fr]">
-            <div className="overflow-hidden rounded-[32px] border border-[#eef2e7] shadow-[0_24px_70px_rgba(60,88,65,0.12)]">
-              <ImageWithFallback src={heroImg} alt="礼拝の様子" className="h-full min-h-[360px] w-full object-cover" />
-            </div>
-            <div className="grid h-full grid-rows-2 gap-5">
-              <div className="overflow-hidden rounded-[28px] border border-[#eef2e7] shadow-[0_18px_45px_rgba(60,88,65,0.1)]">
-                <ImageWithFallback src={communityImg} alt="交わりの時間" className="block h-full w-full object-cover" />
+          <div className="grid gap-5 md:grid-cols-3">
+            {[
+              ["日曜日の礼拝", "聖書のことばを聞き、賛美し、祈る時間です。", welcomeWorshipCurrentImg, "日曜日の礼拝の様子"],
+              ["子どもたちも一緒に", "子どもクラスや家族での参加を大切にしています。", communityChildrenFamilyImg, "子どもたちの集まり"],
+              ["少人数での交わり", "近況を分かち合い、祈り合う時間もあります。", communityGroupImg, "コミュニティグループの集まり"],
+            ].map(([title, text, src, alt]) => (
+              <div key={title} className="overflow-hidden rounded-[30px] border border-[#eef2e7] bg-white shadow-[0_20px_50px_rgba(60,88,65,0.1)]">
+                <ImageWithFallback src={src as string} alt={alt as string} className="aspect-[4/3] w-full object-cover" />
+                <div className="p-5">
+                  <p className="text-lg text-[#203126]">{title}</p>
+                  <p className="mt-2 text-sm leading-6 text-[#56645a]">{text}</p>
+                </div>
               </div>
-              <div className="overflow-hidden rounded-[28px] border border-[#eef2e7] shadow-[0_18px_45px_rgba(60,88,65,0.1)]">
-                <ImageWithFallback src={pastorImg} alt="牧師との会話" className="block h-full w-full object-cover object-center" />
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
@@ -670,36 +678,6 @@ export function HomePage() {
           </div>
         </div>
       </section>
-      <WaveDivider color="#ffffff" flip />
-
-      <section className="bg-white py-24">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="mb-12 text-center">
-            <h2 className={sectionTitleClass}>メッセージ</h2>
-            <p className="mt-3 text-sm leading-7 text-[#56645a]">毎週の聖書メッセージをオンラインで聞くことができます。</p>
-          </div>
-          <div className="mx-auto max-w-3xl space-y-4">
-            {homeSermons.map((sermon) => (
-              <div key={sermon.id} className="group flex cursor-pointer items-center gap-5 rounded-[26px] border border-[#e8eee1] bg-[linear-gradient(180deg,#ffffff_0%,#f7f9f4_100%)] p-5 shadow-[0_18px_40px_rgba(89,114,80,0.06)] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#dce6d3] hover:shadow-[0_22px_45px_rgba(89,114,80,0.1)]">
-                <button className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-[#83996e] shadow-[0_10px_20px_rgba(76,106,82,0.18)] transition-colors group-hover:bg-[#70825d]">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-                </button>
-                <div className="min-w-0 flex-1">
-                  <p className="truncate text-lg text-[#203126]">{sermon.title}</p>
-                  <p className="mt-1 text-xs uppercase tracking-[0.16em] text-[#8a968d]">{sermon.dateLabel} · {sermon.speaker}</p>
-                </div>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" strokeWidth="2" strokeLinecap="round"><path d="M9 18l6-6-6-6"/></svg>
-              </div>
-            ))}
-          </div>
-          <div className="mt-8 text-center">
-            <InternalLink href="/sermons" className="text-sm font-medium text-[#70825d] hover:underline">
-              すべての説教を見る →
-            </InternalLink>
-          </div>
-        </div>
-      </section>
-
       <section className="bg-[linear-gradient(135deg,#83996e_0%,#70825d_100%)] py-24 text-center text-white">
         <div className="mx-auto max-w-3xl px-6">
           <h2 className="mb-4 text-3xl leading-tight text-white sm:text-4xl">どなたでも歓迎します</h2>
@@ -742,9 +720,8 @@ export function WelcomePage() {
           <div>
             <h1 className="mb-6 max-w-2xl text-4xl leading-tight text-[#203126] sm:text-5xl">初めての方へ</h1>
             <p className="max-w-2xl text-base leading-8 text-[#56645a] sm:text-lg">
-              初めて教会に来られる方のために、安心して一歩を踏み出せるよう
-              必要な情報をひとつにまとめました。わからないことがあれば、
-              見学だけでもお気軽にお越しください。
+              初めて教会に来られる方が安心して過ごせるように、礼拝の流れや服装、
+              子どもクラス、アクセスをまとめました。見学だけでも大丈夫です。
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <InternalLink href="/worship" className={primaryButtonClass}>
@@ -803,7 +780,7 @@ export function WelcomePage() {
             {[
               ["どんな服装で行けばよいですか？", "普段着で大丈夫です。特別な服装や持ち物は必要ありません。"],
               ["クリスチャンでなくても行けますか？", "はい。まだ信じていない方、教会に慣れていない方も歓迎しています。"],
-              ["子ども連れでも大丈夫ですか？", "はい。14:00から子どもクラスがあります。"],
+              ["子ども連れでも大丈夫ですか？", "はい。14:00から子どもクラスがあります。ご家族でお越しください。"],
               ["どんな言語が使われますか？", "主に日本語です。必要に応じてご案内もできます。"],
               ["どんな人が来ていますか？", "地域の方、ご家族、学生、社会人など幅広い方が集まっています。"],
               ["礼拝の後はどうなりますか？", "お茶を飲みながら気軽に話せる交わりの時間があります。すぐに帰ることもできます。"],
@@ -820,9 +797,9 @@ export function WelcomePage() {
       <section className="bg-white py-24">
         <div className="mx-auto max-w-7xl px-6">
           <div className="mb-10">
-            <h2 className={sectionTitleClass}>当日のイメージ</h2>
+            <h2 className={sectionTitleClass}>当日の様子</h2>
             <p className="max-w-2xl text-sm leading-7 text-[#56645a] sm:text-base">
-              実際の到着から交わりまでをイメージしやすいように、写真を並べています。
+              到着してから礼拝後の交わりまで、初めての方にも雰囲気が伝わる写真を並べています。
             </p>
           </div>
           <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
@@ -941,7 +918,7 @@ export function AboutPage() {
             <h2 className={sectionTitleClass}>牧師からのご挨拶</h2>
             <div className="space-y-5 text-sm leading-7 text-[#56645a] sm:text-base">
               <p>
-                世田谷グレイスチャーチへようこそ！私はジョー・コンドンです。初めて日本に来たのは、１９９９年、早稲田大学の交換留学生だった時でした。東京に着いたらすぐに、日本人の優しさと都市の美しさに驚きを覚えました。東京は本当に素晴らしい場所で、多くの恵みとチャレンジに満ちていると思います。
+                世田谷グレースチャーチへようこそ！私はジョー・コンドンです。初めて日本に来たのは、１９９９年、早稲田大学の交換留学生だった時でした。東京に着いたらすぐに、日本人の優しさと都市の美しさに驚きを覚えました。東京は本当に素晴らしい場所で、多くの恵みとチャレンジに満ちていると思います。
               </p>
               <p>
                 ２０１５年、ついに家族で東京に引っ越すことができました。月島地区に２年間住み、その後、三重に2年間引っ越しました。しかし、私たちの長期的な目標は、常に東京で教会を開拓することでした。やっと２０２０年に松原に移り、友人の大畑瑠花さんと一緒に世田谷グレースチャーチを始めました。世田谷は都心に近く、とてもフレンドリーで下町な雰囲気があるため、すぐに大好きになりました。２０２２年に岩崎光男さんファミリーがスタッフになって、２０２３年にもう一人の宣教師・牧師であるジェイソン・シェーファー牧師もチームに入りました。
@@ -953,10 +930,10 @@ export function AboutPage() {
                 簡単に言うと、私たちの目的は、神様を愛し、世田谷を愛することです。
               </p>
               <p>
-                言い換えると、世田谷グレースは、世田谷の人々が神の栄光をあらわし、永遠に神を喜ぶコミュニティを広めていくために存在しています。人生で一度も教会に行ったことがない人も、赤ちゃんの頃からクリスチャンとして育ってきた人も、世田谷グレースで安らぎ、希望、成長、そして本物のコミュニティを見つけることができたらと思います。学生の方も、独身の方も、お母さんの方も、お父さんの方も、私たちと一緒に聖書を探求し、みんなの質問に答えてもらうために、気軽に飛び込むことができる機会を用意しています。当サイトのイベントに目を通し、何かお役に立てることがあれば、遠慮なくメールやお電話をください。
+                言い換えると、世田谷グレースは、世田谷の人々が神の栄光をあらわし、永遠に神を喜ぶコミュニティを広めていくために存在しています。人生で一度も教会に行ったことがない人も、赤ちゃんの頃からクリスチャンとして育ってきた人も、世田谷グレースで安らぎ、希望、成長、そして本物のコミュニティを見つけることができたらと思います。学生の方も、独身の方も、お母さんの方も、お父さんの方も、私たちと一緒に聖書を探求し、みんなの質問に答えてもらうために、気軽に飛び込むことができる機会を用意しています。このサイトのイベントをご覧いただき、何かお役に立てることがあれば、遠慮なくメールやお電話をください。
               </p>
               <p>
-                礼拝、イベント、聖書の学び会において、常にカジュアルでアットホームな雰囲気を感じることができます。どのようなイベントでも、誰でもいつでも歓迎します。どの背景があっても、あなたにお会いできるのを楽しみにしています。是非、世田谷グレースに来てみてみませんか。
+                礼拝、イベント、聖書の学び会では、カジュアルでアットホームな雰囲気を感じていただけると思います。どのような背景の方でも歓迎しています。あなたにお会いできるのを楽しみにしています。ぜひ、世田谷グレースに来てみませんか。
               </p>
             </div>
           </div>
@@ -1005,7 +982,7 @@ export function AboutPage() {
 
       <section className="bg-[#f7f7f3] py-24">
         <div className="mx-auto max-w-7xl px-6">
-          <div className="grid gap-8 md:grid-cols-2">
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             <div className="rounded-[30px] border border-[#edf1e7] bg-[linear-gradient(180deg,#ffffff_0%,#f5f8ef_100%)] p-8 shadow-[0_20px_40px_rgba(91,120,84,0.06)]">
               <h2 className={sectionTitleClass}>私たちが信じていること</h2>
               <p className="text-sm leading-7 text-[#56645a] sm:text-base">
@@ -1082,7 +1059,7 @@ export function WorshipPage() {
           <h1 className="mb-6 max-w-3xl text-4xl leading-tight text-[#203126] sm:text-5xl">礼拝</h1>
           <p className="max-w-3xl text-base leading-8 text-[#56645a] sm:text-lg">
             日曜日の礼拝では、神様を賛美し、聖書のことばに耳を傾け、祈る時間を持ちます。
-            初めての方も見学しながら参加できます。
+            初めての方も、見学するような気持ちで参加できます。
           </p>
         </div>
       </section>
@@ -1110,21 +1087,20 @@ export function WorshipPage() {
           <div>
             <h2 className={sectionTitleClass}>礼拝の流れ</h2>
             <div className="space-y-4 text-sm leading-7 text-[#56645a] sm:text-base">
-              <p>1. 賛美: みんなで歌を歌い、神様への感謝を表します。</p>
-              <p>2. 聖書朗読と説教: 聖書のことばが今の生活にどう関わるのかを、わかりやすく聞きます。</p>
-              <p>3. お祈り: 神様に思いを向け、感謝や願いを祈ります。</p>
+              <p>1. 賛美：みんなで歌を歌い、神様への感謝を表します。</p>
+              <p>2. 聖書朗読と説教：聖書のことばが今の生活にどう関わるのかを、わかりやすく聞きます。</p>
+              <p>3. お祈り：神様に思いを向け、感謝や願いを祈ります。</p>
             </div>
           </div>
           <div className="overflow-hidden rounded-[32px] border border-white/70 shadow-[0_24px_70px_rgba(60,88,65,0.14)]">
-            <ImageWithFallback src={heroImg} alt="礼拝の様子" className="h-full min-h-[360px] w-full object-cover" />
+            <ImageWithFallback src={welcomeWorshipCurrentImg} alt="礼拝の様子" className="h-full min-h-[360px] w-full object-cover" />
           </div>
         </div>
       </section>
 
       <section className="bg-[#f7f7f3] py-24">
         <div className="mx-auto max-w-7xl px-6">
-          <div className="grid gap-8 md:grid-cols-3">
-            <div className="rounded-[32px] border border-[#e4eadf] bg-white p-8 shadow-[0_18px_45px_rgba(83,110,76,0.08)] md:col-span-2">
+          <div className="max-w-4xl rounded-[32px] border border-[#e4eadf] bg-white p-8 shadow-[0_18px_45px_rgba(83,110,76,0.08)]">
               <h2 className={sectionTitleClass}>音楽とメッセージ</h2>
               <p className="max-w-3xl text-sm leading-7 text-[#56645a] sm:text-base">
                 礼拝では、親しみやすい賛美と聖書に基づいたメッセージが中心です。
@@ -1133,19 +1109,6 @@ export function WorshipPage() {
               <p className="mt-4 max-w-3xl text-sm leading-7 text-[#56645a] sm:text-base">
                 説教では、聖書のことばが日常の悩みや希望にどのように関わるのかを丁寧に取り上げます。
               </p>
-            </div>
-            <div className="rounded-[32px] border border-[#e4eadf] bg-white p-8 shadow-[0_18px_45px_rgba(83,110,76,0.08)]">
-              <h2 className="mb-4 text-2xl text-[#203126]">オンライン配信</h2>
-              <p className="text-sm leading-7 text-[#56645a]">
-                ライブ配信を行う場合は、ここから視聴リンクや案内を掲載できます。
-                現時点では「今後追加予定」の場所として想定しています。
-              </p>
-              <div className="mt-6">
-                <InternalLink href="/welcome" className={primaryButtonClass}>
-                  初めての方へ
-                </InternalLink>
-              </div>
-            </div>
           </div>
         </div>
       </section>
@@ -1174,7 +1137,7 @@ export function WorshipPage() {
 }
 
 export function GivingPage() {
-  const givingUrl = "https://square.link/u/NoFJdgKw";
+  const givingUrl = "https://square.link/u/P02zqmZZ";
 
   return (
     <>
@@ -1199,13 +1162,8 @@ export function GivingPage() {
           <div>
             <h2 className={sectionTitleClass}>献金の用いられ方</h2>
             <p className="text-sm leading-7 text-[#56645a] sm:text-base">
-              全ての献金は、ここ世田谷でイエスの働きを続けるために使われます。
+              すべての献金は、ここ世田谷でイエスの働きを続けるために使われます。
             </p>
-            <div className="mt-8">
-              <a href={givingUrl} target="_blank" rel="noreferrer" className={primaryButtonClass}>
-                オンラインで献金する
-              </a>
-            </div>
           </div>
         </div>
       </section>
@@ -1217,15 +1175,15 @@ export function GivingPage() {
           </div>
           <div className="grid gap-8 md:grid-cols-3">
             <div className="rounded-[30px] border border-[#dfe7d6] bg-white p-8 shadow-[0_20px_40px_rgba(91,120,84,0.06)]">
-              <p className={eyebrowClass}>1</p>
+              <p className="mb-4 text-5xl leading-none text-[#83996e]">1</p>
               <h3 className="text-2xl text-[#203126]">礼拝の時に現金で</h3>
               <p className="mt-4 text-sm leading-7 text-[#56645a]">
                 礼拝の中で献金の時間があります。ご希望の方は、その時に現金で献金できます。
               </p>
             </div>
             <div className="rounded-[30px] border border-[#dfe7d6] bg-white p-8 shadow-[0_20px_40px_rgba(91,120,84,0.06)]">
-              <p className={eyebrowClass}>2</p>
-              <h3 className="text-2xl text-[#203126]">銀行の振り込みで</h3>
+              <p className="mb-4 text-5xl leading-none text-[#83996e]">2</p>
+              <h3 className="text-2xl text-[#203126]">銀行振込で</h3>
               <dl className="mt-4 space-y-3 text-sm leading-7 text-[#56645a]">
                 <div>
                   <dt className="font-medium text-[#203126]">銀行名</dt>
@@ -1246,8 +1204,8 @@ export function GivingPage() {
               </dl>
             </div>
             <div className="rounded-[30px] border border-[#dfe7d6] bg-white p-8 shadow-[0_20px_40px_rgba(91,120,84,0.06)]">
-              <p className={eyebrowClass}>3</p>
-              <h3 className="text-2xl text-[#203126]">オンライン、クレジットカードで</h3>
+              <p className="mb-4 text-5xl leading-none text-[#83996e]">3</p>
+              <h3 className="text-2xl text-[#203126]">オンライン（クレジットカード）で</h3>
               <p className="mt-4 text-sm leading-7 text-[#56645a]">
                 Squareのページからオンラインで献金できます。
               </p>
@@ -1271,8 +1229,8 @@ export function ChristianityPage() {
         <div className="mx-auto max-w-7xl px-6">
           <h1 className="mb-6 max-w-3xl text-4xl leading-tight text-[#203126] sm:text-5xl">キリスト教について</h1>
           <p className="max-w-3xl text-base leading-8 text-[#56645a] sm:text-lg">
-            「ニューライフ」冊子の流れに沿って、キリスト教のメッセージを17枚のカードでたどれるようにしました。
-            初めての方にも、問いかけから希望まで順番に読める構成です。
+            「ニューライフ」冊子の流れに沿って、キリスト教の中心的なメッセージを17枚のカードにまとめました。
+            初めての方も、人生の問いから希望まで順番に読み進められます。
           </p>
         </div>
       </section>
@@ -1329,7 +1287,7 @@ export function ChristianityPage() {
             <div className="rounded-[30px] border border-[#edf1e7] bg-[linear-gradient(180deg,#ffffff_0%,#f5f8ef_100%)] p-8 shadow-[0_20px_40px_rgba(91,120,84,0.06)]">
               <h2 className={sectionTitleClass}>さらに知りたい方へ</h2>
               <p className="text-sm leading-7 text-[#56645a] sm:text-base">
-                この17枚の内容について誰かと話したい方は、礼拝や初めての方向けページからぜひご連絡ください。
+                この内容について誰かと話したい方は、礼拝にお越しいただくか、お問い合わせからご連絡ください。
                 実際に会って質問したり、聖書を一緒に読むこともできます。
               </p>
               <div className="mt-6 flex flex-wrap gap-3">
@@ -1382,7 +1340,7 @@ export function AccessPage() {
             <div className="mt-6 space-y-3 text-sm leading-7 text-[#56645a] sm:text-base">
               <p>最寄り駅からの道順や入口がわかりにくい場合は、事前にお気軽にご連絡ください。</p>
               <p>初めての方が安心して来られるよう、できるだけわかりやすくご案内します。</p>
-              <p>駅からの道順、入口写真、当日の到着イメージを加えることで、さらに不安を減らせます。</p>
+              <p>建物の入口には、世田谷グレースチャーチの案内看板があります。</p>
             </div>
           </div>
           <div className="overflow-hidden rounded-[32px] border border-white/70 bg-white p-3 shadow-[0_20px_60px_rgba(79,107,73,0.12)]">
@@ -1404,18 +1362,18 @@ export function AccessPage() {
             <div className="rounded-[30px] border border-[#edf1e7] bg-white p-8 shadow-[0_20px_40px_rgba(91,120,84,0.06)]">
               <h2 className={sectionTitleClass}>建物の雰囲気</h2>
               <p className="text-sm leading-7 text-[#56645a] sm:text-base">
-                入口や建物の雰囲気がわかる写真を今後ここに追加できます。
-                初めての方にとって「どんな場所に行くのか」が見えることは、とても大きな安心につながります。
+                礼拝は日本宣教会 代田教会の建物で行っています。
+                初めての方は、入口の案内看板を目印にお越しください。
               </p>
               <div className="mt-6 grid gap-4 sm:grid-cols-2">
-                <ImageWithFallback src={pastorImg} alt="建物入口イメージ" className="h-40 w-full rounded-[22px] object-cover object-top" />
-                <ImageWithFallback src={heroImg} alt="到着時イメージ" className="h-40 w-full rounded-[22px] object-cover" />
+                <ImageWithFallback src={welcomePlaceholderImages.arrival} alt="教会の建物入口" className="h-40 w-full rounded-[22px] object-cover" />
+                <ImageWithFallback src={welcomePlaceholderImages.entrance} alt="入口付近の案内看板" className="h-40 w-full rounded-[22px] object-cover" />
               </div>
             </div>
             <div id="contact" className="scroll-mt-24 rounded-[30px] border border-[#edf1e7] bg-white p-8 shadow-[0_20px_40px_rgba(91,120,84,0.06)]">
               <h2 className={sectionTitleClass}>お問い合わせ</h2>
               <p className="text-sm leading-7 text-[#56645a] sm:text-base">
-                初めて来る前に確認したいことがあれば、こちらからお気軽にご連絡ください。
+                初めて来られる前に確認したいことがあれば、お気軽にご連絡ください。
               </p>
               <ContactForm />
               <div className="mt-6 flex flex-wrap gap-3">
@@ -1432,33 +1390,88 @@ export function AccessPage() {
 }
 
 export function CommunityPage() {
+  const communityItems = [
+    {
+      title: "コミュニティグループ",
+      text: "少人数で集まり、近況を分かち合い、聖書を読み、お祈りする時間です。日曜日の礼拝だけでは話しきれないことも、ゆっくり分かち合えます。",
+      image: communityGroupImg,
+      alt: "コミュニティグループの集まり",
+    },
+    {
+      title: "子ども・家族",
+      text: "お子さま連れのご家族も歓迎しています。日曜日には子どもクラスがあり、家族で安心して参加できるように心がけています。",
+      image: communityChildrenFamilyImg,
+      alt: "子ども向けの集まり",
+    },
+    {
+      title: "礼拝後の交わり",
+      text: "礼拝の後には、お茶を飲みながら自然に話せる時間があります。初めての方も、無理なく雰囲気を知ることができます。",
+      image: communityFellowshipAfterWorshipImg,
+      alt: "礼拝後の交わり",
+    },
+    {
+      title: "音楽の集まり",
+      text: "ときには、コーラスや音楽を通して一緒に時間を過ごすこともあります。歌うことを通して、年齢や背景を越えて自然につながる機会になります。",
+      image: communityChoirImg,
+      alt: "コーラスの集まり",
+    },
+  ];
+
   return (
     <>
       <section className="bg-[linear-gradient(135deg,#eef4e8_0%,#f8f6f0_100%)] py-20">
         <div className="mx-auto max-w-7xl px-6">
           <h1 className="mb-6 max-w-3xl text-4xl leading-tight text-[#203126] sm:text-5xl">集まり</h1>
           <p className="max-w-3xl text-base leading-8 text-[#56645a] sm:text-lg">
-            礼拝以外にも、学び、祈り、交わりを通してつながるいろいろな集まりがあります。
+            教会の生活は、日曜日の礼拝だけでは終わりません。
+            少人数で話す時間、子どもたちのための集まり、音楽や交わりの時間を通して、少しずつ人とつながることができます。
+            初めての方も、気になる集まりがあればお気軽にお問い合わせください。
           </p>
         </div>
       </section>
 
       <section className="bg-white py-24">
         <div className="mx-auto max-w-7xl px-6">
-          <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
-            {[
-              ["コミュニティグループ", "少人数で近況を分かち合い、聖書を読み、お祈りする集まりです。"],
-              ["聖書研究会", "キリスト教を基礎から学びたい方にも開かれた学びの時間です。"],
-              ["祈祷会", "教会や地域のために祈る時間を持ちます。"],
-              ["ユース・学生", "若い世代が安心して参加できる交わりや学びの場を想定しています。"],
-              ["子ども・家族", "お子さま連れのご家族も歓迎し、安心して過ごせる場を整えています。"],
-              ["交わりの時間", "礼拝後や特別な日に、お茶を飲みながら自然に話せる時間があります。"],
-            ].map(([title, text]) => (
-              <div key={title} className="rounded-[30px] border border-[#edf1e7] bg-[linear-gradient(180deg,#ffffff_0%,#f5f8ef_100%)] p-8 shadow-[0_20px_40px_rgba(91,120,84,0.06)]">
-                <h2 className="mb-4 text-2xl leading-tight text-[#203126]">{title}</h2>
-                <p className="text-sm leading-7 text-[#56645a]">{text}</p>
+          <div className="grid gap-8 md:grid-cols-2">
+            {communityItems.map((item) => (
+              <div key={item.title} className="overflow-hidden rounded-[30px] border border-[#edf1e7] bg-[linear-gradient(180deg,#ffffff_0%,#f5f8ef_100%)] shadow-[0_20px_40px_rgba(91,120,84,0.06)]">
+                {item.image ? (
+                  <ImageWithFallback src={item.image} alt={item.alt || item.title} className="aspect-[16/10] w-full object-cover" />
+                ) : null}
+                <div className="p-8">
+                  <h2 className="mb-4 text-2xl leading-tight text-[#203126]">{item.title}</h2>
+                  <p className="text-sm leading-7 text-[#56645a]">{item.text}</p>
+                </div>
               </div>
             ))}
+          </div>
+          <div className="mt-10 grid overflow-hidden rounded-[34px] border border-[#dfe7d6] bg-[#f7f9f4] shadow-[0_24px_60px_rgba(91,120,84,0.08)] lg:grid-cols-[1.05fr_0.95fr]">
+            <ImageWithFallback src={communityNotoServiceImg} alt="能登半島での支援活動" className="h-full min-h-[320px] w-full object-cover" />
+            <div className="p-8 lg:p-10">
+              <p className={eyebrowClass}>地域への働き</p>
+              <h2 className={sectionTitleClass}>助けを必要としている場所へ</h2>
+              <div className="space-y-4 text-sm leading-7 text-[#56645a] sm:text-base">
+                <p>
+                  世田谷での歩みを大切にしながら、助けを必要としている場所に出かけて仕えることもあります。
+                  能登半島での支援活動のように、教会の外にある具体的な必要にも心を向けています。
+                </p>
+                <p>
+                  私たちにできることは小さくても、祈り、時間、手を動かす奉仕を通して、
+                  隣人を愛することを学んでいます。
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="mt-10 rounded-[30px] border border-[#dfe7d6] bg-[#f7f9f4] p-8 text-center">
+            <h2 className="text-2xl leading-tight text-[#203126]">参加について知りたい方へ</h2>
+            <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-[#56645a]">
+              日程や場所は集まりによって異なります。気になる集まりがあれば、お問い合わせからお気軽にご連絡ください。
+            </p>
+            <div className="mt-6">
+              <InternalLink href="/access#contact" className={primaryButtonClass}>
+                お問い合わせ
+              </InternalLink>
+            </div>
           </div>
         </div>
       </section>
@@ -1493,7 +1506,7 @@ export function EventsPage() {
         <div className="mx-auto max-w-7xl px-6">
           <h1 className="mb-6 max-w-3xl text-4xl leading-tight text-[#203126] sm:text-5xl">イベント</h1>
           <p className="max-w-3xl text-base leading-8 text-[#56645a] sm:text-lg">
-            今後のイベントや季節の集まりをまとめています。初めての方が参加しやすい案内にも使えます。
+            これからのイベントや季節の集まりをまとめています。初めての方も参加しやすい機会があります。
           </p>
         </div>
       </section>
@@ -1509,7 +1522,7 @@ export function EventsPage() {
               <div className="grid gap-8 md:grid-cols-3">{upcomingEventItems.map(eventCard)}</div>
             ) : (
               <p className="rounded-[24px] border border-[#dfe7d6] bg-[#f7f9f4] p-6 text-sm leading-7 text-[#56645a]">
-                現在、掲載中の今後のイベントはありません。
+                現在、掲載中のこれからのイベントはありません。
               </p>
             )}
           </div>
@@ -1679,8 +1692,8 @@ export function BeliefsPage() {
           <div className="rounded-[30px] border border-[#edf1e7] bg-[linear-gradient(180deg,#ffffff_0%,#f7f9f4_100%)] p-8 shadow-[0_20px_40px_rgba(91,120,84,0.06)]">
             <h2 className={sectionTitleClass}>私たちが信じていること</h2>
             <p className="text-sm leading-7 text-[#56645a] sm:text-base">
-              しかし、長老派はいったい何を信じているのでしょうか！というのは、とてもいい質問です。
-              名前からしてわかりにくいかもしれませんが、長老派であるということは、以下の基本的な信条に従うということです：
+              「長老派とは何を信じている教会ですか？」と思われる方もいるかもしれません。
+              名前からはわかりにくいかもしれませんが、長老派であるということは、次の基本的な信条を大切にするということです。
             </p>
             <div className="mt-8 space-y-4">
               {beliefPoints.map((point, index) => (
@@ -1898,24 +1911,6 @@ export function SermonsPage() {
         </div>
       </section>
 
-      <section className="bg-[#eff4e8] py-24">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="grid gap-8 md:grid-cols-2">
-            <div className="rounded-[30px] border border-[#edf1e7] bg-white p-8 shadow-[0_20px_40px_rgba(91,120,84,0.06)]">
-              <h2 className={sectionTitleClass}>アーカイブについて</h2>
-              <p className="text-sm leading-7 text-[#56645a] sm:text-base">
-                説教は新しいものから順に掲載しています。今後はシリーズや年ごとの整理、検索なども追加しやすい形にしていきます。
-              </p>
-            </div>
-            <div className="rounded-[30px] border border-[#edf1e7] bg-white p-8 shadow-[0_20px_40px_rgba(91,120,84,0.06)]">
-              <h2 className={sectionTitleClass}>音声・動画の扱い</h2>
-              <p className="text-sm leading-7 text-[#56645a] sm:text-base">
-                今後はMP3音声があるものは音声プレイヤーで、過去のYouTubeアーカイブはリンクで聞けるようにしていく想定です。
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
     </>
   );
 }

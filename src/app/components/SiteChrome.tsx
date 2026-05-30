@@ -99,10 +99,10 @@ export function SiteFooter() {
           <p>日本宣教会 代田教会</p>
           <p>東京都世田谷区羽根木1丁目19-2</p>
           <p className="mt-1">毎週日曜日 15:00〜</p>
+          <p className="mt-5 text-xs text-[#98a897]">© 2026 世田谷グレースチャーチ</p>
         </div>
-        <div>
-          <p className="text-xs">© 2026 世田谷グレースチャーチ</p>
-          <a href="/access#contact" className="mt-1 inline-flex text-xs font-medium text-[#dce8d4] underline-offset-4 transition-colors hover:text-white hover:underline">
+        <div className="flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:justify-end">
+          <a href="/access#contact" className="inline-flex text-xs font-medium text-[#dce8d4] underline-offset-4 transition-colors hover:text-white hover:underline">
             お問い合わせ
           </a>
           <a
@@ -110,7 +110,7 @@ export function SiteFooter() {
             target="_blank"
             rel="noreferrer"
             aria-label="世田谷グレースチャーチのInstagram"
-            className="mt-3 inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/20 text-white transition-colors hover:border-white/40 hover:bg-white/10"
+            className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/20 text-white transition-colors hover:border-white/40 hover:bg-white/10"
           >
             <Instagram aria-hidden="true" className="h-4 w-4" strokeWidth={2.2} />
           </a>
