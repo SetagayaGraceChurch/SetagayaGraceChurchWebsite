@@ -16,7 +16,7 @@ import eventLadiesPaintSnackImg from "../assets/event-ladies-paint-snack-2026-06
 import eventMensBbqImg from "../assets/event-mens-bbq.png";
 import pastorImg from "../assets/pastor-photo.jpeg";
 import welcomeArrivalImg from "../assets/welcome-arrival-church-entrance.jpeg";
-import welcomeReceptionImg from "../assets/welcome-reception.jpeg";
+import welcomeBuildingEntranceImg from "../assets/welcome-building-entrance.jpg";
 import welcomeWorshipCurrentImg from "../assets/welcome-worship-service-current.jpg";
 import eventsData from "../data/generated/events.json";
 import sermonsData from "../data/generated/sermons.json";
@@ -139,7 +139,7 @@ function getEventImage(event: { imageKey?: string; imageUrl?: string }) {
 
 const welcomePlaceholderImages = {
   arrival: welcomeArrivalImg,
-  entrance: welcomeReceptionImg,
+  entrance: welcomeBuildingEntranceImg,
   worship: welcomeWorshipCurrentImg,
 } as const;
 
