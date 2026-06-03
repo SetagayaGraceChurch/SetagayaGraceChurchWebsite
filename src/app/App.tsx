@@ -1,6 +1,7 @@
 import { type FormEvent, useEffect, useState } from "react";
 import { ImageWithFallback } from "./components/figma/ImageWithFallback";
 import { InternalLink, SiteLayout } from "./components/SiteChrome";
+import christianityBibleStudyImg from "../assets/christianity-bible-study.jpg";
 import communityImgAsset from "../assets/749b7b591ff5db08477c679e6e5b9e0592ae764d.png";
 import communityChildrenFamilyImg from "../assets/community-children-family.jpg";
 import communityChoirImg from "../assets/community-choir.jpg";
@@ -288,9 +289,42 @@ const newLifeBookletCards = [
     page: 17,
     title: "さらに知りたい方へ",
     body: [
-      "聖書やキリスト教についてもっと知りたい方は、こちらをご覧ください。",
-      "教会のページや案内から、さらに学びを進めることができます。",
+      "聖書やキリスト教についてもっと知りたい方は、下の案内からお問い合わせください。",
+      "実際に礼拝に来て質問したり、聖書を一緒に読むこともできます。",
     ],
+  },
+] as const;
+
+const newLifeBookletChapters = [
+  {
+    title: "人生の問い",
+    description: "まず、私たちの人生にある不安や渇きから考え始めます。",
+    start: 1,
+    end: 1,
+  },
+  {
+    title: "神と人間",
+    description: "聖書が語る神、人間、そして神が望まれる人生を見ていきます。",
+    start: 2,
+    end: 4,
+  },
+  {
+    title: "神との関係が壊れるとき",
+    description: "人が神から離れるとき、心や人間関係にどのような痛みが生まれるのかをたどります。",
+    start: 5,
+    end: 7,
+  },
+  {
+    title: "イエス・キリスト",
+    description: "神が備えてくださった救い、十字架、復活、新しい命について読みます。",
+    start: 8,
+    end: 12,
+  },
+  {
+    title: "新しい命と応答",
+    description: "神と共に生きる道を選び、新しい人生を歩み始めることを考えます。",
+    start: 13,
+    end: 17,
   },
 ] as const;
 
@@ -940,6 +974,36 @@ export function AboutPage() {
         </div>
       </section>
 
+      <section className="bg-[#f7f7f3] py-24">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="max-w-4xl">
+            <h2 className={sectionTitleClass}>牧師とリーダーシップ</h2>
+            <p className="text-sm leading-7 text-[#56645a] sm:text-base">
+              ジョー・コンドン牧師は、米国テキサス州出身です。セントルイスのワシントン大学で絵画と東アジア研究を学び、
+              早稲田大学でも留学を経験しました。2014年にカベナント神学校を卒業し、アメリカ長老教会の按手を受けています。
+            </p>
+            <p className="mt-4 text-sm leading-7 text-[#56645a] sm:text-base">
+              2015年に家族で東京へ移り、2020年から世田谷グレースの開拓を始めました。
+              教会ではジョー牧師を中心にスタッフとメンバーが協力しながら、礼拝、学び、地域への働きを整えています。
+            </p>
+            <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {aboutStaffPreview.map((member) => (
+                <InternalLink key={member.email || member.name} href="/staff" className="group block rounded-[24px] border border-[#edf1e7] bg-[#f7f9f4] p-4 transition-all duration-300 hover:-translate-y-0.5 hover:border-[#d8e4cf] hover:bg-white">
+                  <ImageWithFallback src={member.imageUrl || pastorImg} alt={member.name} className="aspect-square w-full rounded-[20px] object-cover object-top" />
+                  <p className="mt-4 text-base text-[#203126]">{member.name}</p>
+                  {member.role ? <p className="mt-1 text-xs text-[#70825d]">{member.role}</p> : null}
+                </InternalLink>
+              ))}
+            </div>
+            <div className="mt-6 flex flex-wrap gap-3">
+              <InternalLink href="/staff" className="inline-flex items-center justify-center rounded-full border border-[#cbd8c2] bg-white px-6 py-3 text-sm font-medium text-[#70825d] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#b7c8aa] hover:bg-[#f5f8ef]">
+                スタッフ紹介
+              </InternalLink>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="bg-[#eff4e8] py-24">
         <div className="mx-auto max-w-7xl px-6">
           <div className="mx-auto max-w-4xl text-center">
@@ -1012,41 +1076,29 @@ export function AboutPage() {
         </div>
       </section>
 
-      <section className="bg-white py-24">
+      <section className="bg-white py-20">
         <div className="mx-auto max-w-7xl px-6">
-          <div className="max-w-4xl">
-            <h2 className={sectionTitleClass}>牧師とリーダーシップ</h2>
-            <p className="text-sm leading-7 text-[#56645a] sm:text-base">
-              ジョー・コンドン牧師は、米国テキサス州出身です。セントルイスのワシントン大学で絵画と東アジア研究を学び、
-              早稲田大学でも留学を経験しました。2014年にカベナント神学校を卒業し、アメリカ長老教会の按手を受けています。
+          <div className="rounded-[32px] border border-[#edf1e7] bg-[linear-gradient(180deg,#ffffff_0%,#f5f8ef_100%)] p-8 text-center shadow-[0_20px_40px_rgba(91,120,84,0.06)]">
+            <h2 className="text-2xl leading-tight text-[#203126] sm:text-3xl">初めての方も歓迎しています</h2>
+            <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-[#56645a] sm:text-base">
+              礼拝や教会について知りたいことがあれば、お気軽にご連絡ください。
+              見学だけでも大丈夫です。
             </p>
-            <p className="mt-4 text-sm leading-7 text-[#56645a] sm:text-base">
-              2015年に家族で東京へ移り、2020年から世田谷グレースの開拓を始めました。
-              教会ではジョー牧師を中心にスタッフとメンバーが協力しながら、礼拝、学び、地域への働きを整えています。
-            </p>
-            <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {aboutStaffPreview.map((member) => (
-                <InternalLink key={member.email || member.name} href="/staff" className="group block rounded-[24px] border border-[#edf1e7] bg-[#f7f9f4] p-4 transition-all duration-300 hover:-translate-y-0.5 hover:border-[#d8e4cf] hover:bg-white">
-                  <ImageWithFallback src={member.imageUrl || pastorImg} alt={member.name} className="aspect-square w-full rounded-[20px] object-cover object-top" />
-                  <p className="mt-4 text-base text-[#203126]">{member.name}</p>
-                  {member.role ? <p className="mt-1 text-xs text-[#70825d]">{member.role}</p> : null}
-                </InternalLink>
-              ))}
-            </div>
-            <div className="mt-6 flex flex-wrap gap-3">
+            <div className="mt-6 flex flex-wrap justify-center gap-3">
               <InternalLink href="/welcome" className={primaryButtonClass}>
                 初めての方へ
               </InternalLink>
-              <InternalLink href="/staff" className="inline-flex items-center justify-center rounded-full border border-[#cbd8c2] bg-white px-6 py-3 text-sm font-medium text-[#70825d] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#b7c8aa] hover:bg-[#f5f8ef]">
-                スタッフ紹介
+              <InternalLink href="/worship" className="inline-flex items-center justify-center rounded-full border border-[#cbd8c2] bg-white px-6 py-3 text-sm font-medium text-[#70825d] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#b7c8aa] hover:bg-[#f5f8ef]">
+                礼拝のご案内
               </InternalLink>
-              <InternalLink href="/beliefs" className="inline-flex items-center justify-center rounded-full border border-[#cbd8c2] bg-white px-6 py-3 text-sm font-medium text-[#70825d] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#b7c8aa] hover:bg-[#f5f8ef]">
-                信仰告白
+              <InternalLink href="/access#contact" className="inline-flex items-center justify-center rounded-full border border-[#cbd8c2] bg-white px-6 py-3 text-sm font-medium text-[#70825d] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#b7c8aa] hover:bg-[#f5f8ef]">
+                お問い合わせ
               </InternalLink>
             </div>
           </div>
         </div>
       </section>
+
     </>
   );
 }
@@ -1236,68 +1288,65 @@ export function ChristianityPage() {
       </section>
 
       <section className="bg-white py-24">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
-            {newLifeBookletCards.map((card) => (
-              <div key={card.page} className="rounded-[30px] border border-[#edf1e7] bg-[linear-gradient(180deg,#ffffff_0%,#f5f8ef_100%)] p-8 shadow-[0_20px_40px_rgba(91,120,84,0.06)]">
-                <h2 className="mb-4 text-2xl leading-tight text-[#203126]">{card.title}</h2>
-                <div className="space-y-3 text-sm leading-7 text-[#56645a]">
-                  {card.body.map((paragraph, index) => (
-                    <p key={`${card.page}-${index}`}>{paragraph}</p>
+        <div className="mx-auto max-w-7xl space-y-16 px-6">
+          <div className="max-w-3xl">
+            <p className={eyebrowClass}>読み方</p>
+            <h2 className={sectionTitleClass}>1から順番に読み進める流れです</h2>
+            <p className="text-sm leading-7 text-[#56645a] sm:text-base">
+              章ごとの見出しを目印にしながら、カード番号の順に読んでください。
+              キリスト教の中心的なメッセージを、人生の問いから応答までたどれるようにしています。
+            </p>
+          </div>
+          {newLifeBookletChapters.map((chapter) => {
+            const chapterCards = newLifeBookletCards.filter((card) => card.page >= chapter.start && card.page <= chapter.end);
+
+            return (
+              <div key={chapter.title}>
+                <div className="mb-8 border-t border-[#e5ecdd] pt-8">
+                  <p className={eyebrowClass}>
+                    {String(chapter.start).padStart(2, "0")} - {String(chapter.end).padStart(2, "0")}
+                  </p>
+                  <h2 className={sectionTitleClass}>{chapter.title}</h2>
+                  <p className="max-w-3xl text-sm leading-7 text-[#56645a] sm:text-base">{chapter.description}</p>
+                </div>
+                <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
+                  {chapterCards.map((card) => (
+                    <div key={card.page} className="rounded-[30px] border border-[#edf1e7] bg-[linear-gradient(180deg,#ffffff_0%,#f5f8ef_100%)] p-8 shadow-[0_20px_40px_rgba(91,120,84,0.06)]">
+                      <p className="mb-5 text-5xl leading-none text-[#83996e]">{String(card.page).padStart(2, "0")}</p>
+                      <h3 className="mb-4 text-2xl leading-tight text-[#203126]">{card.title}</h3>
+                      <div className="space-y-3 text-sm leading-7 text-[#56645a]">
+                        {card.body.map((paragraph, index) => (
+                          <p key={`${card.page}-${index}`}>{paragraph}</p>
+                        ))}
+                      </div>
+                    </div>
                   ))}
                 </div>
               </div>
-            ))}
-          </div>
+            );
+          })}
         </div>
       </section>
 
       <section className="bg-[#eff4e8] py-24">
         <div className="mx-auto grid max-w-7xl gap-10 px-6 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
           <div className="overflow-hidden rounded-[32px] border border-white/70 shadow-[0_24px_70px_rgba(60,88,65,0.14)]">
-            <ImageWithFallback src={communityImg} alt="聖書を学ぶ様子" className="h-full min-h-[360px] w-full object-cover" />
+            <ImageWithFallback src={christianityBibleStudyImg} alt="開かれた聖書" className="h-full min-h-[360px] w-full object-cover" />
           </div>
           <div>
-            <h2 className={sectionTitleClass}>この流れで伝えたいこと</h2>
+            <h2 className={sectionTitleClass}>読んだあとに</h2>
             <div className="space-y-5 text-sm leading-7 text-[#56645a] sm:text-base">
-              <p>この冊子は、人生の問いから始まり、神、人間、罪、十字架、復活、そして応答へと進む構成です。</p>
-              <p>押しつけるのではなく、「なぜそうなのか」を順番に考えられるように整理されています。</p>
-              <p>まず気になったカードから読んでも大丈夫ですし、最初から17枚を通して読むこともできます。</p>
+              <p>ここまで読んで、気になったことやわからないことがあれば、ぜひそのまま質問してください。</p>
+              <p>教会では、聖書を一緒に読みながら、キリスト教についてゆっくり話すことができます。</p>
+              <p>まだ信じる準備ができていなくても、知りたい気持ちがあれば歓迎しています。</p>
             </div>
-            <div className="mt-6">
-              <InternalLink href="/welcome" className={primaryButtonClass}>
+            <div className="mt-6 flex flex-wrap gap-3">
+              <InternalLink href="/access#contact" className={primaryButtonClass}>
+                お問い合わせ
+              </InternalLink>
+              <InternalLink href="/welcome" className="inline-flex items-center justify-center rounded-full border border-[#cbd8c2] bg-white px-6 py-3 text-sm font-medium text-[#70825d] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#b7c8aa] hover:bg-[#f5f8ef]">
                 初めての方へ
               </InternalLink>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-white py-24">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="grid gap-8 md:grid-cols-2">
-            <div className="rounded-[30px] border border-[#edf1e7] bg-[linear-gradient(180deg,#ffffff_0%,#f5f8ef_100%)] p-8 shadow-[0_20px_40px_rgba(91,120,84,0.06)]">
-              <h2 className={sectionTitleClass}>読んだあとにできること</h2>
-              <div className="space-y-4 text-sm leading-7 text-[#56645a]">
-                <p>気になったカードをひとつ選んで、そこから質問してみてください。</p>
-                <p>聖書を持っていなくても大丈夫です。教会で一緒に読むことができます。</p>
-                <p>まだ信じる準備ができていなくても、知りたい気持ちがあれば歓迎しています。</p>
-              </div>
-            </div>
-            <div className="rounded-[30px] border border-[#edf1e7] bg-[linear-gradient(180deg,#ffffff_0%,#f5f8ef_100%)] p-8 shadow-[0_20px_40px_rgba(91,120,84,0.06)]">
-              <h2 className={sectionTitleClass}>さらに知りたい方へ</h2>
-              <p className="text-sm leading-7 text-[#56645a] sm:text-base">
-                この内容について誰かと話したい方は、礼拝にお越しいただくか、お問い合わせからご連絡ください。
-                実際に会って質問したり、聖書を一緒に読むこともできます。
-              </p>
-              <div className="mt-6 flex flex-wrap gap-3">
-                <InternalLink href="/welcome" className={primaryButtonClass}>
-                  初めての方へ
-                </InternalLink>
-                <InternalLink href="/access#contact" className="inline-flex items-center justify-center rounded-full border border-[#cfdbc6] bg-[#f7faf3] px-6 py-3 text-sm font-medium text-[#70825d] transition-colors hover:bg-[#edf4e5]">
-                  お問い合わせ
-                </InternalLink>
-              </div>
             </div>
           </div>
         </div>
