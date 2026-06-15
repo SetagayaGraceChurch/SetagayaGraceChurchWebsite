@@ -30,6 +30,18 @@ The sermons archive, events page, and staff page can optionally be refreshed fro
 
 If `SERMONS_JSON_URL`, `EVENTS_JSON_URL`, or `STAFF_JSON_URL` is not set, that fetch step is skipped and the existing generated JSON stays in place.
 
+### Future Sermon Audio Hosting Note
+
+If sermon MP3 files are ever hosted on Cloudflare R2, every HTML audio element must use `preload="none"`:
+
+```html
+<audio controls preload="none">
+  <source src="https://your-r2-url.com/path/to-sermon.mp3" type="audio/mpeg">
+</audio>
+```
+
+Without `preload="none"`, browsers may automatically request the first few seconds of every visible audio file when loading the home page or sermon archive. On R2, that can burn through Cloudflare Class B operations before anyone presses play.
+
 The shared endpoint should return:
 
 ```json

@@ -1,0 +1,1175 @@
+{
+  "capturedAt": "2026-06-04T04:00:45.283Z",
+  "startUrl": "https://setagayagrace.jp/",
+  "outputRoot": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04",
+  "pages": 1,
+  "assets": 165,
+  "failures": 0,
+  "pageRecords": [
+    {
+      "url": "https://setagayagrace.jp/",
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "bytes": 364094,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/setagayagrace.jp/index/index.html"
+    }
+  ],
+  "assetRecords": [
+    {
+      "url": "https://assets.squarespace.com/@sqs/polyfiller/1.6/legacy.js",
+      "status": 200,
+      "contentType": "text/javascript",
+      "bytes": 42387,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/assets.squarespace.com/@sqs/polyfiller/1.6/legacy.js"
+    },
+    {
+      "url": "https://assets.squarespace.com/@sqs/polyfiller/1.6/modern.js",
+      "status": 200,
+      "contentType": "text/javascript",
+      "bytes": 117609,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/assets.squarespace.com/@sqs/polyfiller/1.6/modern.js"
+    },
+    {
+      "url": "https://assets.squarespace.com/universal/scripts-compressed/visitor-site-error-reporter-fdfb276a20173335-min.en-US.js",
+      "status": 200,
+      "contentType": "text/javascript",
+      "bytes": 3680,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/assets.squarespace.com/universal/scripts-compressed/visitor-site-error-reporter-fdfb276a20173335-min.en-US.js"
+    },
+    {
+      "url": "https://assets.squarespace.com/universal/scripts-compressed/extract-css-runtime-92f0943cf5f7841f-min.en-US.js",
+      "status": 200,
+      "contentType": "text/javascript",
+      "bytes": 48046,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/assets.squarespace.com/universal/scripts-compressed/extract-css-runtime-92f0943cf5f7841f-min.en-US.js"
+    },
+    {
+      "url": "https://assets.squarespace.com/universal/scripts-compressed/extract-css-moment-js-vendor-bdf89e58ccd909c7-min.en-US.js",
+      "status": 200,
+      "contentType": "text/javascript",
+      "bytes": 857799,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/assets.squarespace.com/universal/scripts-compressed/extract-css-moment-js-vendor-bdf89e58ccd909c7-min.en-US.js"
+    },
+    {
+      "url": "https://assets.squarespace.com/universal/scripts-compressed/cldr-resource-pack-a48347cd349e6bd9-min.en-US.js",
+      "status": 200,
+      "contentType": "text/javascript",
+      "bytes": 91769,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/assets.squarespace.com/universal/scripts-compressed/cldr-resource-pack-a48347cd349e6bd9-min.en-US.js"
+    },
+    {
+      "url": "https://assets.squarespace.com/universal/scripts-compressed/common-vendors-stable-219c33e5378d8300-min.en-US.js",
+      "status": 200,
+      "contentType": "text/javascript",
+      "bytes": 246101,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/assets.squarespace.com/universal/scripts-compressed/common-vendors-stable-219c33e5378d8300-min.en-US.js"
+    },
+    {
+      "url": "https://assets.squarespace.com/universal/scripts-compressed/common-vendors-7b0780802d5edb94-min.en-US.js",
+      "status": 200,
+      "contentType": "text/javascript",
+      "bytes": 711959,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/assets.squarespace.com/universal/scripts-compressed/common-vendors-7b0780802d5edb94-min.en-US.js"
+    },
+    {
+      "url": "https://assets.squarespace.com/universal/scripts-compressed/common-0af43f247c4971a8-min.en-US.js",
+      "status": 200,
+      "contentType": "text/javascript",
+      "bytes": 1114322,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/assets.squarespace.com/universal/scripts-compressed/common-0af43f247c4971a8-min.en-US.js"
+    },
+    {
+      "url": "https://assets.squarespace.com/universal/scripts-compressed/performance-4788ae13cd681e97-min.en-US.js",
+      "status": 200,
+      "contentType": "text/javascript",
+      "bytes": 29173,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/assets.squarespace.com/universal/scripts-compressed/performance-4788ae13cd681e97-min.en-US.js"
+    },
+    {
+      "url": "https://definitions.sqspcdn.com/website-component-definition/static-assets/website.components.imageFluid/5c883ca0-a1d1-47a1-995c-2ab53094cf34_621/image-effect-refracted-lines.js",
+      "status": 200,
+      "contentType": "application/javascript; charset=utf-8",
+      "bytes": 12214,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/definitions.sqspcdn.com/website-component-definition/static-assets/website.components.imageFluid/5c883ca0-a1d1-47a1-995c-2ab53094cf34_621/image-effect-refracted-lines.js"
+    },
+    {
+      "url": "https://definitions.sqspcdn.com/website-component-definition/static-assets/website.components.html/35a9c503-c7e3-4902-983f-914086ed20e4_634/website.components.html.visitor.js",
+      "status": 200,
+      "contentType": "application/javascript; charset=utf-8",
+      "bytes": 11888,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/definitions.sqspcdn.com/website-component-definition/static-assets/website.components.html/35a9c503-c7e3-4902-983f-914086ed20e4_634/website.components.html.visitor.js"
+    },
+    {
+      "url": "https://definitions.sqspcdn.com/website-component-definition/static-assets/website.components.imageFluid/5c883ca0-a1d1-47a1-995c-2ab53094cf34_621/image-effect-film-grain.js",
+      "status": 200,
+      "contentType": "application/javascript; charset=utf-8",
+      "bytes": 8474,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/definitions.sqspcdn.com/website-component-definition/static-assets/website.components.imageFluid/5c883ca0-a1d1-47a1-995c-2ab53094cf34_621/image-effect-film-grain.js"
+    },
+    {
+      "url": "https://definitions.sqspcdn.com/website-component-definition/static-assets/website.components.imageFluid/5c883ca0-a1d1-47a1-995c-2ab53094cf34_621/website.components.imageFluid.shared.constants.js",
+      "status": 200,
+      "contentType": "application/javascript; charset=utf-8",
+      "bytes": 945,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/definitions.sqspcdn.com/website-component-definition/static-assets/website.components.imageFluid/5c883ca0-a1d1-47a1-995c-2ab53094cf34_621/website.components.imageFluid.shared.constants.js"
+    },
+    {
+      "url": "https://definitions.sqspcdn.com/website-component-definition/static-assets/website.components.imageFluid/5c883ca0-a1d1-47a1-995c-2ab53094cf34_621/image-effect-refracted-circles.js",
+      "status": 200,
+      "contentType": "application/javascript; charset=utf-8",
+      "bytes": 3052,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/definitions.sqspcdn.com/website-component-definition/static-assets/website.components.imageFluid/5c883ca0-a1d1-47a1-995c-2ab53094cf34_621/image-effect-refracted-circles.js"
+    },
+    {
+      "url": "https://definitions.sqspcdn.com/website-component-definition/static-assets/website.components.imageFluid/5c883ca0-a1d1-47a1-995c-2ab53094cf34_621/website.components.imageFluid.visitor.js",
+      "status": 200,
+      "contentType": "application/javascript; charset=utf-8",
+      "bytes": 28970,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/definitions.sqspcdn.com/website-component-definition/static-assets/website.components.imageFluid/5c883ca0-a1d1-47a1-995c-2ab53094cf34_621/website.components.imageFluid.visitor.js"
+    },
+    {
+      "url": "https://definitions.sqspcdn.com/website-component-definition/static-assets/website.components.button/bd7166b9-62af-46eb-b3e2-8654b0517bc2_804/website.components.button.visitor.js",
+      "status": 200,
+      "contentType": "application/javascript; charset=utf-8",
+      "bytes": 11969,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/definitions.sqspcdn.com/website-component-definition/static-assets/website.components.button/bd7166b9-62af-46eb-b3e2-8654b0517bc2_804/website.components.button.visitor.js"
+    },
+    {
+      "url": "https://definitions.sqspcdn.com/website-component-definition/static-assets/website.components.imageFluid/5c883ca0-a1d1-47a1-995c-2ab53094cf34_621/8018.js",
+      "status": 200,
+      "contentType": "application/javascript; charset=utf-8",
+      "bytes": 13133,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/definitions.sqspcdn.com/website-component-definition/static-assets/website.components.imageFluid/5c883ca0-a1d1-47a1-995c-2ab53094cf34_621/8018.js"
+    },
+    {
+      "url": "https://definitions.sqspcdn.com/website-component-definition/static-assets/website.components.imageFluid/5c883ca0-a1d1-47a1-995c-2ab53094cf34_621/9882.js",
+      "status": 200,
+      "contentType": "application/javascript; charset=utf-8",
+      "bytes": 10291,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/definitions.sqspcdn.com/website-component-definition/static-assets/website.components.imageFluid/5c883ca0-a1d1-47a1-995c-2ab53094cf34_621/9882.js"
+    },
+    {
+      "url": "https://definitions.sqspcdn.com/website-component-definition/static-assets/website.components.imageFluid/5c883ca0-a1d1-47a1-995c-2ab53094cf34_621/image-effect-parallax.js",
+      "status": 200,
+      "contentType": "application/javascript; charset=utf-8",
+      "bytes": 6266,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/definitions.sqspcdn.com/website-component-definition/static-assets/website.components.imageFluid/5c883ca0-a1d1-47a1-995c-2ab53094cf34_621/image-effect-parallax.js"
+    },
+    {
+      "url": "https://definitions.sqspcdn.com/website-component-definition/static-assets/website.components.imageFluid/5c883ca0-a1d1-47a1-995c-2ab53094cf34_621/748.js",
+      "status": 200,
+      "contentType": "application/javascript; charset=utf-8",
+      "bytes": 87925,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/definitions.sqspcdn.com/website-component-definition/static-assets/website.components.imageFluid/5c883ca0-a1d1-47a1-995c-2ab53094cf34_621/748.js"
+    },
+    {
+      "url": "https://definitions.sqspcdn.com/website-component-definition/static-assets/website.components.imageFluid/5c883ca0-a1d1-47a1-995c-2ab53094cf34_621/image-effect-liquid.js",
+      "status": 200,
+      "contentType": "application/javascript; charset=utf-8",
+      "bytes": 8949,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/definitions.sqspcdn.com/website-component-definition/static-assets/website.components.imageFluid/5c883ca0-a1d1-47a1-995c-2ab53094cf34_621/image-effect-liquid.js"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/641963614d38536818d032af/dcbaa6de-c076-4568-b093-52af8efe6098/gpc_logo_rbg_white_japanese_horizontal.png?format=1500w",
+      "status": 200,
+      "contentType": "image/webp",
+      "bytes": 23050,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/images.squarespace-cdn.com/content/v1/641963614d38536818d032af/dcbaa6de-c076-4568-b093-52af8efe6098/gpc_logo_rbg_white_japanese_horizontal.P2Zvcm1hdD0xNTAwdw.png"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/641963614d38536818d032af/1fcd9a5f-986b-4312-9879-1a9b70c9b401/IMG_0779.JPG",
+      "status": 200,
+      "contentType": "image/webp",
+      "bytes": 309026,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/images.squarespace-cdn.com/content/v1/641963614d38536818d032af/1fcd9a5f-986b-4312-9879-1a9b70c9b401/IMG_0779.JPG"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/641963614d38536818d032af/1b012476-2cca-4a6d-9560-28ed8ccfac15/CG.jpeg",
+      "status": 200,
+      "contentType": "image/webp",
+      "bytes": 124468,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/images.squarespace-cdn.com/content/v1/641963614d38536818d032af/1b012476-2cca-4a6d-9560-28ed8ccfac15/CG.jpeg"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/641963614d38536818d032af/aaeb7e4b-9cfb-4df6-924a-1ad54de4bc90/IMG_4012.jpeg",
+      "status": 200,
+      "contentType": "image/webp",
+      "bytes": 633218,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/images.squarespace-cdn.com/content/v1/641963614d38536818d032af/aaeb7e4b-9cfb-4df6-924a-1ad54de4bc90/IMG_4012.jpeg"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/641963614d38536818d032af/99d2b2f3-27e3-4a54-b2d8-5bd12aa37efa/Kids+gospel+2026+flyer+1.jpg",
+      "status": 200,
+      "contentType": "image/webp",
+      "bytes": 246966,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/images.squarespace-cdn.com/content/v1/641963614d38536818d032af/99d2b2f3-27e3-4a54-b2d8-5bd12aa37efa/Kids+gospel+2026+flyer+1.jpg"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/641963614d38536818d032af/4fc23c93-7a43-4a1b-aab8-ae4fd13f4513/RUF_shield_color-square.png",
+      "status": 200,
+      "contentType": "image/webp",
+      "bytes": 6804,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/images.squarespace-cdn.com/content/v1/641963614d38536818d032af/4fc23c93-7a43-4a1b-aab8-ae4fd13f4513/RUF_shield_color-square.png"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/641963614d38536818d032af/2b95b057-45fd-4311-bdc3-c07459c9a3d0/PCJ+Logo.png",
+      "status": 200,
+      "contentType": "image/webp",
+      "bytes": 19226,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/images.squarespace-cdn.com/content/v1/641963614d38536818d032af/2b95b057-45fd-4311-bdc3-c07459c9a3d0/PCJ+Logo.png"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/641963614d38536818d032af/58125b53-2f1d-4aea-bdd7-7056acfeff9d/CTC%2BJapan%2B_%2BLogo.png",
+      "status": 200,
+      "contentType": "image/webp",
+      "bytes": 16626,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/images.squarespace-cdn.com/content/v1/641963614d38536818d032af/58125b53-2f1d-4aea-bdd7-7056acfeff9d/CTC+Japan+_+Logo.png"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/641963614d38536818d032af/4ed9d04a-51fd-423c-8f27-21eca2b2f03a/MTW+logo.jpg",
+      "status": 200,
+      "contentType": "image/webp",
+      "bytes": 40862,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/images.squarespace-cdn.com/content/v1/641963614d38536818d032af/4ed9d04a-51fd-423c-8f27-21eca2b2f03a/MTW+logo.jpg"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/641963614d38536818d032af/d1b13fd9-cac0-4804-97c7-f9423dae0325/SOMA.png",
+      "status": 200,
+      "contentType": "image/webp",
+      "bytes": 11040,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/images.squarespace-cdn.com/content/v1/641963614d38536818d032af/d1b13fd9-cac0-4804-97c7-f9423dae0325/SOMA.png"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/641963614d38536818d032af/7bd79c83-4914-4e0d-8a1f-b912ffe032aa/PCA+logo.svg.png",
+      "status": 200,
+      "contentType": "image/webp",
+      "bytes": 22010,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/images.squarespace-cdn.com/content/v1/641963614d38536818d032af/7bd79c83-4914-4e0d-8a1f-b912ffe032aa/PCA+logo.svg.png"
+    },
+    {
+      "url": "https://static1.squarespace.com/static/vta/5c5a519771c10ba3470d8101/scripts/site-bundle.88d2b7091a49bff9737491dfa1eb8b33.js",
+      "status": 200,
+      "contentType": "application/javascript; charset=UTF-8",
+      "bytes": 125052,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/static1.squarespace.com/static/vta/5c5a519771c10ba3470d8101/scripts/site-bundle.88d2b7091a49bff9737491dfa1eb8b33.js"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/641963614d38536818d032af/ef37a852-75f2-4322-b21b-39c4cd974e9c/favicon.ico?format=100w",
+      "status": 200,
+      "contentType": "image/webp",
+      "bytes": 1622,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/images.squarespace-cdn.com/content/v1/641963614d38536818d032af/ef37a852-75f2-4322-b21b-39c4cd974e9c/favicon.P2Zvcm1hdD0xMDB3.ico"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/",
+      "status": 200,
+      "contentType": "",
+      "bytes": 8,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/images.squarespace-cdn.com/index.bin"
+    },
+    {
+      "url": "https://fonts.gstatic.com/",
+      "status": 404,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 1561,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/fonts.gstatic.com/index/index.html"
+    },
+    {
+      "url": "https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700",
+      "status": 200,
+      "contentType": "text/css; charset=utf-8",
+      "bytes": 1468,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/fonts.googleapis.com/css2.P2ZhbWlseT1Qb3BwaW5zOml0.bin"
+    },
+    {
+      "url": "https://definitions.sqspcdn.com/website-component-definition/static-assets/website.components.html/35a9c503-c7e3-4902-983f-914086ed20e4_634/website.components.html.styles.css",
+      "status": 200,
+      "contentType": "text/css; charset=utf-8",
+      "bytes": 118,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/definitions.sqspcdn.com/website-component-definition/static-assets/website.components.html/35a9c503-c7e3-4902-983f-914086ed20e4_634/website.components.html.styles.css"
+    },
+    {
+      "url": "https://definitions.sqspcdn.com/website-component-definition/static-assets/website.components.button/bd7166b9-62af-46eb-b3e2-8654b0517bc2_804/website.components.button.styles.css",
+      "status": 200,
+      "contentType": "text/css; charset=utf-8",
+      "bytes": 1341,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/definitions.sqspcdn.com/website-component-definition/static-assets/website.components.button/bd7166b9-62af-46eb-b3e2-8654b0517bc2_804/website.components.button.styles.css"
+    },
+    {
+      "url": "https://definitions.sqspcdn.com/website-component-definition/static-assets/website.components.imageFluid/5c883ca0-a1d1-47a1-995c-2ab53094cf34_621/website.components.imageFluid.styles.css",
+      "status": 200,
+      "contentType": "text/css; charset=utf-8",
+      "bytes": 3034,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/definitions.sqspcdn.com/website-component-definition/static-assets/website.components.imageFluid/5c883ca0-a1d1-47a1-995c-2ab53094cf34_621/website.components.imageFluid.styles.css"
+    },
+    {
+      "url": "https://static1.squarespace.com/static/versioned-site-css/641963614d38536818d032af/38/5c5a519771c10ba3470d8101/641963614d38536818d032c9/1789/site.css?nocustom=true",
+      "status": 200,
+      "contentType": "text/css; charset=UTF-8",
+      "bytes": 1248598,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/static1.squarespace.com/static/versioned-site-css/641963614d38536818d032af/38/5c5a519771c10ba3470d8101/641963614d38536818d032c9/1789/site.P25vY3VzdG9tPXRydWU.css"
+    },
+    {
+      "url": "https://static1.squarespace.com/static/vta/5c5a519771c10ba3470d8101/versioned-assets/1780419127951-K5FIIEY2NNREJWC8JB19/static.css",
+      "status": 200,
+      "contentType": "text/css",
+      "bytes": 467382,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/static1.squarespace.com/static/vta/5c5a519771c10ba3470d8101/versioned-assets/1780419127951-K5FIIEY2NNREJWC8JB19/static.css"
+    },
+    {
+      "url": "http://static1.squarespace.com/static/641963614d38536818d032af/t/695c54a32184227dc432a3ff/1767658659490/og-sns-setagaya-grace-churchv2.jpg?format=1500w",
+      "status": 200,
+      "contentType": "image/webp",
+      "bytes": 8410,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/static1.squarespace.com/static/641963614d38536818d032af/t/695c54a32184227dc432a3ff/1767658659490/og-sns-setagaya-grace-churchv2.P2Zvcm1hdD0xNTAwdw.jpg"
+    },
+    {
+      "url": "https://setagayagrace.jp/1200",
+      "status": 404,
+      "contentType": "text/html;charset=utf-8",
+      "bytes": 144771,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/setagayagrace.jp/1200/index.html"
+    },
+    {
+      "url": "https://setagayagrace.jp/630",
+      "status": 404,
+      "contentType": "text/html;charset=utf-8",
+      "bytes": 144771,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/setagayagrace.jp/630/index.html"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/641963614d38536818d032af/1fcd9a5f-986b-4312-9879-1a9b70c9b401/IMG_0779.JPG?format=100w",
+      "status": 200,
+      "contentType": "image/webp",
+      "bytes": 5196,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/images.squarespace-cdn.com/content/v1/641963614d38536818d032af/1fcd9a5f-986b-4312-9879-1a9b70c9b401/IMG_0779.P2Zvcm1hdD0xMDB3.JPG"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/641963614d38536818d032af/1fcd9a5f-986b-4312-9879-1a9b70c9b401/IMG_0779.JPG?format=300w",
+      "status": 200,
+      "contentType": "image/webp",
+      "bytes": 20464,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/images.squarespace-cdn.com/content/v1/641963614d38536818d032af/1fcd9a5f-986b-4312-9879-1a9b70c9b401/IMG_0779.P2Zvcm1hdD0zMDB3.JPG"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/641963614d38536818d032af/1fcd9a5f-986b-4312-9879-1a9b70c9b401/IMG_0779.JPG?format=500w",
+      "status": 200,
+      "contentType": "image/webp",
+      "bytes": 42208,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/images.squarespace-cdn.com/content/v1/641963614d38536818d032af/1fcd9a5f-986b-4312-9879-1a9b70c9b401/IMG_0779.P2Zvcm1hdD01MDB3.JPG"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/641963614d38536818d032af/1fcd9a5f-986b-4312-9879-1a9b70c9b401/IMG_0779.JPG?format=750w",
+      "status": 200,
+      "contentType": "image/webp",
+      "bytes": 74484,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/images.squarespace-cdn.com/content/v1/641963614d38536818d032af/1fcd9a5f-986b-4312-9879-1a9b70c9b401/IMG_0779.P2Zvcm1hdD03NTB3.JPG"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/641963614d38536818d032af/1fcd9a5f-986b-4312-9879-1a9b70c9b401/IMG_0779.JPG?format=1000w",
+      "status": 200,
+      "contentType": "image/webp",
+      "bytes": 109822,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/images.squarespace-cdn.com/content/v1/641963614d38536818d032af/1fcd9a5f-986b-4312-9879-1a9b70c9b401/IMG_0779.P2Zvcm1hdD0xMDAwdw.JPG"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/641963614d38536818d032af/1fcd9a5f-986b-4312-9879-1a9b70c9b401/IMG_0779.JPG?format=1500w",
+      "status": 200,
+      "contentType": "image/webp",
+      "bytes": 182976,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/images.squarespace-cdn.com/content/v1/641963614d38536818d032af/1fcd9a5f-986b-4312-9879-1a9b70c9b401/IMG_0779.P2Zvcm1hdD0xNTAwdw.JPG"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/641963614d38536818d032af/1fcd9a5f-986b-4312-9879-1a9b70c9b401/IMG_0779.JPG?format=2500w",
+      "status": 200,
+      "contentType": "image/webp",
+      "bytes": 309026,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/images.squarespace-cdn.com/content/v1/641963614d38536818d032af/1fcd9a5f-986b-4312-9879-1a9b70c9b401/IMG_0779.P2Zvcm1hdD0yNTAwdw.JPG"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/641963614d38536818d032af/1b012476-2cca-4a6d-9560-28ed8ccfac15/CG.jpeg?format=100w",
+      "status": 200,
+      "contentType": "image/webp",
+      "bytes": 5170,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/images.squarespace-cdn.com/content/v1/641963614d38536818d032af/1b012476-2cca-4a6d-9560-28ed8ccfac15/CG.P2Zvcm1hdD0xMDB3.jpeg"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/641963614d38536818d032af/1b012476-2cca-4a6d-9560-28ed8ccfac15/CG.jpeg?format=300w",
+      "status": 200,
+      "contentType": "image/webp",
+      "bytes": 27424,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/images.squarespace-cdn.com/content/v1/641963614d38536818d032af/1b012476-2cca-4a6d-9560-28ed8ccfac15/CG.P2Zvcm1hdD0zMDB3.jpeg"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/641963614d38536818d032af/1b012476-2cca-4a6d-9560-28ed8ccfac15/CG.jpeg?format=500w",
+      "status": 200,
+      "contentType": "image/webp",
+      "bytes": 60368,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/images.squarespace-cdn.com/content/v1/641963614d38536818d032af/1b012476-2cca-4a6d-9560-28ed8ccfac15/CG.P2Zvcm1hdD01MDB3.jpeg"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/641963614d38536818d032af/1b012476-2cca-4a6d-9560-28ed8ccfac15/CG.jpeg?format=750w",
+      "status": 200,
+      "contentType": "image/webp",
+      "bytes": 103152,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/images.squarespace-cdn.com/content/v1/641963614d38536818d032af/1b012476-2cca-4a6d-9560-28ed8ccfac15/CG.P2Zvcm1hdD03NTB3.jpeg"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/641963614d38536818d032af/1b012476-2cca-4a6d-9560-28ed8ccfac15/CG.jpeg?format=1000w",
+      "status": 200,
+      "contentType": "image/webp",
+      "bytes": 124468,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/images.squarespace-cdn.com/content/v1/641963614d38536818d032af/1b012476-2cca-4a6d-9560-28ed8ccfac15/CG.P2Zvcm1hdD0xMDAwdw.jpeg"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/641963614d38536818d032af/1b012476-2cca-4a6d-9560-28ed8ccfac15/CG.jpeg?format=1500w",
+      "status": 200,
+      "contentType": "image/webp",
+      "bytes": 124468,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/images.squarespace-cdn.com/content/v1/641963614d38536818d032af/1b012476-2cca-4a6d-9560-28ed8ccfac15/CG.P2Zvcm1hdD0xNTAwdw.jpeg"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/641963614d38536818d032af/1b012476-2cca-4a6d-9560-28ed8ccfac15/CG.jpeg?format=2500w",
+      "status": 200,
+      "contentType": "image/webp",
+      "bytes": 124468,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/images.squarespace-cdn.com/content/v1/641963614d38536818d032af/1b012476-2cca-4a6d-9560-28ed8ccfac15/CG.P2Zvcm1hdD0yNTAwdw.jpeg"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/641963614d38536818d032af/aaeb7e4b-9cfb-4df6-924a-1ad54de4bc90/IMG_4012.jpeg?format=100w",
+      "status": 200,
+      "contentType": "image/webp",
+      "bytes": 7754,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/images.squarespace-cdn.com/content/v1/641963614d38536818d032af/aaeb7e4b-9cfb-4df6-924a-1ad54de4bc90/IMG_4012.P2Zvcm1hdD0xMDB3.jpeg"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/641963614d38536818d032af/aaeb7e4b-9cfb-4df6-924a-1ad54de4bc90/IMG_4012.jpeg?format=300w",
+      "status": 200,
+      "contentType": "image/webp",
+      "bytes": 25206,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/images.squarespace-cdn.com/content/v1/641963614d38536818d032af/aaeb7e4b-9cfb-4df6-924a-1ad54de4bc90/IMG_4012.P2Zvcm1hdD0zMDB3.jpeg"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/641963614d38536818d032af/aaeb7e4b-9cfb-4df6-924a-1ad54de4bc90/IMG_4012.jpeg?format=500w",
+      "status": 200,
+      "contentType": "image/webp",
+      "bytes": 52972,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/images.squarespace-cdn.com/content/v1/641963614d38536818d032af/aaeb7e4b-9cfb-4df6-924a-1ad54de4bc90/IMG_4012.P2Zvcm1hdD01MDB3.jpeg"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/641963614d38536818d032af/aaeb7e4b-9cfb-4df6-924a-1ad54de4bc90/IMG_4012.jpeg?format=750w",
+      "status": 200,
+      "contentType": "image/webp",
+      "bytes": 99484,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/images.squarespace-cdn.com/content/v1/641963614d38536818d032af/aaeb7e4b-9cfb-4df6-924a-1ad54de4bc90/IMG_4012.P2Zvcm1hdD03NTB3.jpeg"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/641963614d38536818d032af/aaeb7e4b-9cfb-4df6-924a-1ad54de4bc90/IMG_4012.jpeg?format=1000w",
+      "status": 200,
+      "contentType": "image/webp",
+      "bytes": 157902,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/images.squarespace-cdn.com/content/v1/641963614d38536818d032af/aaeb7e4b-9cfb-4df6-924a-1ad54de4bc90/IMG_4012.P2Zvcm1hdD0xMDAwdw.jpeg"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/641963614d38536818d032af/aaeb7e4b-9cfb-4df6-924a-1ad54de4bc90/IMG_4012.jpeg?format=1500w",
+      "status": 200,
+      "contentType": "image/webp",
+      "bytes": 306140,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/images.squarespace-cdn.com/content/v1/641963614d38536818d032af/aaeb7e4b-9cfb-4df6-924a-1ad54de4bc90/IMG_4012.P2Zvcm1hdD0xNTAwdw.jpeg"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/641963614d38536818d032af/aaeb7e4b-9cfb-4df6-924a-1ad54de4bc90/IMG_4012.jpeg?format=2500w",
+      "status": 200,
+      "contentType": "image/webp",
+      "bytes": 633218,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/images.squarespace-cdn.com/content/v1/641963614d38536818d032af/aaeb7e4b-9cfb-4df6-924a-1ad54de4bc90/IMG_4012.P2Zvcm1hdD0yNTAwdw.jpeg"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/641963614d38536818d032af/99d2b2f3-27e3-4a54-b2d8-5bd12aa37efa/Kids+gospel+2026+flyer+1.jpg?format=100w",
+      "status": 200,
+      "contentType": "image/webp",
+      "bytes": 6652,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/images.squarespace-cdn.com/content/v1/641963614d38536818d032af/99d2b2f3-27e3-4a54-b2d8-5bd12aa37efa/Kids+gospel+2026+flyer+1.P2Zvcm1hdD0xMDB3.jpg"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/641963614d38536818d032af/99d2b2f3-27e3-4a54-b2d8-5bd12aa37efa/Kids+gospel+2026+flyer+1.jpg?format=300w",
+      "status": 200,
+      "contentType": "image/webp",
+      "bytes": 39106,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/images.squarespace-cdn.com/content/v1/641963614d38536818d032af/99d2b2f3-27e3-4a54-b2d8-5bd12aa37efa/Kids+gospel+2026+flyer+1.P2Zvcm1hdD0zMDB3.jpg"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/641963614d38536818d032af/99d2b2f3-27e3-4a54-b2d8-5bd12aa37efa/Kids+gospel+2026+flyer+1.jpg?format=500w",
+      "status": 200,
+      "contentType": "image/webp",
+      "bytes": 82598,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/images.squarespace-cdn.com/content/v1/641963614d38536818d032af/99d2b2f3-27e3-4a54-b2d8-5bd12aa37efa/Kids+gospel+2026+flyer+1.P2Zvcm1hdD01MDB3.jpg"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/641963614d38536818d032af/99d2b2f3-27e3-4a54-b2d8-5bd12aa37efa/Kids+gospel+2026+flyer+1.jpg?format=750w",
+      "status": 200,
+      "contentType": "image/webp",
+      "bytes": 141084,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/images.squarespace-cdn.com/content/v1/641963614d38536818d032af/99d2b2f3-27e3-4a54-b2d8-5bd12aa37efa/Kids+gospel+2026+flyer+1.P2Zvcm1hdD03NTB3.jpg"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/641963614d38536818d032af/99d2b2f3-27e3-4a54-b2d8-5bd12aa37efa/Kids+gospel+2026+flyer+1.jpg?format=1000w",
+      "status": 200,
+      "contentType": "image/webp",
+      "bytes": 215668,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/images.squarespace-cdn.com/content/v1/641963614d38536818d032af/99d2b2f3-27e3-4a54-b2d8-5bd12aa37efa/Kids+gospel+2026+flyer+1.P2Zvcm1hdD0xMDAwdw.jpg"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/641963614d38536818d032af/99d2b2f3-27e3-4a54-b2d8-5bd12aa37efa/Kids+gospel+2026+flyer+1.jpg?format=1500w",
+      "status": 200,
+      "contentType": "image/webp",
+      "bytes": 246966,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/images.squarespace-cdn.com/content/v1/641963614d38536818d032af/99d2b2f3-27e3-4a54-b2d8-5bd12aa37efa/Kids+gospel+2026+flyer+1.P2Zvcm1hdD0xNTAwdw.jpg"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/641963614d38536818d032af/99d2b2f3-27e3-4a54-b2d8-5bd12aa37efa/Kids+gospel+2026+flyer+1.jpg?format=2500w",
+      "status": 200,
+      "contentType": "image/webp",
+      "bytes": 246966,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/images.squarespace-cdn.com/content/v1/641963614d38536818d032af/99d2b2f3-27e3-4a54-b2d8-5bd12aa37efa/Kids+gospel+2026+flyer+1.P2Zvcm1hdD0yNTAwdw.jpg"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/641963614d38536818d032af/4fc23c93-7a43-4a1b-aab8-ae4fd13f4513/RUF_shield_color-square.png?format=100w",
+      "status": 200,
+      "contentType": "image/webp",
+      "bytes": 4618,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/images.squarespace-cdn.com/content/v1/641963614d38536818d032af/4fc23c93-7a43-4a1b-aab8-ae4fd13f4513/RUF_shield_color-square.P2Zvcm1hdD0xMDB3.png"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/641963614d38536818d032af/4fc23c93-7a43-4a1b-aab8-ae4fd13f4513/RUF_shield_color-square.png?format=300w",
+      "status": 200,
+      "contentType": "image/webp",
+      "bytes": 14212,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/images.squarespace-cdn.com/content/v1/641963614d38536818d032af/4fc23c93-7a43-4a1b-aab8-ae4fd13f4513/RUF_shield_color-square.P2Zvcm1hdD0zMDB3.png"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/641963614d38536818d032af/4fc23c93-7a43-4a1b-aab8-ae4fd13f4513/RUF_shield_color-square.png?format=500w",
+      "status": 200,
+      "contentType": "image/webp",
+      "bytes": 6804,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/images.squarespace-cdn.com/content/v1/641963614d38536818d032af/4fc23c93-7a43-4a1b-aab8-ae4fd13f4513/RUF_shield_color-square.P2Zvcm1hdD01MDB3.png"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/641963614d38536818d032af/4fc23c93-7a43-4a1b-aab8-ae4fd13f4513/RUF_shield_color-square.png?format=750w",
+      "status": 200,
+      "contentType": "image/webp",
+      "bytes": 6804,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/images.squarespace-cdn.com/content/v1/641963614d38536818d032af/4fc23c93-7a43-4a1b-aab8-ae4fd13f4513/RUF_shield_color-square.P2Zvcm1hdD03NTB3.png"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/641963614d38536818d032af/4fc23c93-7a43-4a1b-aab8-ae4fd13f4513/RUF_shield_color-square.png?format=1000w",
+      "status": 200,
+      "contentType": "image/webp",
+      "bytes": 6804,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/images.squarespace-cdn.com/content/v1/641963614d38536818d032af/4fc23c93-7a43-4a1b-aab8-ae4fd13f4513/RUF_shield_color-square.P2Zvcm1hdD0xMDAwdw.png"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/641963614d38536818d032af/4fc23c93-7a43-4a1b-aab8-ae4fd13f4513/RUF_shield_color-square.png?format=1500w",
+      "status": 200,
+      "contentType": "image/webp",
+      "bytes": 6804,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/images.squarespace-cdn.com/content/v1/641963614d38536818d032af/4fc23c93-7a43-4a1b-aab8-ae4fd13f4513/RUF_shield_color-square.P2Zvcm1hdD0xNTAwdw.png"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/641963614d38536818d032af/4fc23c93-7a43-4a1b-aab8-ae4fd13f4513/RUF_shield_color-square.png?format=2500w",
+      "status": 200,
+      "contentType": "image/webp",
+      "bytes": 6804,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/images.squarespace-cdn.com/content/v1/641963614d38536818d032af/4fc23c93-7a43-4a1b-aab8-ae4fd13f4513/RUF_shield_color-square.P2Zvcm1hdD0yNTAwdw.png"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/641963614d38536818d032af/2b95b057-45fd-4311-bdc3-c07459c9a3d0/PCJ+Logo.png?format=100w",
+      "status": 200,
+      "contentType": "image/webp",
+      "bytes": 2978,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/images.squarespace-cdn.com/content/v1/641963614d38536818d032af/2b95b057-45fd-4311-bdc3-c07459c9a3d0/PCJ+Logo.P2Zvcm1hdD0xMDB3.png"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/641963614d38536818d032af/2b95b057-45fd-4311-bdc3-c07459c9a3d0/PCJ+Logo.png?format=300w",
+      "status": 200,
+      "contentType": "image/webp",
+      "bytes": 10190,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/images.squarespace-cdn.com/content/v1/641963614d38536818d032af/2b95b057-45fd-4311-bdc3-c07459c9a3d0/PCJ+Logo.P2Zvcm1hdD0zMDB3.png"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/641963614d38536818d032af/2b95b057-45fd-4311-bdc3-c07459c9a3d0/PCJ+Logo.png?format=500w",
+      "status": 200,
+      "contentType": "image/webp",
+      "bytes": 18084,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/images.squarespace-cdn.com/content/v1/641963614d38536818d032af/2b95b057-45fd-4311-bdc3-c07459c9a3d0/PCJ+Logo.P2Zvcm1hdD01MDB3.png"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/641963614d38536818d032af/2b95b057-45fd-4311-bdc3-c07459c9a3d0/PCJ+Logo.png?format=750w",
+      "status": 200,
+      "contentType": "image/webp",
+      "bytes": 27710,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/images.squarespace-cdn.com/content/v1/641963614d38536818d032af/2b95b057-45fd-4311-bdc3-c07459c9a3d0/PCJ+Logo.P2Zvcm1hdD03NTB3.png"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/641963614d38536818d032af/2b95b057-45fd-4311-bdc3-c07459c9a3d0/PCJ+Logo.png?format=1000w",
+      "status": 200,
+      "contentType": "image/webp",
+      "bytes": 38892,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/images.squarespace-cdn.com/content/v1/641963614d38536818d032af/2b95b057-45fd-4311-bdc3-c07459c9a3d0/PCJ+Logo.P2Zvcm1hdD0xMDAwdw.png"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/641963614d38536818d032af/2b95b057-45fd-4311-bdc3-c07459c9a3d0/PCJ+Logo.png?format=1500w",
+      "status": 200,
+      "contentType": "image/webp",
+      "bytes": 19226,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/images.squarespace-cdn.com/content/v1/641963614d38536818d032af/2b95b057-45fd-4311-bdc3-c07459c9a3d0/PCJ+Logo.P2Zvcm1hdD0xNTAwdw.png"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/641963614d38536818d032af/2b95b057-45fd-4311-bdc3-c07459c9a3d0/PCJ+Logo.png?format=2500w",
+      "status": 200,
+      "contentType": "image/webp",
+      "bytes": 19226,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/images.squarespace-cdn.com/content/v1/641963614d38536818d032af/2b95b057-45fd-4311-bdc3-c07459c9a3d0/PCJ+Logo.P2Zvcm1hdD0yNTAwdw.png"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/641963614d38536818d032af/58125b53-2f1d-4aea-bdd7-7056acfeff9d/CTC%2BJapan%2B_%2BLogo.png?format=100w",
+      "status": 200,
+      "contentType": "image/webp",
+      "bytes": 1958,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/images.squarespace-cdn.com/content/v1/641963614d38536818d032af/58125b53-2f1d-4aea-bdd7-7056acfeff9d/CTC+Japan+_+Logo.P2Zvcm1hdD0xMDB3.png"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/641963614d38536818d032af/58125b53-2f1d-4aea-bdd7-7056acfeff9d/CTC%2BJapan%2B_%2BLogo.png?format=300w",
+      "status": 200,
+      "contentType": "image/webp",
+      "bytes": 4310,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/images.squarespace-cdn.com/content/v1/641963614d38536818d032af/58125b53-2f1d-4aea-bdd7-7056acfeff9d/CTC+Japan+_+Logo.P2Zvcm1hdD0zMDB3.png"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/641963614d38536818d032af/58125b53-2f1d-4aea-bdd7-7056acfeff9d/CTC%2BJapan%2B_%2BLogo.png?format=500w",
+      "status": 200,
+      "contentType": "image/webp",
+      "bytes": 6678,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/images.squarespace-cdn.com/content/v1/641963614d38536818d032af/58125b53-2f1d-4aea-bdd7-7056acfeff9d/CTC+Japan+_+Logo.P2Zvcm1hdD01MDB3.png"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/641963614d38536818d032af/58125b53-2f1d-4aea-bdd7-7056acfeff9d/CTC%2BJapan%2B_%2BLogo.png?format=750w",
+      "status": 200,
+      "contentType": "image/webp",
+      "bytes": 8432,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/images.squarespace-cdn.com/content/v1/641963614d38536818d032af/58125b53-2f1d-4aea-bdd7-7056acfeff9d/CTC+Japan+_+Logo.P2Zvcm1hdD03NTB3.png"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/641963614d38536818d032af/58125b53-2f1d-4aea-bdd7-7056acfeff9d/CTC%2BJapan%2B_%2BLogo.png?format=1000w",
+      "status": 200,
+      "contentType": "image/webp",
+      "bytes": 11250,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/images.squarespace-cdn.com/content/v1/641963614d38536818d032af/58125b53-2f1d-4aea-bdd7-7056acfeff9d/CTC+Japan+_+Logo.P2Zvcm1hdD0xMDAwdw.png"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/641963614d38536818d032af/58125b53-2f1d-4aea-bdd7-7056acfeff9d/CTC%2BJapan%2B_%2BLogo.png?format=1500w",
+      "status": 200,
+      "contentType": "image/webp",
+      "bytes": 16390,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/images.squarespace-cdn.com/content/v1/641963614d38536818d032af/58125b53-2f1d-4aea-bdd7-7056acfeff9d/CTC+Japan+_+Logo.P2Zvcm1hdD0xNTAwdw.png"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/641963614d38536818d032af/58125b53-2f1d-4aea-bdd7-7056acfeff9d/CTC%2BJapan%2B_%2BLogo.png?format=2500w",
+      "status": 200,
+      "contentType": "image/webp",
+      "bytes": 16626,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/images.squarespace-cdn.com/content/v1/641963614d38536818d032af/58125b53-2f1d-4aea-bdd7-7056acfeff9d/CTC+Japan+_+Logo.P2Zvcm1hdD0yNTAwdw.png"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/641963614d38536818d032af/4ed9d04a-51fd-423c-8f27-21eca2b2f03a/MTW+logo.jpg?format=100w",
+      "status": 200,
+      "contentType": "image/webp",
+      "bytes": 35240,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/images.squarespace-cdn.com/content/v1/641963614d38536818d032af/4ed9d04a-51fd-423c-8f27-21eca2b2f03a/MTW+logo.P2Zvcm1hdD0xMDB3.jpg"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/641963614d38536818d032af/4ed9d04a-51fd-423c-8f27-21eca2b2f03a/MTW+logo.jpg?format=300w",
+      "status": 200,
+      "contentType": "image/webp",
+      "bytes": 39456,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/images.squarespace-cdn.com/content/v1/641963614d38536818d032af/4ed9d04a-51fd-423c-8f27-21eca2b2f03a/MTW+logo.P2Zvcm1hdD0zMDB3.jpg"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/641963614d38536818d032af/4ed9d04a-51fd-423c-8f27-21eca2b2f03a/MTW+logo.jpg?format=500w",
+      "status": 200,
+      "contentType": "image/webp",
+      "bytes": 40862,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/images.squarespace-cdn.com/content/v1/641963614d38536818d032af/4ed9d04a-51fd-423c-8f27-21eca2b2f03a/MTW+logo.P2Zvcm1hdD01MDB3.jpg"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/641963614d38536818d032af/4ed9d04a-51fd-423c-8f27-21eca2b2f03a/MTW+logo.jpg?format=750w",
+      "status": 200,
+      "contentType": "image/webp",
+      "bytes": 40862,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/images.squarespace-cdn.com/content/v1/641963614d38536818d032af/4ed9d04a-51fd-423c-8f27-21eca2b2f03a/MTW+logo.P2Zvcm1hdD03NTB3.jpg"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/641963614d38536818d032af/4ed9d04a-51fd-423c-8f27-21eca2b2f03a/MTW+logo.jpg?format=1000w",
+      "status": 200,
+      "contentType": "image/webp",
+      "bytes": 40862,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/images.squarespace-cdn.com/content/v1/641963614d38536818d032af/4ed9d04a-51fd-423c-8f27-21eca2b2f03a/MTW+logo.P2Zvcm1hdD0xMDAwdw.jpg"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/641963614d38536818d032af/4ed9d04a-51fd-423c-8f27-21eca2b2f03a/MTW+logo.jpg?format=1500w",
+      "status": 200,
+      "contentType": "image/webp",
+      "bytes": 40862,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/images.squarespace-cdn.com/content/v1/641963614d38536818d032af/4ed9d04a-51fd-423c-8f27-21eca2b2f03a/MTW+logo.P2Zvcm1hdD0xNTAwdw.jpg"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/641963614d38536818d032af/4ed9d04a-51fd-423c-8f27-21eca2b2f03a/MTW+logo.jpg?format=2500w",
+      "status": 200,
+      "contentType": "image/webp",
+      "bytes": 40862,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/images.squarespace-cdn.com/content/v1/641963614d38536818d032af/4ed9d04a-51fd-423c-8f27-21eca2b2f03a/MTW+logo.P2Zvcm1hdD0yNTAwdw.jpg"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/641963614d38536818d032af/d1b13fd9-cac0-4804-97c7-f9423dae0325/SOMA.png?format=100w",
+      "status": 200,
+      "contentType": "image/webp",
+      "bytes": 3714,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/images.squarespace-cdn.com/content/v1/641963614d38536818d032af/d1b13fd9-cac0-4804-97c7-f9423dae0325/SOMA.P2Zvcm1hdD0xMDB3.png"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/641963614d38536818d032af/d1b13fd9-cac0-4804-97c7-f9423dae0325/SOMA.png?format=300w",
+      "status": 200,
+      "contentType": "image/webp",
+      "bytes": 12612,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/images.squarespace-cdn.com/content/v1/641963614d38536818d032af/d1b13fd9-cac0-4804-97c7-f9423dae0325/SOMA.P2Zvcm1hdD0zMDB3.png"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/641963614d38536818d032af/d1b13fd9-cac0-4804-97c7-f9423dae0325/SOMA.png?format=500w",
+      "status": 200,
+      "contentType": "image/webp",
+      "bytes": 11040,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/images.squarespace-cdn.com/content/v1/641963614d38536818d032af/d1b13fd9-cac0-4804-97c7-f9423dae0325/SOMA.P2Zvcm1hdD01MDB3.png"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/641963614d38536818d032af/d1b13fd9-cac0-4804-97c7-f9423dae0325/SOMA.png?format=750w",
+      "status": 200,
+      "contentType": "image/webp",
+      "bytes": 11040,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/images.squarespace-cdn.com/content/v1/641963614d38536818d032af/d1b13fd9-cac0-4804-97c7-f9423dae0325/SOMA.P2Zvcm1hdD03NTB3.png"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/641963614d38536818d032af/d1b13fd9-cac0-4804-97c7-f9423dae0325/SOMA.png?format=1000w",
+      "status": 200,
+      "contentType": "image/webp",
+      "bytes": 11040,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/images.squarespace-cdn.com/content/v1/641963614d38536818d032af/d1b13fd9-cac0-4804-97c7-f9423dae0325/SOMA.P2Zvcm1hdD0xMDAwdw.png"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/641963614d38536818d032af/d1b13fd9-cac0-4804-97c7-f9423dae0325/SOMA.png?format=1500w",
+      "status": 200,
+      "contentType": "image/webp",
+      "bytes": 11040,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/images.squarespace-cdn.com/content/v1/641963614d38536818d032af/d1b13fd9-cac0-4804-97c7-f9423dae0325/SOMA.P2Zvcm1hdD0xNTAwdw.png"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/641963614d38536818d032af/d1b13fd9-cac0-4804-97c7-f9423dae0325/SOMA.png?format=2500w",
+      "status": 200,
+      "contentType": "image/webp",
+      "bytes": 11040,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/images.squarespace-cdn.com/content/v1/641963614d38536818d032af/d1b13fd9-cac0-4804-97c7-f9423dae0325/SOMA.P2Zvcm1hdD0yNTAwdw.png"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/641963614d38536818d032af/7bd79c83-4914-4e0d-8a1f-b912ffe032aa/PCA+logo.svg.png?format=100w",
+      "status": 200,
+      "contentType": "image/webp",
+      "bytes": 6122,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/images.squarespace-cdn.com/content/v1/641963614d38536818d032af/7bd79c83-4914-4e0d-8a1f-b912ffe032aa/PCA+logo.svg.P2Zvcm1hdD0xMDB3.png"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/641963614d38536818d032af/7bd79c83-4914-4e0d-8a1f-b912ffe032aa/PCA+logo.svg.png?format=300w",
+      "status": 200,
+      "contentType": "image/webp",
+      "bytes": 15512,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/images.squarespace-cdn.com/content/v1/641963614d38536818d032af/7bd79c83-4914-4e0d-8a1f-b912ffe032aa/PCA+logo.svg.P2Zvcm1hdD0zMDB3.png"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/641963614d38536818d032af/7bd79c83-4914-4e0d-8a1f-b912ffe032aa/PCA+logo.svg.png?format=500w",
+      "status": 200,
+      "contentType": "image/webp",
+      "bytes": 29198,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/images.squarespace-cdn.com/content/v1/641963614d38536818d032af/7bd79c83-4914-4e0d-8a1f-b912ffe032aa/PCA+logo.svg.P2Zvcm1hdD01MDB3.png"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/641963614d38536818d032af/7bd79c83-4914-4e0d-8a1f-b912ffe032aa/PCA+logo.svg.png?format=750w",
+      "status": 200,
+      "contentType": "image/webp",
+      "bytes": 40474,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/images.squarespace-cdn.com/content/v1/641963614d38536818d032af/7bd79c83-4914-4e0d-8a1f-b912ffe032aa/PCA+logo.svg.P2Zvcm1hdD03NTB3.png"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/641963614d38536818d032af/7bd79c83-4914-4e0d-8a1f-b912ffe032aa/PCA+logo.svg.png?format=1000w",
+      "status": 200,
+      "contentType": "image/webp",
+      "bytes": 60944,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/images.squarespace-cdn.com/content/v1/641963614d38536818d032af/7bd79c83-4914-4e0d-8a1f-b912ffe032aa/PCA+logo.svg.P2Zvcm1hdD0xMDAwdw.png"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/641963614d38536818d032af/7bd79c83-4914-4e0d-8a1f-b912ffe032aa/PCA+logo.svg.png?format=1500w",
+      "status": 200,
+      "contentType": "image/webp",
+      "bytes": 22010,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/images.squarespace-cdn.com/content/v1/641963614d38536818d032af/7bd79c83-4914-4e0d-8a1f-b912ffe032aa/PCA+logo.svg.P2Zvcm1hdD0xNTAwdw.png"
+    },
+    {
+      "url": "https://images.squarespace-cdn.com/content/v1/641963614d38536818d032af/7bd79c83-4914-4e0d-8a1f-b912ffe032aa/PCA+logo.svg.png?format=2500w",
+      "status": 200,
+      "contentType": "image/webp",
+      "bytes": 22010,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/images.squarespace-cdn.com/content/v1/641963614d38536818d032af/7bd79c83-4914-4e0d-8a1f-b912ffe032aa/PCA+logo.svg.P2Zvcm1hdD0yNTAwdw.png"
+    },
+    {
+      "url": "https://fonts.gstatic.com/s/poppins/v24/pxiDyp8kv8JHgFVrJJLm21llEA.ttf",
+      "status": 200,
+      "contentType": "font/ttf",
+      "bytes": 180524,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/fonts.gstatic.com/s/poppins/v24/pxiDyp8kv8JHgFVrJJLm21llEA.ttf"
+    },
+    {
+      "url": "https://fonts.gstatic.com/s/poppins/v24/pxiGyp8kv8JHgFVrJJLedw.ttf",
+      "status": 200,
+      "contentType": "font/ttf",
+      "bytes": 178112,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/fonts.gstatic.com/s/poppins/v24/pxiGyp8kv8JHgFVrJJLedw.ttf"
+    },
+    {
+      "url": "https://fonts.gstatic.com/s/poppins/v24/pxiDyp8kv8JHgFVrJJLmg1hlEA.ttf",
+      "status": 200,
+      "contentType": "font/ttf",
+      "bytes": 176504,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/fonts.gstatic.com/s/poppins/v24/pxiDyp8kv8JHgFVrJJLmg1hlEA.ttf"
+    },
+    {
+      "url": "https://fonts.gstatic.com/s/poppins/v24/pxiDyp8kv8JHgFVrJJLmy15lEA.ttf",
+      "status": 200,
+      "contentType": "font/ttf",
+      "bytes": 172720,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/fonts.gstatic.com/s/poppins/v24/pxiDyp8kv8JHgFVrJJLmy15lEA.ttf"
+    },
+    {
+      "url": "https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLDz8V1s.ttf",
+      "status": 200,
+      "contentType": "font/ttf",
+      "bytes": 156188,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLDz8V1s.ttf"
+    },
+    {
+      "url": "https://fonts.gstatic.com/s/poppins/v24/pxiEyp8kv8JHgFVrFJA.ttf",
+      "status": 200,
+      "contentType": "font/ttf",
+      "bytes": 154628,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/fonts.gstatic.com/s/poppins/v24/pxiEyp8kv8JHgFVrFJA.ttf"
+    },
+    {
+      "url": "https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLGT9V1s.ttf",
+      "status": 200,
+      "contentType": "font/ttf",
+      "bytes": 152860,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLGT9V1s.ttf"
+    },
+    {
+      "url": "https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLCz7V1s.ttf",
+      "status": 200,
+      "contentType": "font/ttf",
+      "bytes": 150292,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLCz7V1s.ttf"
+    },
+    {
+      "url": "https://assets.squarespace.com/universal/images-v6/damask/error-dark.png",
+      "status": 200,
+      "contentType": "image/png",
+      "bytes": 1262,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/assets.squarespace.com/universal/images-v6/damask/error-dark.png"
+    },
+    {
+      "url": "https://assets.squarespace.com/universal/images-v6/damask/error-dark@2x.png",
+      "status": 200,
+      "contentType": "image/png",
+      "bytes": 1676,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/assets.squarespace.com/universal/images-v6/damask/error-dark@2x.png"
+    },
+    {
+      "url": "https://assets.squarespace.com/universal/images-v6/damask/play-button.png",
+      "status": 200,
+      "contentType": "image/png",
+      "bytes": 1219,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/assets.squarespace.com/universal/images-v6/damask/play-button.png"
+    },
+    {
+      "url": "https://assets.squarespace.com/universal/images-v6/damask/play-button@2x.png",
+      "status": 200,
+      "contentType": "image/png",
+      "bytes": 2909,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/assets.squarespace.com/universal/images-v6/damask/play-button@2x.png"
+    },
+    {
+      "url": "https://assets.squarespace.com/universal/images-v6/damask/edit-aviary-light.png",
+      "status": 200,
+      "contentType": "image/png",
+      "bytes": 2968,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/assets.squarespace.com/universal/images-v6/damask/edit-aviary-light.png"
+    },
+    {
+      "url": "https://assets.squarespace.com/universal/images-v6/damask/edit-aviary-light@2x.png",
+      "status": 200,
+      "contentType": "image/png",
+      "bytes": 3097,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/assets.squarespace.com/universal/images-v6/damask/edit-aviary-light@2x.png"
+    },
+    {
+      "url": "https://assets.squarespace.com/universal/images-v6/damask/edit-info-light.png",
+      "status": 200,
+      "contentType": "image/png",
+      "bytes": 3051,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/assets.squarespace.com/universal/images-v6/damask/edit-info-light.png"
+    },
+    {
+      "url": "https://assets.squarespace.com/universal/images-v6/damask/edit-info-light@2x.png",
+      "status": 200,
+      "contentType": "image/png",
+      "bytes": 3420,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/assets.squarespace.com/universal/images-v6/damask/edit-info-light@2x.png"
+    },
+    {
+      "url": "https://assets.squarespace.com/universal/images-v6/damask/trash-9-light.png",
+      "status": 200,
+      "contentType": "image/png",
+      "bytes": 1042,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/assets.squarespace.com/universal/images-v6/damask/trash-9-light.png"
+    },
+    {
+      "url": "https://assets.squarespace.com/universal/images-v6/damask/trash-9-light@2x.png",
+      "status": 200,
+      "contentType": "image/png",
+      "bytes": 990,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/assets.squarespace.com/universal/images-v6/damask/trash-9-light@2x.png"
+    },
+    {
+      "url": "https://assets.squarespace.com/universal/images-v6/damask/trash-9-red.png",
+      "status": 200,
+      "contentType": "image/png",
+      "bytes": 1057,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/assets.squarespace.com/universal/images-v6/damask/trash-9-red.png"
+    },
+    {
+      "url": "https://assets.squarespace.com/universal/images-v6/damask/trash-9-red@2x.png",
+      "status": 200,
+      "contentType": "image/png",
+      "bytes": 1048,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/assets.squarespace.com/universal/images-v6/damask/trash-9-red@2x.png"
+    },
+    {
+      "url": "https://assets.squarespace.com/universal/images-v6/damask/getty-16-light.png",
+      "status": 200,
+      "contentType": "image/png",
+      "bytes": 3072,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/assets.squarespace.com/universal/images-v6/damask/getty-16-light.png"
+    },
+    {
+      "url": "https://assets.squarespace.com/universal/images-v6/damask/getty-32-light.png",
+      "status": 200,
+      "contentType": "image/png",
+      "bytes": 3374,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/assets.squarespace.com/universal/images-v6/damask/getty-32-light.png"
+    },
+    {
+      "url": "https://assets.squarespace.com/universal/images-v6/damask/shopping-cart-16-light.png",
+      "status": 200,
+      "contentType": "image/png",
+      "bytes": 3010,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/assets.squarespace.com/universal/images-v6/damask/shopping-cart-16-light.png"
+    },
+    {
+      "url": "https://assets.squarespace.com/universal/images-v6/damask/shopping-cart-32-light.png",
+      "status": 200,
+      "contentType": "image/png",
+      "bytes": 3216,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/assets.squarespace.com/universal/images-v6/damask/shopping-cart-32-light.png"
+    },
+    {
+      "url": "https://static1.squarespace.com/universal/images-v6/icons/block-indicator-dark.png",
+      "status": 200,
+      "contentType": "image/png",
+      "bytes": 561,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/static1.squarespace.com/universal/images-v6/icons/block-indicator-dark.png"
+    },
+    {
+      "url": "https://static1.squarespace.com/universal/images-v6/icons/block-indicator-dark@2x.png",
+      "status": 200,
+      "contentType": "image/png",
+      "bytes": 1672,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/static1.squarespace.com/universal/images-v6/icons/block-indicator-dark@2x.png"
+    },
+    {
+      "url": "https://assets.squarespace.com/universal/fonts/squarespace-ui-font.eot",
+      "status": 200,
+      "contentType": "text/plain",
+      "bytes": 6788,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/assets.squarespace.com/universal/fonts/squarespace-ui-font.eot"
+    },
+    {
+      "url": "https://assets.squarespace.com/universal/fonts/squarespace-ui-font.eot?",
+      "status": 200,
+      "contentType": "text/plain",
+      "bytes": 6788,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/assets.squarespace.com/universal/fonts/squarespace-ui-font.eot"
+    },
+    {
+      "url": "https://assets.squarespace.com/universal/fonts/squarespace-ui-font.svg",
+      "status": 200,
+      "contentType": "image/svg+xml",
+      "bytes": 23403,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/assets.squarespace.com/universal/fonts/squarespace-ui-font.svg"
+    },
+    {
+      "url": "https://assets.squarespace.com/universal/fonts/squarespace-ui-font.woff",
+      "status": 200,
+      "contentType": "text/plain",
+      "bytes": 9068,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/assets.squarespace.com/universal/fonts/squarespace-ui-font.woff"
+    },
+    {
+      "url": "https://assets.squarespace.com/universal/fonts/squarespace-ui-font.ttf",
+      "status": 200,
+      "contentType": "text/plain",
+      "bytes": 6576,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/assets.squarespace.com/universal/fonts/squarespace-ui-font.ttf"
+    },
+    {
+      "url": "https://static1.squarespace.com/universal/images-v6/icons/opentable-icons.svg",
+      "status": 200,
+      "contentType": "image/svg+xml",
+      "bytes": 1495,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/static1.squarespace.com/universal/images-v6/icons/opentable-icons.svg"
+    },
+    {
+      "url": "https://static1.squarespace.com/universal/images-v6/icons/opentable-icons.png",
+      "status": 200,
+      "contentType": "image/png",
+      "bytes": 2320,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/static1.squarespace.com/universal/images-v6/icons/opentable-icons.png"
+    },
+    {
+      "url": "https://static1.squarespace.com/universal/images-v6/icons/icon-searchqueries-20-dark.png",
+      "status": 200,
+      "contentType": "image/png",
+      "bytes": 361,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/static1.squarespace.com/universal/images-v6/icons/icon-searchqueries-20-dark.png"
+    },
+    {
+      "url": "https://static1.squarespace.com/universal/images-v6/icons/icon-searchqueries-20-light.png",
+      "status": 200,
+      "contentType": "image/png",
+      "bytes": 3034,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/static1.squarespace.com/universal/images-v6/icons/icon-searchqueries-20-light.png"
+    },
+    {
+      "url": "https://assets.squarespace.com/universal/images-v6/icons/icon-video-24-light-solid.png",
+      "status": 200,
+      "contentType": "image/png",
+      "bytes": 365,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/assets.squarespace.com/universal/images-v6/icons/icon-video-24-light-solid.png"
+    },
+    {
+      "url": "https://assets.squarespace.com/universal/images-v6/standard/icon_close_7_light.png",
+      "status": 200,
+      "contentType": "image/png",
+      "bytes": 176,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/assets.squarespace.com/universal/images-v6/standard/icon_close_7_light.png"
+    },
+    {
+      "url": "https://assets.squarespace.com/universal/images-v6/icons/icon-settings-16-light.png",
+      "status": 200,
+      "contentType": "image/png",
+      "bytes": 3058,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/assets.squarespace.com/universal/images-v6/icons/icon-settings-16-light.png"
+    },
+    {
+      "url": "https://assets.squarespace.com/universal/fonts/social-20141119/social-icon-font.eot",
+      "status": 200,
+      "contentType": "text/plain",
+      "bytes": 32876,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/assets.squarespace.com/universal/fonts/social-20141119/social-icon-font.eot"
+    },
+    {
+      "url": "https://assets.squarespace.com/universal/fonts/social-20141119/social-icon-font.eot?",
+      "status": 200,
+      "contentType": "text/plain",
+      "bytes": 32876,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/assets.squarespace.com/universal/fonts/social-20141119/social-icon-font.eot"
+    },
+    {
+      "url": "https://assets.squarespace.com/universal/fonts/social-20141119/social-icon-font.woff",
+      "status": 200,
+      "contentType": "text/plain",
+      "bytes": 32752,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/assets.squarespace.com/universal/fonts/social-20141119/social-icon-font.woff"
+    },
+    {
+      "url": "https://assets.squarespace.com/universal/fonts/social-20141119/social-icon-font.ttf",
+      "status": 200,
+      "contentType": "text/plain",
+      "bytes": 32676,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/assets.squarespace.com/universal/fonts/social-20141119/social-icon-font.ttf"
+    },
+    {
+      "url": "https://assets.squarespace.com/universal/fonts/social-20141119/social-icon-font.svg",
+      "status": 200,
+      "contentType": "image/svg+xml",
+      "bytes": 64791,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/assets.squarespace.com/universal/fonts/social-20141119/social-icon-font.svg"
+    },
+    {
+      "url": "https://static1.squarespace.com/static/vta/5c5a519771c10ba3470d8101/versioned-assets/1780419127951-K5FIIEY2NNREJWC8JB19/%23check",
+      "status": 404,
+      "contentType": "text/plain",
+      "bytes": 1,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/static1.squarespace.com/static/vta/5c5a519771c10ba3470d8101/versioned-assets/1780419127951-K5FIIEY2NNREJWC8JB19/#check.bin"
+    },
+    {
+      "url": "https://assets.squarespace.com/universal/scripts-compressed/extract-css-runtime-a8544a2c4cce2245-min.en-US.js",
+      "status": 200,
+      "contentType": "text/javascript",
+      "bytes": 47968,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/assets.squarespace.com/universal/scripts-compressed/extract-css-runtime-a8544a2c4cce2245-min.en-US.js"
+    },
+    {
+      "url": "https://assets.squarespace.com/universal/scripts-compressed/common-vendors-stable-ca2097fa0e81e22a-min.en-US.js",
+      "status": 200,
+      "contentType": "text/javascript",
+      "bytes": 246101,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/assets.squarespace.com/universal/scripts-compressed/common-vendors-stable-ca2097fa0e81e22a-min.en-US.js"
+    },
+    {
+      "url": "https://assets.squarespace.com/universal/scripts-compressed/common-vendors-69835531a61bf48c-min.en-US.js",
+      "status": 200,
+      "contentType": "text/javascript",
+      "bytes": 711959,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/assets.squarespace.com/universal/scripts-compressed/common-vendors-69835531a61bf48c-min.en-US.js"
+    },
+    {
+      "url": "https://assets.squarespace.com/universal/scripts-compressed/common-b18a8fe520f78d44-min.en-US.js",
+      "status": 200,
+      "contentType": "text/javascript",
+      "bytes": 1114339,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/assets.squarespace.com/universal/scripts-compressed/common-b18a8fe520f78d44-min.en-US.js"
+    },
+    {
+      "url": "http://images.squarespace-cdn.com/content/v1/641963614d38536818d032af/dcbaa6de-c076-4568-b093-52af8efe6098/gpc_logo_rbg_white_japanese_horizontal.png?format=1500w",
+      "status": 200,
+      "contentType": "image/webp",
+      "bytes": 23050,
+      "file": "docs/previous-site/setagayagrace.jp-homepage-test-2026-06-04/files/images.squarespace-cdn.com/content/v1/641963614d38536818d032af/dcbaa6de-c076-4568-b093-52af8efe6098/gpc_logo_rbg_white_japanese_horizontal.P2Zvcm1hdD0xNTAwdw.png"
+    }
+  ],
+  "failuresRecords": []
+}

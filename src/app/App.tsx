@@ -18,6 +18,7 @@ import eventMensBbqImg from "../assets/event-mens-bbq.png";
 import pastorImg from "../assets/pastor-photo.jpeg";
 import welcomeArrivalImg from "../assets/welcome-arrival-church-entrance.jpeg";
 import welcomeBuildingEntranceImg from "../assets/welcome-building-entrance.jpg";
+import welcomeFellowshipGroupImg from "../assets/welcome-fellowship-group.jpeg";
 import welcomeWorshipCurrentImg from "../assets/welcome-worship-service-current.jpg";
 import eventsData from "../data/generated/events.json";
 import sermonsData from "../data/generated/sermons.json";
@@ -141,6 +142,7 @@ function getEventImage(event: { imageKey?: string; imageUrl?: string }) {
 const welcomePlaceholderImages = {
   arrival: welcomeArrivalImg,
   entrance: welcomeBuildingEntranceImg,
+  reception: welcomeFellowshipGroupImg,
   worship: welcomeWorshipCurrentImg,
 } as const;
 
@@ -841,7 +843,7 @@ export function WelcomePage() {
               ["到着の様子", welcomePlaceholderImages.arrival],
               ["建物入口", welcomePlaceholderImages.entrance],
               ["礼拝の様子", welcomePlaceholderImages.worship],
-              ["交わりの時間", communityImg],
+              ["交わりの時間", welcomePlaceholderImages.reception],
             ].map(([title, src], index) => (
               <div key={`${title}-${index}`} className="overflow-hidden rounded-[28px] border border-[#eef2e7] bg-white shadow-[0_18px_45px_rgba(60,88,65,0.1)]">
                 <ImageWithFallback src={src as string} alt={title as string} className="aspect-[3/4] w-full object-cover" />
