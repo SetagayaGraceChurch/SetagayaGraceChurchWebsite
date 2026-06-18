@@ -1,4 +1,5 @@
 import { type FormEvent, useEffect, useState } from "react";
+import { ChevronDown } from "lucide-react";
 import { ImageWithFallback } from "./components/figma/ImageWithFallback";
 import { InternalLink, SiteLayout } from "./components/SiteChrome";
 import christianityBibleStudyImg from "../assets/christianity-bible-study.jpg";
@@ -1829,45 +1830,66 @@ export function SermonsPage() {
           <div className="mb-8 grid gap-4 md:grid-cols-3">
             <label className="block">
               <span className="mb-2 block text-sm font-medium text-[#56645a]">話者で絞り込む</span>
-              <select
-                value={selectedSpeaker}
-                onChange={(event) => setSelectedSpeaker(event.target.value)}
-                className="w-full rounded-[18px] border border-[#d9e3d0] bg-white px-4 py-3 text-sm text-[#304034] shadow-sm outline-none transition-colors focus:border-[#83996e]"
-              >
-                {speakers.map((speaker) => (
-                  <option key={speaker} value={speaker}>
-                    {speaker}
-                  </option>
-                ))}
-              </select>
+              <div className="relative">
+                <select
+                  value={selectedSpeaker}
+                  onChange={(event) => setSelectedSpeaker(event.target.value)}
+                  className="w-full appearance-none truncate rounded-[18px] border border-[#d9e3d0] bg-white py-3 pl-4 pr-14 text-sm text-[#304034] shadow-sm outline-none transition-colors focus:border-[#83996e]"
+                >
+                  {speakers.map((speaker) => (
+                    <option key={speaker} value={speaker}>
+                      {speaker}
+                    </option>
+                  ))}
+                </select>
+                <ChevronDown
+                  aria-hidden="true"
+                  className="pointer-events-none absolute right-5 top-1/2 h-5 w-5 -translate-y-1/2 text-[#70825d]"
+                  strokeWidth={2}
+                />
+              </div>
             </label>
             <label className="block">
               <span className="mb-2 block text-sm font-medium text-[#56645a]">年で絞り込む</span>
-              <select
-                value={selectedYear}
-                onChange={(event) => setSelectedYear(event.target.value)}
-                className="w-full rounded-[18px] border border-[#d9e3d0] bg-white px-4 py-3 text-sm text-[#304034] shadow-sm outline-none transition-colors focus:border-[#83996e]"
-              >
-                {years.map((year) => (
-                  <option key={year} value={year}>
-                    {year === "すべて" ? "すべての年" : `${year}年`}
-                  </option>
-                ))}
-              </select>
+              <div className="relative">
+                <select
+                  value={selectedYear}
+                  onChange={(event) => setSelectedYear(event.target.value)}
+                  className="w-full appearance-none truncate rounded-[18px] border border-[#d9e3d0] bg-white py-3 pl-4 pr-14 text-sm text-[#304034] shadow-sm outline-none transition-colors focus:border-[#83996e]"
+                >
+                  {years.map((year) => (
+                    <option key={year} value={year}>
+                      {year === "すべて" ? "すべての年" : `${year}年`}
+                    </option>
+                  ))}
+                </select>
+                <ChevronDown
+                  aria-hidden="true"
+                  className="pointer-events-none absolute right-5 top-1/2 h-5 w-5 -translate-y-1/2 text-[#70825d]"
+                  strokeWidth={2}
+                />
+              </div>
             </label>
             <label className="block">
               <span className="mb-2 block text-sm font-medium text-[#56645a]">聖書の書で絞り込む</span>
-              <select
-                value={selectedBook}
-                onChange={(event) => setSelectedBook(event.target.value)}
-                className="w-full rounded-[18px] border border-[#d9e3d0] bg-white px-4 py-3 text-sm text-[#304034] shadow-sm outline-none transition-colors focus:border-[#83996e]"
-              >
-                {books.map((book) => (
-                  <option key={book} value={book}>
-                    {book === "すべて" ? "すべての書" : book}
-                  </option>
-                ))}
-              </select>
+              <div className="relative">
+                <select
+                  value={selectedBook}
+                  onChange={(event) => setSelectedBook(event.target.value)}
+                  className="w-full appearance-none truncate rounded-[18px] border border-[#d9e3d0] bg-white py-3 pl-4 pr-14 text-sm text-[#304034] shadow-sm outline-none transition-colors focus:border-[#83996e]"
+                >
+                  {books.map((book) => (
+                    <option key={book} value={book}>
+                      {book === "すべて" ? "すべての書" : book}
+                    </option>
+                  ))}
+                </select>
+                <ChevronDown
+                  aria-hidden="true"
+                  className="pointer-events-none absolute right-5 top-1/2 h-5 w-5 -translate-y-1/2 text-[#70825d]"
+                  strokeWidth={2}
+                />
+              </div>
             </label>
           </div>
           <div className="mb-6 flex items-center justify-between gap-4">
@@ -1897,20 +1919,10 @@ export function SermonsPage() {
                     {sermon.mp3Url ? (
                       <div className="rounded-[22px] border border-[#dbe5d5] bg-white p-4">
                         <p className="mb-3 text-xs uppercase tracking-[0.16em] text-[#7f8b82]">音声</p>
-                        <audio controls className="w-full">
-                          <source src={sermon.mp3Url} />
+                        <audio controls preload="none" className="w-full">
+                          <source src={sermon.mp3Url} type="audio/mpeg" />
                           お使いのブラウザでは音声再生に対応していません。
                         </audio>
-                        {sermon.youtubeUrl ? (
-                          <a
-                            href={sermon.youtubeUrl}
-                            target="_blank"
-                            rel="noreferrer"
-                            className="mt-3 inline-flex items-center gap-2 text-sm font-medium text-[#70825d] hover:underline"
-                          >
-                            YouTubeで見る
-                          </a>
-                        ) : null}
                       </div>
                     ) : sermon.youtubeUrl ? (
                       <div className="rounded-[22px] border border-[#dbe5d5] bg-white p-4">
