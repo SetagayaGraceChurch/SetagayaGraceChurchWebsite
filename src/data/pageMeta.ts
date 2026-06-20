@@ -70,7 +70,7 @@ export const pageMeta: Record<PageKey, PageMeta> = {
   sermons: {
     title: "説教 | 世田谷グレースチャーチ",
     description:
-      "世田谷グレースチャーチの礼拝説教アーカイブです。聖書箇所、説教者、動画リンクから過去の説教を探せます。",
+      "世田谷グレースチャーチの礼拝説教アーカイブです。聖書箇所や説教者から過去の説教を探せます。",
     path: "/sermons",
   },
   access: {

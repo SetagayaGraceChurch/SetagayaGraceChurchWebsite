@@ -96,7 +96,6 @@ export function SiteFooter() {
       <div className="mx-auto flex max-w-7xl flex-col justify-between gap-6 px-6 text-sm sm:flex-row sm:items-end">
         <div>
           <p className="mb-1 text-white">世田谷グレースチャーチ</p>
-          <p>日本宣教会 代田教会</p>
           <p>東京都世田谷区羽根木1丁目19-2</p>
           <p className="mt-1">毎週日曜日 15:00〜</p>
           <p className="mt-5 text-xs text-[#98a897]">© 2026 世田谷グレースチャーチ</p>

@@ -93,6 +93,7 @@ function toDateLabel(date) {
 function normalizeEvent(row, index) {
   const title = normalizeString(row.title);
   const date = normalizeDateValue(row.date);
+  const endDate = normalizeDateValue(row.endDate);
 
   if (!title) {
     return null;
@@ -104,6 +105,7 @@ function normalizeEvent(row, index) {
     eventType: normalizeString(row.eventType) || "event",
     slug: toSlug(row.slug, title),
     date,
+    endDate,
     dateLabel: normalizeString(row.dateLabel) || toDateLabel(date),
     title,
     summary: normalizeString(row.summary || row.desc),

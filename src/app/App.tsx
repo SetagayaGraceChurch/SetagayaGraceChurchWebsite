@@ -38,14 +38,17 @@ const compareEventsByDate = (first: { date?: string }, second: { date?: string }
   if (!second.date) return -1;
   return first.date.localeCompare(second.date);
 };
+const getEventCurrentUntilDate = (event: { date?: string; endDate?: string }) => event.endDate || event.date || "";
 const upcomingEventItems = datedEventItems
-  .filter((event) => !event.date || event.date >= todayIso)
+  .filter((event) => !event.date || getEventCurrentUntilDate(event) >= todayIso)
   .slice()
   .sort(compareEventsByDate);
 const pastEventItems = datedEventItems
-  .filter((event) => event.date && event.date < todayIso)
+  .filter((event) => event.date && getEventCurrentUntilDate(event) < todayIso)
   .slice()
   .sort((first, second) => second.date.localeCompare(first.date));
+const hasUpcomingEvents = upcomingEventItems.length > 0;
+const hasOngoingEvents = ongoingEventItems.length > 0;
 const featuredEvents = upcomingEventItems.filter((event) => event.featured);
 const homeEvents = (featuredEvents.length > 0 ? [...featuredEvents, ...ongoingEventItems] : [...upcomingEventItems, ...ongoingEventItems]).slice(0, 3);
 const staffMembers = staffData;
@@ -490,9 +493,9 @@ export function HomePage() {
                   <p className="mt-1 text-xl">15:00 - 16:30</p>
                 </div>
                 <p className="pt-2 text-sm leading-6 text-white/78">
-                  日本宣教会 代田教会
-                  <br />
                   世田谷区羽根木1-19-2
+                  <br />
+                  京王井の頭線 新代田駅から徒歩2分
                 </p>
               </div>
             </div>
@@ -548,8 +551,8 @@ export function HomePage() {
               </p>
               <div className="mb-6 rounded-[28px] border border-[#d7e1cb] bg-white p-6 shadow-[0_18px_50px_rgba(102,128,89,0.08)]">
                 <p className="text-xs uppercase tracking-[0.22em] text-[#7b8b7f]">場所</p>
-                <p className="mt-2 text-xl text-[#203126]">日本宣教会 代田教会</p>
-                <p className="mt-2 text-sm text-[#56645a]">世田谷区羽根木1-19-2</p>
+                <p className="mt-2 text-xl text-[#203126]">世田谷区羽根木1-19-2</p>
+                <p className="mt-2 text-sm text-[#56645a]">京王井の頭線 新代田駅から徒歩2分</p>
               </div>
               <div className="mb-8 space-y-4">
                 <div className="flex items-center gap-4 rounded-[24px] border border-white/80 bg-white p-5 shadow-[0_18px_40px_rgba(99,127,89,0.08)]">
@@ -572,7 +575,7 @@ export function HomePage() {
                 </div>
               </div>
               <a
-                href="https://www.google.com/maps?q=%E6%9D%B1%E4%BA%AC%E9%83%BD%E4%B8%96%E7%94%B0%E8%B0%B7%E5%8C%BA%E7%BE%BD%E6%A0%B9%E6%9C%A8%EF%BC%91%E4%B8%81%E7%9B%AE%EF%BC%91%EF%BC%99%E2%88%92%EF%BC%92"
+                href="https://maps.app.goo.gl/wkHDXNps3RnJKiJ78"
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center gap-2 text-sm text-[#56645a] transition-colors hover:text-[#70825d]"
@@ -589,7 +592,7 @@ export function HomePage() {
             <div className="overflow-hidden rounded-[32px] border border-white/70 bg-white p-3 shadow-[0_20px_60px_rgba(79,107,73,0.12)]">
               <iframe
                 title="世田谷グレースチャーチ 地図"
-                src="https://www.google.com/maps?q=%E4%B8%96%E7%94%B0%E8%B0%B7%E5%8C%BA%E7%BE%BD%E6%A0%B9%E6%9C%A8%EF%BC%91%E4%B8%81%E7%9B%AE%EF%BC%91%EF%BC%99%E2%88%92%EF%BC%92&output=embed"
+                src="https://www.google.com/maps?q=%E4%B8%96%E7%94%B0%E8%B0%B7%E3%82%B0%E3%83%AC%E3%83%BC%E3%82%B9%E3%83%81%E3%83%A3%E3%83%BC%E3%83%81&ll=35.6631148,139.659538&z=17&output=embed"
                 className="h-80 w-full rounded-[24px] border-0 md:h-[28rem]"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
@@ -892,9 +895,9 @@ export function WelcomePage() {
               <p className={eyebrowClass}>アクセス</p>
               <h2 className={sectionTitleClass}>場所とアクセス</h2>
               <p className="text-sm leading-7 text-[#56645a] sm:text-base">
-                日本宣教会 代田教会
-                <br />
                 世田谷区羽根木1-19-2
+                <br />
+                京王井の頭線 新代田駅から徒歩2分
               </p>
               <div className="mt-6 space-y-4">
                 <div className="rounded-[24px] bg-[#f5f8ef] p-5">
@@ -1375,9 +1378,9 @@ export function AccessPage() {
           <div className="rounded-[32px] border border-[#e4eadf] bg-white p-8 shadow-[0_18px_45px_rgba(83,110,76,0.08)]">
             <h2 className={sectionTitleClass}>場所</h2>
             <p className="text-sm leading-7 text-[#56645a] sm:text-base">
-              日本宣教会 代田教会
-              <br />
               世田谷区羽根木1-19-2
+              <br />
+              京王井の頭線 新代田駅から徒歩2分
             </p>
             <div className="mt-6 space-y-4">
               <div className="rounded-[24px] bg-[#f5f8ef] p-5">
@@ -1390,7 +1393,7 @@ export function AccessPage() {
               </div>
             </div>
             <div className="mt-6 space-y-3 text-sm leading-7 text-[#56645a] sm:text-base">
-              <p>最寄り駅からの道順や入口がわかりにくい場合は、事前にお気軽にご連絡ください。</p>
+              <p>新代田駅からの道順や入口がわかりにくい場合は、事前にお気軽にご連絡ください。</p>
               <p>初めての方が安心して来られるよう、できるだけわかりやすくご案内します。</p>
               <p>建物の入口には、世田谷グレースチャーチの案内看板があります。</p>
             </div>
@@ -1398,7 +1401,7 @@ export function AccessPage() {
           <div className="overflow-hidden rounded-[32px] border border-white/70 bg-white p-3 shadow-[0_20px_60px_rgba(79,107,73,0.12)]">
             <iframe
               title="世田谷グレースチャーチ 地図"
-              src="https://www.google.com/maps?q=%E4%B8%96%E7%94%B0%E8%B0%B7%E5%8C%BA%E7%BE%BD%E6%A0%B9%E6%9C%A8%EF%BC%91%E4%B8%81%E7%9B%AE%EF%BC%91%EF%BC%99%E2%88%92%EF%BC%92&output=embed"
+              src="https://www.google.com/maps?q=%E4%B8%96%E7%94%B0%E8%B0%B7%E3%82%B0%E3%83%AC%E3%83%BC%E3%82%B9%E3%83%81%E3%83%A3%E3%83%BC%E3%83%81&ll=35.6631148,139.659538&z=17&output=embed"
               className="h-80 w-full rounded-[24px] border-0 md:h-[34rem]"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
@@ -1565,25 +1568,38 @@ export function EventsPage() {
 
       <section className="bg-white py-24">
         <div className="mx-auto max-w-7xl space-y-16 px-6">
-          <div>
-            <div className="mb-8">
-              <p className={eyebrowClass}>これから</p>
-              <h2 className={sectionTitleClass}>これからのイベント</h2>
-            </div>
-            {upcomingEventItems.length > 0 ? (
+          {hasUpcomingEvents ? (
+            <div>
+              <div className="mb-8">
+                <p className={eyebrowClass}>これから</p>
+                <h2 className={sectionTitleClass}>これからのイベント</h2>
+              </div>
               <div className="grid gap-8 md:grid-cols-3">{upcomingEventItems.map(eventCard)}</div>
-            ) : (
+            </div>
+          ) : null}
+
+          {!hasUpcomingEvents && !hasOngoingEvents ? (
+            <div>
+              <div className="mb-8">
+                <p className={eyebrowClass}>これから</p>
+                <h2 className={sectionTitleClass}>これからのイベント</h2>
+              </div>
               <p className="rounded-[24px] border border-[#dfe7d6] bg-[#f7f9f4] p-6 text-sm leading-7 text-[#56645a]">
                 現在、掲載中のこれからのイベントはありません。
               </p>
-            )}
-          </div>
+            </div>
+          ) : null}
 
-          {ongoingEventItems.length > 0 ? (
+          {hasOngoingEvents ? (
             <div>
-              <div className="mb-8 border-t border-[#edf1e7] pt-12">
+              <div className={hasUpcomingEvents ? "mb-8 border-t border-[#edf1e7] pt-12" : "mb-8"}>
                 <p className={eyebrowClass}>定期</p>
                 <h2 className={sectionTitleClass}>定期的な集まり</h2>
+                {!hasUpcomingEvents ? (
+                  <p className="mt-4 max-w-2xl text-sm leading-7 text-[#56645a] sm:text-base">
+                    現在、掲載中の特別イベントはありません。定期的な集まりは下記をご覧ください。
+                  </p>
+                ) : null}
               </div>
               <div className="grid gap-8 md:grid-cols-3">{ongoingEventItems.map(eventCard)}</div>
             </div>
@@ -1820,7 +1836,7 @@ export function SermonsPage() {
         <div className="mx-auto max-w-7xl px-6">
           <h1 className="mb-6 max-w-3xl text-4xl leading-tight text-[#203126] sm:text-5xl">説教</h1>
           <p className="max-w-3xl text-base leading-8 text-[#56645a] sm:text-lg">
-            これまでのメッセージを一覧でご覧いただけます。話者ごとに絞り込みながら、音声やYouTubeで聞くことができます。
+            これまでのメッセージを一覧でご覧いただけます。話者や聖書の書ごとに絞り込みながら、音声で聞くことができます。
           </p>
         </div>
       </section>
