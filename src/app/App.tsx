@@ -3,23 +3,25 @@ import { ChevronDown } from "lucide-react";
 import { ImageWithFallback } from "./components/figma/ImageWithFallback";
 import { InternalLink, SiteLayout } from "./components/SiteChrome";
 import christianityBibleStudyImg from "../assets/christianity-bible-study.jpg";
-import communityImgAsset from "../assets/749b7b591ff5db08477c679e6e5b9e0592ae764d.png";
+import communityImgAsset from "../assets/home-hero-community.jpg";
 import communityChildrenFamilyImg from "../assets/community-children-family.jpg";
 import communityChoirImg from "../assets/community-choir.jpg";
 import communityFellowshipAfterWorshipImg from "../assets/community-fellowship-after-worship.jpg";
 import communityGroupImg from "../assets/community-group.jpg";
 import communityNotoServiceImg from "../assets/community-noto-service.jpg";
-import communitySectionImg from "../assets/CG.jpeg";
+import communitySectionImg from "../assets/CG.jpg";
 import eventCampImg from "../assets/event-camp.jpg";
 import eventCampRetreat2026Img from "../assets/event-camp-retreat-2026-05.jpg";
-import eventEaster2026Img from "../assets/event-easter-2026.png";
-import eventGraceSchoolImg from "../assets/event-grace-school.jpeg";
+import eventEaster2026Img from "../assets/event-easter-2026.jpg";
+import eventGraceSchoolImg from "../assets/event-grace-school.jpg";
+import eventKidsGospelImg from "../assets/event-kids-gospel.jpg";
 import eventLadiesPaintSnackImg from "../assets/event-ladies-paint-snack-2026-06.jpg";
-import eventMensBbqImg from "../assets/event-mens-bbq.png";
-import pastorImg from "../assets/pastor-photo.jpeg";
-import welcomeArrivalImg from "../assets/welcome-arrival-church-entrance.jpeg";
+import eventMensBbqImg from "../assets/event-mens-bbq.jpg";
+import pastorImg from "../assets/pastor-photo.jpg";
+import rembrandtImg from "../assets/rembrandt.jpg";
+import welcomeArrivalImg from "../assets/welcome-arrival-church-entrance.jpg";
 import welcomeBuildingEntranceImg from "../assets/welcome-building-entrance.jpg";
-import welcomeFellowshipGroupImg from "../assets/welcome-fellowship-group.jpeg";
+import welcomeFellowshipGroupImg from "../assets/welcome-fellowship-group.jpg";
 import welcomeWorshipCurrentImg from "../assets/welcome-worship-service-current.jpg";
 import eventsData from "../data/generated/events.json";
 import sermonsData from "../data/generated/sermons.json";
@@ -53,7 +55,7 @@ const featuredEvents = upcomingEventItems.filter((event) => event.featured);
 const homeEvents = (featuredEvents.length > 0 ? [...featuredEvents, ...ongoingEventItems] : [...upcomingEventItems, ...ongoingEventItems]).slice(0, 3);
 const staffMembers = staffData;
 const aboutStaffPreview = staffMembers;
-const beliefsHeroImg = "https://images.squarespace-cdn.com/content/v1/641963614d38536818d032af/652b01d3-7023-4711-89c5-2dbe09d364f4/Rembrandt.jpg";
+const beliefsHeroImg = rembrandtImg;
 const bibleBookOrder = [
   "創世記",
   "出エジプト記",
@@ -128,7 +130,7 @@ const eventImages = {
   "camp-retreat-2026": eventCampRetreat2026Img,
   easter: eventEaster2026Img,
   "grace-school": eventGraceSchoolImg,
-  "kids-gospel": eventGraceSchoolImg,
+  "kids-gospel": eventKidsGospelImg,
   "ladies-paint-snack": eventLadiesPaintSnackImg,
   "mens-bbq": eventMensBbqImg,
 } as const;
@@ -136,10 +138,10 @@ const eventImages = {
 type EventImageKey = keyof typeof eventImages;
 
 function getEventImage(event: { imageKey?: string; imageUrl?: string }) {
-  if (event.imageUrl) return event.imageUrl;
   if (event.imageKey && event.imageKey in eventImages) {
     return eventImages[event.imageKey as EventImageKey];
   }
+  if (event.imageUrl) return event.imageUrl;
   return eventGraceSchoolImg;
 }
 
@@ -952,16 +954,16 @@ export function AboutPage() {
       <section className="bg-white py-24">
         <div className="mx-auto grid max-w-7xl gap-10 px-6 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
           <div className="overflow-hidden rounded-[32px] border border-[#eef2e7] bg-white shadow-[0_24px_70px_rgba(60,88,65,0.12)]">
-            <ImageWithFallback src={pastorImg} alt="ジョー・コンドン牧師" className="h-full min-h-[420px] w-full object-cover object-top" />
+            <ImageWithFallback src={pastorImg} alt="コンドン・ジョー牧師" className="h-full min-h-[420px] w-full object-cover object-top" />
           </div>
           <div>
             <h2 className={sectionTitleClass}>牧師からのご挨拶</h2>
             <div className="space-y-5 text-sm leading-7 text-[#56645a] sm:text-base">
               <p>
-                世田谷グレースチャーチへようこそ！私はジョー・コンドンです。初めて日本に来たのは、１９９９年、早稲田大学の交換留学生だった時でした。東京に着いたらすぐに、日本人の優しさと都市の美しさに驚きを覚えました。東京は本当に素晴らしい場所で、多くの恵みとチャレンジに満ちていると思います。
+                世田谷グレースチャーチへようこそ！私はコンドン・ジョーです。初めて日本に来たのは、１９９９年、早稲田大学の交換留学生だった時でした。東京に着いたらすぐに、日本人の優しさと都市の美しさに驚きを覚えました。東京は本当に素晴らしい場所で、多くの恵みとチャレンジに満ちていると思います。
               </p>
               <p>
-                ２０１５年、ついに家族で東京に引っ越すことができました。月島地区に２年間住み、その後、三重に2年間引っ越しました。しかし、私たちの長期的な目標は、常に東京で教会を開拓することでした。やっと２０２０年に松原に移り、友人の大畑瑠花さんと一緒に世田谷グレースチャーチを始めました。世田谷は都心に近く、とてもフレンドリーで下町な雰囲気があるため、すぐに大好きになりました。２０２２年に岩崎光男さんファミリーがスタッフになって、２０２３年にもう一人の宣教師・牧師であるジェイソン・シェーファー牧師もチームに入りました。
+                ２０１５年、ついに家族で東京に引っ越すことができました。月島地区に２年間住み、その後、三重に2年間引っ越しました。しかし、私たちの長期的な目標は、常に東京で教会を開拓することでした。やっと２０２０年に松原に移り、友人の大畑瑠花さんと一緒に世田谷グレースチャーチを始めました。世田谷は都心に近く、とてもフレンドリーで下町な雰囲気があるため、すぐに大好きになりました。２０２２年に岩崎光男さんファミリーがスタッフになって、２０２３年にもう一人の宣教師・牧師であるシェーファー・ジェイソン牧師もチームに入りました。
               </p>
               <p>
                 人生はつらい。その現実を無視したり、避けようとしたりすることは、何の役にも立ちません。しかし、聖書には良い知らせがあります。神は私たちの近くにおられ、私たちの人生においてご自分を証ししないでおられたのではありません。私たち教会が願っているのは、世田谷の人々がイエス・キリストによって希望と癒しを見出すことができるようにすることです。
@@ -985,19 +987,18 @@ export function AboutPage() {
           <div className="max-w-4xl">
             <h2 className={sectionTitleClass}>牧師とリーダーシップ</h2>
             <p className="text-sm leading-7 text-[#56645a] sm:text-base">
-              ジョー・コンドン牧師は、米国テキサス州出身です。セントルイスのワシントン大学で絵画と東アジア研究を学び、
+              コンドン・ジョー牧師は、米国テキサス州出身です。セントルイスのワシントン大学で絵画と東アジア研究を学び、
               早稲田大学でも留学を経験しました。2014年にカベナント神学校を卒業し、アメリカ長老教会の按手を受けています。
             </p>
             <p className="mt-4 text-sm leading-7 text-[#56645a] sm:text-base">
               2015年に家族で東京へ移り、2020年から世田谷グレースの開拓を始めました。
-              教会ではジョー牧師を中心にスタッフとメンバーが協力しながら、礼拝、学び、地域への働きを整えています。
+              教会ではコンドン牧師を中心にスタッフとメンバーが協力しながら、礼拝、学び、地域への働きを整えています。
             </p>
             <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {aboutStaffPreview.map((member) => (
                 <InternalLink key={member.email || member.name} href="/staff" className="group block rounded-[24px] border border-[#edf1e7] bg-[#f7f9f4] p-4 transition-all duration-300 hover:-translate-y-0.5 hover:border-[#d8e4cf] hover:bg-white">
-                  <ImageWithFallback src={member.imageUrl || pastorImg} alt={member.name} className="aspect-square w-full rounded-[20px] object-cover object-top" />
+                  <ImageWithFallback src={member.imageUrl || pastorImg} alt={member.name} loading="lazy" decoding="async" className="aspect-square w-full rounded-[20px] object-cover object-top" />
                   <p className="mt-4 text-base text-[#203126]">{member.name}</p>
-                  {member.role ? <p className="mt-1 text-xs text-[#70825d]">{member.role}</p> : null}
                 </InternalLink>
               ))}
             </div>
@@ -1469,6 +1470,7 @@ export function CommunityPage() {
       text: "ときには、コーラスや音楽を通して一緒に時間を過ごすこともあります。歌うことを通して、年齢や背景を越えて自然につながる機会になります。",
       image: communityChoirImg,
       alt: "コーラスの集まり",
+      imageClassName: "object-right",
     },
   ];
 
@@ -1491,7 +1493,7 @@ export function CommunityPage() {
             {communityItems.map((item) => (
               <div key={item.title} className="overflow-hidden rounded-[30px] border border-[#edf1e7] bg-[linear-gradient(180deg,#ffffff_0%,#f5f8ef_100%)] shadow-[0_20px_40px_rgba(91,120,84,0.06)]">
                 {item.image ? (
-                  <ImageWithFallback src={item.image} alt={item.alt || item.title} className="aspect-[16/10] w-full object-cover" />
+                  <ImageWithFallback src={item.image} alt={item.alt || item.title} className={`aspect-[16/10] w-full object-cover ${item.imageClassName || ""}`} />
                 ) : null}
                 <div className="p-8">
                   <h2 className="mb-4 text-2xl leading-tight text-[#203126]">{item.title}</h2>
@@ -1627,6 +1629,8 @@ export function EventDetailPage({ eventSlug }: { eventSlug?: string }) {
     return <NotFoundPage />;
   }
 
+  const eventIsPast = event.eventType !== "ongoing" && Boolean(event.date) && getEventCurrentUntilDate(event) < todayIso;
+
   return (
     <>
       <section className="bg-[linear-gradient(135deg,#eef4e8_0%,#f8f6f0_100%)] py-20">
@@ -1648,9 +1652,17 @@ export function EventDetailPage({ eventSlug }: { eventSlug?: string }) {
           <div>
             <h2 className={sectionTitleClass}>イベントについて</h2>
             <p className="text-sm leading-7 text-[#56645a] sm:text-base">{event.description || event.summary}</p>
-            {event.notes ? <p className="mt-4 text-sm leading-7 text-[#70825d]">{event.notes}</p> : null}
+            {eventIsPast ? (
+              <div className="mt-6 rounded-[24px] border border-[#dfe7d6] bg-[#f7f9f4] p-6 text-sm leading-7 text-[#56645a]">
+                <p className="font-medium text-[#203126]">このイベントは終了しました。</p>
+                <p className="mt-2">
+                  今後のイベントや集まりも予定しています。ぜひイベント一覧をご覧ください。
+                </p>
+              </div>
+            ) : null}
+            {!eventIsPast && event.notes ? <p className="mt-4 text-sm leading-7 text-[#70825d]">{event.notes}</p> : null}
             <div className="mt-8 flex flex-wrap gap-3">
-              {event.applicationUrl ? (
+              {!eventIsPast && event.applicationUrl ? (
                 <a
                   href={event.applicationUrl}
                   target="_blank"
@@ -1660,18 +1672,22 @@ export function EventDetailPage({ eventSlug }: { eventSlug?: string }) {
                   {event.applicationLabel || "参加申し込み"}
                 </a>
               ) : null}
-              <InternalLink
-                href={`/access#contact`}
-                className={event.applicationUrl ? "inline-flex items-center justify-center rounded-full border border-[#cbd8c2] bg-white px-6 py-3 text-sm font-medium text-[#70825d] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#b7c8aa] hover:bg-[#f5f8ef]" : primaryButtonClass}
-              >
-                お問い合わせ
-              </InternalLink>
+              {!eventIsPast ? (
+                <InternalLink
+                  href={`/access#contact`}
+                  className={event.applicationUrl ? "inline-flex items-center justify-center rounded-full border border-[#cbd8c2] bg-white px-6 py-3 text-sm font-medium text-[#70825d] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#b7c8aa] hover:bg-[#f5f8ef]" : primaryButtonClass}
+                >
+                  お問い合わせ
+                </InternalLink>
+              ) : null}
               <InternalLink href="/events" className="inline-flex items-center justify-center rounded-full border border-[#cbd8c2] bg-white px-6 py-3 text-sm font-medium text-[#70825d] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#b7c8aa] hover:bg-[#f5f8ef]">
                 イベント一覧へ
               </InternalLink>
-              <InternalLink href="/access" className={primaryButtonClass}>
-                アクセスを見る
-              </InternalLink>
+              {!eventIsPast ? (
+                <InternalLink href="/access" className={primaryButtonClass}>
+                  アクセスを見る
+                </InternalLink>
+              ) : null}
             </div>
           </div>
         </div>
@@ -1699,19 +1715,13 @@ export function StaffPage() {
             {staffMembers.map((member) => (
               <article key={member.email || member.name} className="overflow-hidden rounded-[30px] border border-[#dfe7d6] bg-white shadow-[0_20px_40px_rgba(91,120,84,0.06)]">
                 <div className="flex items-center justify-center bg-[#f4f7ef] p-6">
-                  <ImageWithFallback src={member.imageUrl || pastorImg} alt={member.name} className="aspect-square w-full max-w-sm rounded-[24px] object-cover object-top" />
+                  <ImageWithFallback src={member.imageUrl || pastorImg} alt={member.name} loading="lazy" decoding="async" className="aspect-square w-full max-w-sm rounded-[24px] object-cover object-top" />
                 </div>
                 <div className="p-7">
-                  {member.role ? <p className="mb-3 text-xs uppercase tracking-[0.18em] text-[#7b8b7f]">{member.role}</p> : null}
                   <h2 className="text-2xl text-[#203126]">{member.name}</h2>
                   <p className="mt-4 text-sm leading-7 text-[#56645a]">{member.bio}</p>
                   {member.hobbies ? (
                     <p className="mt-4 text-sm leading-7 text-[#70825d]">趣味：{member.hobbies}</p>
-                  ) : null}
-                  {member.email ? (
-                    <a className="mt-6 inline-flex rounded-full bg-[#83996e] px-5 py-2 text-sm font-medium text-white shadow-[0_10px_20px_rgba(76,106,82,0.18)] transition-colors hover:bg-[#70825d]" href={`mailto:${member.email}`}>
-                      メールを送る
-                    </a>
                   ) : null}
                 </div>
               </article>
