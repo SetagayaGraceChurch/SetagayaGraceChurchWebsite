@@ -10,7 +10,8 @@ export interface Props {
 }
 
 const { title, description, path = Astro.url.pathname, image } = Astro.props;
-const canonical = new URL(path, Astro.site ?? Astro.url.origin);
+const canonicalPath = path === "/" ? path : `${path.replace(/\/+$/, "")}/`;
+const canonical = new URL(canonicalPath, Astro.site ?? Astro.url.origin);
 const imageUrl = new URL(image ?? defaultOgImage.src, Astro.site ?? Astro.url.origin);
 const shouldIndex = import.meta.env.PUBLIC_INDEX_SITE === "true";
 ---
