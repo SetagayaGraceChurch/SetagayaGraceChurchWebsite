@@ -1,5 +1,5 @@
 import { type FormEvent, useEffect, useState } from "react";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, Play } from "lucide-react";
 import { ImageWithFallback } from "./components/figma/ImageWithFallback";
 import { InternalLink, SiteLayout } from "./components/SiteChrome";
 import christianityBibleStudyImg from "../assets/christianity-bible-study.jpg";
@@ -55,6 +55,7 @@ const featuredEvents = upcomingEventItems.filter((event) => event.featured);
 const homeEvents = (featuredEvents.length > 0 ? [...featuredEvents, ...ongoingEventItems] : [...upcomingEventItems, ...ongoingEventItems]).slice(0, 3);
 const staffMembers = staffData;
 const aboutStaffPreview = staffMembers;
+const aboutPromoVimeoUrl = "https://player.vimeo.com/video/1230245311?h=19825e7eff";
 const beliefsHeroImg = rembrandtImg;
 const bibleBookOrder = [
   "創世記",
@@ -939,6 +940,43 @@ export function WelcomePage() {
   );
 }
 
+function AboutPromoVideo({ src }: { src: string }) {
+  const [isPlaying, setIsPlaying] = useState(false);
+  const separator = src.includes("?") ? "&" : "?";
+
+  return (
+    <div className="aspect-[1280/675] overflow-hidden rounded-[24px] bg-[#203126] shadow-[0_24px_70px_rgba(60,88,65,0.12)] sm:rounded-[32px]">
+      {isPlaying ? (
+        <iframe
+          className="h-full w-full"
+          src={`${src}${separator}autoplay=1`}
+          title="世田谷グレースチャーチの紹介動画"
+          allow="autoplay; fullscreen; picture-in-picture"
+          allowFullScreen
+        />
+      ) : (
+        <button
+          type="button"
+          className="group relative block h-full w-full focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-[-4px] focus-visible:outline-[#8aaa78]"
+          onClick={() => setIsPlaying(true)}
+          aria-label="教会の紹介動画をVimeoで再生"
+        >
+          <img
+            src="/about-church-promo-pastor.jpg"
+            alt="礼拝堂で微笑むコンドン・ジョー牧師"
+            className="h-full w-full object-cover"
+            decoding="async"
+          />
+          <span className="absolute inset-0 bg-[#203126]/10 transition-colors group-hover:bg-[#203126]/20" aria-hidden="true" />
+          <span className="absolute left-1/2 top-1/2 flex h-16 w-16 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white/95 text-[#203126] shadow-lg transition-transform group-hover:scale-105 sm:h-20 sm:w-20" aria-hidden="true">
+            <Play className="ml-1 h-7 w-7 fill-current sm:h-8 sm:w-8" />
+          </span>
+        </button>
+      )}
+    </div>
+  );
+}
+
 export function AboutPage() {
   return (
     <>
@@ -948,6 +986,16 @@ export function AboutPage() {
           <p className="max-w-3xl text-base leading-8 text-[#56645a] sm:text-lg">
             世田谷グレースチャーチは、世田谷の人々が神の栄光をあらわし、永遠に神を喜ぶコミュニティを広めていくために存在しています。
           </p>
+        </div>
+      </section>
+
+      <section className="bg-white py-12 sm:py-16" aria-labelledby="about-promo-title">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="mb-7">
+            <h2 id="about-promo-title" className={sectionTitleClass}>教会の紹介動画</h2>
+            <p className="text-sm leading-7 text-[#56645a] sm:text-base">世田谷グレースチャーチの雰囲気をご覧ください。</p>
+          </div>
+          <AboutPromoVideo src={aboutPromoVimeoUrl} />
         </div>
       </section>
 
