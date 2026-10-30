@@ -106,5 +106,42 @@
     "applicationLabel": "参加申し込み",
     "featured": true,
     "notes": ""
+  },
+  {
+    "id": 7,
+    "status": "published",
+    "eventType": "event",
+    "slug": "christmas-candlelight-2026",
+    "date": "2026-12-11",
+    "endDate": "",
+    "dateLabel": "2026年12月11日（金）19時〜20時",
+    "title": "クリスマス・キャンドルサービス",
+    "summary": "キャンドルの灯りと賛美の歌で、救い主イエス・キリストのご降誕をともにお祝いしましょう。参加無料。",
+    "description": "キャンドルの灯りと賛美の歌で、救い主イエス・キリストのご降誕をともにお祝いしましょう。\n\n日時：2026年12月11日（金）19時〜20時\n会場：三茶しゃれなあどホール・集会室オリオン\n住所：〒154-0024 東京都世田谷区三軒茶屋1-41-10 三茶昭和ビル\n参加無料",
+    "imageKey": "christmas-candlelight-2026",
+    "imageUrl": "",
+    "venueUrl": "https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E4%BA%AC%E9%83%BD%E4%B8%96%E7%94%B0%E8%B0%B7%E5%8C%BA%E4%B8%89%E8%BB%92%E8%8C%B6%E5%B1%8B1-41-10%20%E4%B8%89%E8%8C%B6%E6%98%AD%E5%92%8C%E3%83%93%E3%83%AB",
+    "applicationUrl": "",
+    "applicationLabel": "参加申し込み",
+    "featured": true,
+    "notes": "主催：世田谷グレースチャーチ・代田宣教会・下北沢グレースガーデンチャーチ・東京キリスト伝道館",
+    "noteLinks": [
+      {
+        "text": "世田谷グレースチャーチ",
+        "url": "https://setagayagrace.jp/"
+      },
+      {
+        "text": "代田宣教会",
+        "url": "https://daita-k.sakura.ne.jp/"
+      },
+      {
+        "text": "下北沢グレースガーデンチャーチ",
+        "url": "https://www.shimokita-ggc.com/"
+      },
+      {
+        "text": "東京キリスト伝道館",
+        "url": "https://dendoukan.jp/"
+      }
+    ]
   }
 ]

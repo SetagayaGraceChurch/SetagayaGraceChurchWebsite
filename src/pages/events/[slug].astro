@@ -2,6 +2,8 @@
 import { WebsitePage } from "../../app/App";
 import events from "../../data/generated/events.json";
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import candlelightOgImage from "../../assets/event-christmas-candlelight-2026-og.jpg";
+import graceSchoolOgImage from "../../assets/event-grace-school-og.jpg";
 
 export function getStaticPaths() {
   return events.map((event) => ({
@@ -14,8 +16,19 @@ const { event } = Astro.props;
 const path = `/events/${event.slug}`;
 const title = `${event.title} | 世田谷グレースチャーチ`;
 const description = event.summary || event.description || "世田谷グレースチャーチのイベント情報です。";
+const eventOgImages: Record<string, { src: string; alt: string }> = {
+  "christmas-candlelight-2026": {
+    src: candlelightOgImage.src,
+    alt: "クリスマス・キャンドルサービスの案内",
+  },
+  "grace-school": {
+    src: graceSchoolOgImage.src,
+    alt: "グレーススクールの様子",
+  },
+};
+const eventOgImage = eventOgImages[event.slug];
 ---
 
-<BaseLayout title={title} description={description} path={path}>
+<BaseLayout title={title} description={description} path={path} image={eventOgImage?.src} imageAlt={eventOgImage?.alt}>
   <WebsitePage client:load page="eventDetail" currentPath="/events" eventSlug={event.slug} />
 </BaseLayout>

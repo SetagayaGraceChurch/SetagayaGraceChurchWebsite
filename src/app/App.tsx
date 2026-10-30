@@ -12,6 +12,7 @@ import communityNotoServiceImg from "../assets/community-noto-service.jpg";
 import communitySectionImg from "../assets/CG.jpg";
 import eventCampImg from "../assets/event-camp.jpg";
 import eventCampRetreat2026Img from "../assets/event-camp-retreat-2026-05.jpg";
+import eventChristmasCandlelight2026Img from "../assets/event-christmas-candlelight-2026.jpg";
 import eventEaster2026Img from "../assets/event-easter-2026.jpg";
 import eventGraceSchoolImg from "../assets/event-grace-school.jpg";
 import eventKidsGospelImg from "../assets/event-kids-gospel.jpg";
@@ -129,6 +130,7 @@ const bibleBookOrder = [
 const eventImages = {
   camp: eventCampImg,
   "camp-retreat-2026": eventCampRetreat2026Img,
+  "christmas-candlelight-2026": eventChristmasCandlelight2026Img,
   easter: eventEaster2026Img,
   "grace-school": eventGraceSchoolImg,
   "kids-gospel": eventKidsGospelImg,
@@ -1587,15 +1589,15 @@ export function CommunityPage() {
 export function EventsPage() {
   const eventCard = (event: (typeof events)[number]) => (
     <article key={event.title} className="overflow-hidden rounded-[30px] border border-[#dfe7d6] bg-white shadow-[0_20px_40px_rgba(91,120,84,0.06)]">
-      <div className="flex items-center justify-center bg-[#f4f7ef] p-4">
+      <InternalLink href={`/events/${event.slug}`} className="flex cursor-pointer items-center justify-center bg-[#f4f7ef] p-4 focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-[#70825d]">
         <ImageWithFallback src={getEventImage(event)} alt={event.title} className="max-h-[34rem] w-full object-contain" />
-      </div>
+      </InternalLink>
       <div className="p-7">
         {event.dateLabel || event.date ? (
           <p className="mb-3 text-xs uppercase tracking-[0.18em] text-[#7b8b7f]">{event.dateLabel || event.date}</p>
         ) : null}
         <h2 className="text-2xl text-[#203126]">{event.title}</h2>
-        <p className="mt-4 text-sm leading-7 text-[#56645a]">{event.description || event.summary}</p>
+        <p className="mt-4 whitespace-pre-line text-sm leading-7 text-[#56645a]">{event.description || event.summary}</p>
         <div className="mt-6">
           <InternalLink href={`/events/${event.slug}`} className="inline-flex items-center justify-center rounded-full bg-[#83996e] px-5 py-2 text-sm font-medium text-white shadow-[0_10px_20px_rgba(76,106,82,0.18)] transition-colors hover:bg-[#70825d]">
             詳しく見る
@@ -1678,6 +1680,10 @@ export function EventDetailPage({ eventSlug }: { eventSlug?: string }) {
   }
 
   const eventIsPast = event.eventType !== "ongoing" && Boolean(event.date) && getEventCurrentUntilDate(event) < todayIso;
+  const noteLinks = event.noteLinks ?? [];
+  const noteParts = noteLinks.length
+    ? event.notes.split(new RegExp(`(${noteLinks.map((link) => link.text).join("|")})`, "g"))
+    : [event.notes];
 
   return (
     <>
@@ -1699,7 +1705,7 @@ export function EventDetailPage({ eventSlug }: { eventSlug?: string }) {
           </div>
           <div>
             <h2 className={sectionTitleClass}>イベントについて</h2>
-            <p className="text-sm leading-7 text-[#56645a] sm:text-base">{event.description || event.summary}</p>
+            <p className="whitespace-pre-line text-sm leading-7 text-[#56645a] sm:text-base">{event.description || event.summary}</p>
             {eventIsPast ? (
               <div className="mt-6 rounded-[24px] border border-[#dfe7d6] bg-[#f7f9f4] p-6 text-sm leading-7 text-[#56645a]">
                 <p className="font-medium text-[#203126]">このイベントは終了しました。</p>
@@ -1708,7 +1714,18 @@ export function EventDetailPage({ eventSlug }: { eventSlug?: string }) {
                 </p>
               </div>
             ) : null}
-            {!eventIsPast && event.notes ? <p className="mt-4 text-sm leading-7 text-[#70825d]">{event.notes}</p> : null}
+            {!eventIsPast && event.notes ? (
+              <p className="mt-4 text-sm leading-7 text-[#70825d]">
+                {noteParts.map((text, index) => {
+                  const link = noteLinks.find((item) => item.text === text);
+                  return link ? (
+                    <a key={index} href={link.url} target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 hover:text-[#304034]">
+                      {text}
+                    </a>
+                  ) : text;
+                })}
+              </p>
+            ) : null}
             <div className="mt-8 flex flex-wrap gap-3">
               {!eventIsPast && event.applicationUrl ? (
                 <a
@@ -1731,7 +1748,11 @@ export function EventDetailPage({ eventSlug }: { eventSlug?: string }) {
               <InternalLink href="/events" className="inline-flex items-center justify-center rounded-full border border-[#cbd8c2] bg-white px-6 py-3 text-sm font-medium text-[#70825d] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#b7c8aa] hover:bg-[#f5f8ef]">
                 イベント一覧へ
               </InternalLink>
-              {!eventIsPast ? (
+              {!eventIsPast && event.venueUrl ? (
+                <a href={event.venueUrl} target="_blank" rel="noreferrer" className={primaryButtonClass}>
+                  会場へのアクセス
+                </a>
+              ) : !eventIsPast ? (
                 <InternalLink href="/access" className={primaryButtonClass}>
                   アクセスを見る
                 </InternalLink>

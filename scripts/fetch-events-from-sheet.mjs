@@ -112,6 +112,7 @@ function normalizeEvent(row, index) {
     description: normalizeString(row.description),
     imageKey: normalizeString(row.imageKey),
     imageUrl: normalizeString(row.imageUrl),
+    ...(normalizeString(row.venueUrl) ? { venueUrl: normalizeString(row.venueUrl) } : {}),
     applicationUrl: normalizeString(row.applicationUrl),
     applicationLabel: normalizeString(row.applicationLabel) || "参加申し込み",
     featured: normalizeBoolean(row.featured),

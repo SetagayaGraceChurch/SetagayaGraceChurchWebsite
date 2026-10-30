@@ -7,9 +7,10 @@ export interface Props {
   description: string;
   path?: string;
   image?: string;
+  imageAlt?: string;
 }
 
-const { title, description, path = Astro.url.pathname, image } = Astro.props;
+const { title, description, path = Astro.url.pathname, image, imageAlt = "世田谷グレースチャーチの礼拝" } = Astro.props;
 const canonicalPath = path === "/" ? path : `${path.replace(/\/+$/, "")}/`;
 const canonical = new URL(canonicalPath, Astro.site ?? Astro.url.origin);
 const imageUrl = new URL(image ?? defaultOgImage.src, Astro.site ?? Astro.url.origin);
@@ -32,7 +33,7 @@ const shouldIndex = import.meta.env.PUBLIC_INDEX_SITE === "true";
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical.href} />
     <meta property="og:image" content={imageUrl.href} />
-    <meta property="og:image:alt" content="世田谷グレースチャーチの礼拝" />
+    <meta property="og:image:alt" content={imageAlt} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:image" content={imageUrl.href} />
     <title>{title}</title>
