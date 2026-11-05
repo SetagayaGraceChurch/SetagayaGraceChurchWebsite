@@ -468,7 +468,7 @@ function GraceSchoolNotice({ dark = false }: { dark?: boolean }) {
     <div className={`mt-3 border-t pt-3 text-sm leading-6 ${dark ? "border-white/20 text-white" : "border-[#dce4d4] text-[#56645a]"}`}>
       <p>11月22日（日）のグレーススクール（子どもクラス）はお休みです。</p>
       <InternalLink href={`/events/${churchLunchEvent.slug}`} className={`mt-1 inline-block font-medium underline underline-offset-4 ${dark ? "text-[#fce3ac] hover:text-white" : "text-[#586c46] hover:text-[#304034]"}`}>
-        12:00からの教会ランチへ →
+        12:00–14:00の教会ランチへ →
       </InternalLink>
     </div>
   );
