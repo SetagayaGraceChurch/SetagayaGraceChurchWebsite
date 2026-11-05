@@ -2,6 +2,7 @@ import { type FormEvent, useEffect, useState } from "react";
 import { ChevronDown, Play } from "lucide-react";
 import { ImageWithFallback } from "./components/figma/ImageWithFallback";
 import { InternalLink, SiteLayout } from "./components/SiteChrome";
+import { createSermonPlayTracker } from "./lib/sermonAnalytics";
 import christianityBibleStudyImg from "../assets/christianity-bible-study.jpg";
 import communityImgAsset from "../assets/home-hero-community.jpg";
 import communityChildrenFamilyImg from "../assets/community-children-family.jpg";
@@ -16,6 +17,8 @@ import eventChristmasCandlelight2026Img from "../assets/event-christmas-candleli
 import eventEaster2026Img from "../assets/event-easter-2026.jpg";
 import eventGraceSchoolImg from "../assets/event-grace-school.jpg";
 import eventKidsGospelImg from "../assets/event-kids-gospel.jpg";
+import eventKyokaiRanchiImg from "../assets/event-kyokai-ranchi-2026.jpg";
+import eventKyokaiRanchiMapImg from "../assets/event-kyokai-ranchi-2026-map.jpg";
 import eventLadiesPaintSnackImg from "../assets/event-ladies-paint-snack-2026-06.jpg";
 import eventMensBbqImg from "../assets/event-mens-bbq.jpg";
 import pastorImg from "../assets/pastor-photo.jpg";
@@ -24,7 +27,7 @@ import welcomeArrivalImg from "../assets/welcome-arrival-church-entrance.jpg";
 import welcomeBuildingEntranceImg from "../assets/welcome-building-entrance.jpg";
 import welcomeFellowshipGroupImg from "../assets/welcome-fellowship-group.jpg";
 import welcomeWorshipCurrentImg from "../assets/welcome-worship-service-current.jpg";
-import eventsData from "../data/generated/events.json";
+import eventsData, { churchLunchEvent } from "../data/events";
 import sermonsData from "../data/generated/sermons.json";
 import staffData from "../data/generated/staff.json";
 
@@ -134,6 +137,7 @@ const eventImages = {
   easter: eventEaster2026Img,
   "grace-school": eventGraceSchoolImg,
   "kids-gospel": eventKidsGospelImg,
+  "kyokai-ranchi-2026": eventKyokaiRanchiImg,
   "ladies-paint-snack": eventLadiesPaintSnackImg,
   "mens-bbq": eventMensBbqImg,
 } as const;
@@ -457,6 +461,19 @@ export const pagePaths: Record<PageKey, string> = {
   notFound: "/404",
 };
 
+function GraceSchoolNotice({ dark = false }: { dark?: boolean }) {
+  if (todayIso > churchLunchEvent.date) return null;
+
+  return (
+    <div className={`mt-3 border-t pt-3 text-sm leading-6 ${dark ? "border-white/20 text-white" : "border-[#dce4d4] text-[#56645a]"}`}>
+      <p>11月22日（日）のグレーススクール（子どもクラス）はお休みです。</p>
+      <InternalLink href={`/events/${churchLunchEvent.slug}`} className={`mt-1 inline-block font-medium underline underline-offset-4 ${dark ? "text-[#fce3ac] hover:text-white" : "text-[#586c46] hover:text-[#304034]"}`}>
+        12:00からの教会ランチへ →
+      </InternalLink>
+    </div>
+  );
+}
+
 export function HomePage() {
   return (
     <>
@@ -487,11 +504,11 @@ export function HomePage() {
           </div>
           <div className="hidden lg:block">
             <div className="ml-auto max-w-sm rounded-[28px] border border-white/20 bg-white/10 p-6 text-white shadow-[0_25px_80px_rgba(17,25,20,0.28)] backdrop-blur-md">
-              <p className="text-[11px] uppercase tracking-[0.28em] text-white/65">初めての方へのご案内</p>
-              <div className="mt-5 space-y-4">
+              <div className="space-y-4">
                 <div className="rounded-2xl bg-white/10 p-4">
                   <p className="text-sm text-white/70">子どもクラス</p>
                   <p className="mt-1 text-xl">14:00 - 14:45</p>
+                  <GraceSchoolNotice dark />
                 </div>
                 <div className="rounded-2xl bg-white/10 p-4">
                   <p className="text-sm text-white/70">礼拝</p>
@@ -567,6 +584,7 @@ export function HomePage() {
                   <div>
                     <p className="mb-0.5 text-xs uppercase tracking-[0.18em] text-[#7b8b7f]">子どもクラス</p>
                     <p className="text-lg text-[#203126]">14:00 - 14:45</p>
+                    <GraceSchoolNotice />
                   </div>
                 </div>
                 <div className="flex items-center gap-4 rounded-[24px] border border-white/80 bg-white p-5 shadow-[0_18px_40px_rgba(99,127,89,0.08)]">
@@ -1706,6 +1724,13 @@ export function EventDetailPage({ eventSlug }: { eventSlug?: string }) {
           <div>
             <h2 className={sectionTitleClass}>イベントについて</h2>
             <p className="whitespace-pre-line text-sm leading-7 text-[#56645a] sm:text-base">{event.description || event.summary}</p>
+            {event.slug === churchLunchEvent.slug ? (
+              <aside className="mt-6 rounded-[20px] border border-[#e7d6ae] bg-[#fff8e8] p-5 text-sm leading-7 text-[#604b25]">
+                <p className="font-semibold">グレーススクールについて</p>
+                <p>11月22日（日）のグレーススクール（子どもクラス）はお休みです。</p>
+              </aside>
+            ) : null}
+            {event.slug === "grace-school" ? <GraceSchoolNotice /> : null}
             {eventIsPast ? (
               <div className="mt-6 rounded-[24px] border border-[#dfe7d6] bg-[#f7f9f4] p-6 text-sm leading-7 text-[#56645a]">
                 <p className="font-medium text-[#203126]">このイベントは終了しました。</p>
@@ -1760,6 +1785,16 @@ export function EventDetailPage({ eventSlug }: { eventSlug?: string }) {
             </div>
           </div>
         </div>
+        {event.slug === churchLunchEvent.slug ? (
+          <figure className="mx-auto mt-14 max-w-5xl px-6">
+            <h2 className={sectionTitleClass}>集合場所の地図</h2>
+            <p className="mb-5 text-sm leading-7 text-[#56645a]">羽根木公園の「北の広場」にお集まりください。地図の赤い丸が集合場所です。最寄り駅は京王井の頭線「東松原駅」です。</p>
+            <a href={eventKyokaiRanchiMapImg.src} target="_blank" rel="noreferrer" className="block overflow-hidden rounded-[24px] border border-[#dfe7d6] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#70825d]">
+              <ImageWithFallback src={eventKyokaiRanchiMapImg} alt="羽根木公園の案内図。公園の北側、東松原駅口近くの「北の広場」が赤い丸と矢印で示されています。" className="h-auto w-full" loading="lazy" />
+            </a>
+            <figcaption className="mt-3 text-sm text-[#56645a]">地図をタップすると拡大できます。</figcaption>
+          </figure>
+        ) : null}
       </section>
     </>
   );
@@ -1872,6 +1907,7 @@ export function BeliefsPage() {
 }
 
 export function SermonsPage() {
+  const [trackSermonPlay] = useState(createSermonPlayTracker);
   const prioritySpeakers = ["ジョー・コンドン牧師", "ジェイソン・シェーファー牧師", "岩崎光男"];
   const allSpeakers = [...new Set(sermons.map((sermon) => sermon.speaker))];
   const speakers = [
@@ -2014,7 +2050,7 @@ export function SermonsPage() {
                     {sermon.mp3Url ? (
                       <div className="rounded-[22px] border border-[#dbe5d5] bg-white p-4">
                         <p className="mb-3 text-xs uppercase tracking-[0.16em] text-[#7f8b82]">音声</p>
-                        <audio controls preload="none" className="w-full">
+                        <audio controls preload="none" className="w-full" onPlaying={() => trackSermonPlay(sermon)}>
                           <source src={sermon.mp3Url} type="audio/mpeg" />
                           お使いのブラウザでは音声再生に対応していません。
                         </audio>

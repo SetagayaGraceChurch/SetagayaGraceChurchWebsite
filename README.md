@@ -30,6 +30,8 @@ The sermons archive, events page, and staff page can optionally be refreshed fro
 
 If `SERMONS_JSON_URL`, `EVENTS_JSON_URL`, or `STAFF_JSON_URL` is not set, that fetch step is skipped and the existing generated JSON stays in place.
 
+`src/data/events.ts` merges locally managed event announcements with the generated event data, with local entries taking precedence by slug. Add repository-managed events there so spreadsheet refreshes do not remove them. The home page and event routes use this shared list.
+
 ### Future Sermon Audio Hosting Note
 
 If sermon MP3 files are ever hosted on Cloudflare R2, every HTML audio element must use `preload="none"`:

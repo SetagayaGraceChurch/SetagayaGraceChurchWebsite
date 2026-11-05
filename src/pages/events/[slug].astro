@@ -1,9 +1,10 @@
 ---
 import { WebsitePage } from "../../app/App";
-import events from "../../data/generated/events.json";
+import events from "../../data/events";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import candlelightOgImage from "../../assets/event-christmas-candlelight-2026-og.jpg";
 import graceSchoolOgImage from "../../assets/event-grace-school-og.jpg";
+import churchLunchOgImage from "../../assets/event-kyokai-ranchi-2026.jpg";
 
 export function getStaticPaths() {
   return events.map((event) => ({
@@ -24,6 +25,10 @@ const eventOgImages: Record<string, { src: string; alt: string }> = {
   "grace-school": {
     src: graceSchoolOgImage.src,
     alt: "グレーススクールの様子",
+  },
+  "kyokai-ranchi-2026": {
+    src: churchLunchOgImage.src,
+    alt: "教会ランチ：2026年11月22日（日）12:00〜、羽根木公園 北の広場。ご自分のお弁当をお持ちください。",
   },
 };
 const eventOgImage = eventOgImages[event.slug];

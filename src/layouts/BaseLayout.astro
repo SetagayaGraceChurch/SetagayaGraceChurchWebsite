@@ -21,6 +21,17 @@ const shouldIndex = import.meta.env.PUBLIC_INDEX_SITE === "true";
 <html lang="ja">
   <head>
     <meta charset="UTF-8" />
+    {import.meta.env.PROD && (
+      <>
+        <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-PTRG5BYPDZ"></script>
+        <script is:inline>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-PTRG5BYPDZ');
+        </script>
+      </>
+    )}
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="canonical" href={canonical.href} />
