@@ -1,10 +1,9 @@
-import { type FormEvent, useEffect, useState } from "react";
-import { ChevronDown, Play } from "lucide-react";
+import { type FormEvent, useEffect, useRef, useState } from "react";
+import { ChevronDown, Pause, Play } from "lucide-react";
 import { ImageWithFallback } from "./components/figma/ImageWithFallback";
 import { InternalLink, SiteLayout } from "./components/SiteChrome";
 import { createSermonPlayTracker } from "./lib/sermonAnalytics";
 import christianityBibleStudyImg from "../assets/christianity-bible-study.jpg";
-import communityImgAsset from "../assets/home-hero-community.jpg";
 import communityChildrenFamilyImg from "../assets/community-children-family.jpg";
 import communityChoirImg from "../assets/community-choir.jpg";
 import communityFellowshipAfterWorshipImg from "../assets/community-fellowship-after-worship.jpg";
@@ -31,7 +30,6 @@ import eventsData, { churchLunchEvent } from "../data/events";
 import sermonsData from "../data/generated/sermons.json";
 import staffData from "../data/generated/staff.json";
 
-const heroImg = communityImgAsset;
 const communityImg = communitySectionImg;
 const sermons = sermonsData;
 const events = eventsData;
@@ -474,11 +472,73 @@ function GraceSchoolNotice({ dark = false }: { dark?: boolean }) {
   );
 }
 
+function HomeHeroVideo() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [playing, setPlaying] = useState(false);
+  const [hasPlayed, setHasPlayed] = useState(false);
+  const [failed, setFailed] = useState(false);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (video && !video.paused) {
+      setPlaying(true);
+      setHasPlayed(true);
+    }
+  }, []);
+
+  const toggle = () => {
+    const video = videoRef.current;
+    if (!video) return;
+    if (video.paused) {
+      video.defaultMuted = true;
+      video.muted = true;
+      video.play().catch(() => setPlaying(false));
+    } else {
+      video.pause();
+    }
+  };
+
+  return (
+    <>
+      <div className="pointer-events-none absolute inset-0" aria-hidden="true">
+        <img src="/media/church-life-poster.jpg" alt="" fetchPriority="high" className="absolute inset-0 h-full w-full object-cover" />
+        {!failed && (
+          <video
+            ref={videoRef}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            poster="/media/church-life-poster.jpg"
+            src="/media/church-life-19s.mp4"
+            tabIndex={-1}
+            onPlaying={() => { setPlaying(true); setHasPlayed(true); }}
+            onPause={() => setPlaying(false)}
+            onError={() => { setFailed(true); setPlaying(false); }}
+            className="absolute inset-0 h-full w-full object-cover"
+          />
+        )}
+      </div>
+      {hasPlayed && !failed && (
+        <button
+          type="button"
+          onClick={toggle}
+          aria-label={playing ? "背景動画を一時停止" : "背景動画を再生"}
+          className="absolute bottom-16 right-6 z-20 inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/45 bg-[#203126]/55 text-white backdrop-blur-sm transition-colors hover:bg-[#203126]/80 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+        >
+          {playing ? <Pause aria-hidden="true" className="h-4 w-4" /> : <Play aria-hidden="true" className="h-4 w-4" />}
+        </button>
+      )}
+    </>
+  );
+}
+
 export function HomePage() {
   return (
     <>
       <section className="relative flex min-h-[640px] items-center overflow-hidden bg-[#314535]">
-        <ImageWithFallback src={heroImg} alt="教会の集まり" className="absolute inset-0 h-full w-full object-cover" />
+        <HomeHeroVideo />
         <div className="absolute inset-0 bg-[linear-gradient(110deg,rgba(22,32,26,0.84)_0%,rgba(28,40,33,0.62)_45%,rgba(39,53,43,0.18)_100%)]" />
         <div aria-hidden className="absolute inset-x-0 top-0 h-48 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.22),transparent_70%)]" />
         <div className="relative z-10 mx-auto grid w-full max-w-7xl gap-10 px-6 py-20 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
